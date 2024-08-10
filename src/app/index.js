@@ -3,11 +3,13 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 
 export default function App() {
-  const {} = useAuth ();
+  const {signIn, s} = useAuth ();
   
   return (
     <View style={styles.container}>
       <Text style={styles.title}> Minhas Plantas</Text>
+      <Button title="Signin" />
+      <Button title="Signout" />
       
       <StatusBar style="auto" />
     </View>

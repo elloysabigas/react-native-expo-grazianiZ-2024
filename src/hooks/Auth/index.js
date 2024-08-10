@@ -15,7 +15,7 @@ export function AuthProvider({children}){
     };
 
     useEffect(()=>{
-        console.log('AuthProvider: ',  user)
+        console.log('AuthProvider: ',  user);
     }, [user])
 
     return (<AuthContext.Provider value={{user, signIn, signOut}}>
