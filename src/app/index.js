@@ -3,14 +3,15 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 
 export default function App() {
-  const {signIn, s} = useAuth ();
+  const {signIn, signOut} = useAuth ();
   
   return (
     <View style={styles.container}>
       <Text style={styles.title}> Minhas Plantas</Text>
-      <Button title="Signin" />
-      <Button title="Signout" />
-      
+      <Button title="Signin Super" onPress={()=>signIn({email: "super@email.com", password: "Super123!"})} />
+      <Button title="Signin Adm" onPress={()=>signIn({email: "adm@email.com", password: "Adm123!"})} />
+      <Button title="Signin User" onPress={()=>signIn({email: "user@email.com", password: "User123!"})} />
+      <Button title="Signout" onPress={()=>signOut()} />
       <StatusBar style="auto" />
     </View>
   );
