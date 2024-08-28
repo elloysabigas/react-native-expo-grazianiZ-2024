@@ -1,10 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { BackHandler, Button, StyleSheet, Text, View } from 'react-native';
+import { BackHandler, Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
+import { Ionicons } from "@expo/vector-icons";
+import { useState } from 'react';
 
 export default function App() {
   const {signIn, signOut} = useAuth ();
+  const [email, setEmail] = useState("super@email.com");
+  const [password, setPassword] = useState("A123456a!");
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
+
+  const tooglePasswordVisibility = () => {
+    setPasswordVisibility(!passwordVisibility);
+  }
 
   const handleEntrarSuper = async () => {
     try{
@@ -18,9 +27,18 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Aplicativo Pronto para usar</Text>
+      <View style={styles.inputbox}>
+        <Ionicons name="mail-open-outline" size={20} color="black" />
+        <TextInput style={styles.emailinput} placeholder="E-mail" value={email} onChangeText={setEmail} />
+      </View>
+
+      <View style={styles.inputbox}>
+        <Ionicons name="lock-closed-outline" size={20} color="black" />
+        <TextInput style={styles.emailinput} placeholder="Senha" value={password} onChangeText={setPassword} secureTextEntry={passwordVisibility}  />
+        <Ionicons name={passwordVisibility ? "eye-off-outline" : "eye-outline"} size={20} color='black' onPress={tooglePasswordVisibility} />
+      </View>
+
       <Button title="Signin Super" onPress={handleEntrarSuper} />
-      <Button title="Signin Adm" onPress={()=>signIn({email: "adm@email.com", password: "Adm123!"})} />
-      <Button title="Signin User" onPress={()=>signIn({email: "user@email.com", password: "User123!"})} />
       <Button title="Sobre" onPress={() => router.push("/about") } />
       <Button title="Sair do aplicativo" onPress={() => BackHandler.exitApp()} />
       <StatusBar style="auto" />
@@ -39,5 +57,16 @@ const styles = StyleSheet.create({
   title:{
     fontFamily:'bold',
     fontSize:20,
-  }
+  }, 
+  inputbox:{
+    flexDirection: 'row',
+    gap: 20,
+    margin: 40,
+    alignItems: 'center',
+  },
+  emailinput: {
+    flex: 1,
+    fontFamily: 'bold',
+    fontSize: 15,
+  },
 });
