@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { authUser } from "../../database/useUsersDatabase"
+import { useUsersDatabase } from "../../database/useUsersDatabase"
 
 const AuthContext = createContext({});
 
@@ -18,6 +18,8 @@ export function AuthProvider({children}){
 
     });
 
+    const { authUser } = useUsersDatabase();
+
     const signIn = async ({email, password}) => {
         const response = await authUser({ email, password });
 
@@ -35,7 +37,7 @@ export function AuthProvider({children}){
             role: response.role,
 
         
-        }
+        });
     };
     const signOut = async () => {
         setUser({});
