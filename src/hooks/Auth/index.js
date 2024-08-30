@@ -29,7 +29,10 @@ export function AuthProvider({children}){
                 user: null, 
                 role: null,
              });
+             throw new Error("Usuário ou senha inválidos");
         }
+
+        console.log(response);
 
         setUser({
             autenticated: true,

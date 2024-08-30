@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { BackHandler, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, BackHandler, Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
 import { Ionicons } from "@expo/vector-icons";
@@ -17,9 +17,10 @@ export default function App() {
 
   const handleEntrarSuper = async () => {
     try{
-      await signIn({ email: "super@email.com", password: "A123456a!" })
+      await signIn({ email, password })
       router.replace("/");
     } catch (error) {
+      Alert.alert("Erro", error.message);
       console.log(error);
     }
   }
@@ -38,7 +39,7 @@ export default function App() {
         <Ionicons name={passwordVisibility ? "eye-off-outline" : "eye-outline"} size={20} color='black' onPress={tooglePasswordVisibility} />
       </View>
 
-      <Button title="Signin Super" onPress={handleEntrarSuper} />
+      <Button style={styles.button} title="Entrar" onPress={handleEntrarSuper}  />
       <Button title="Sobre" onPress={() => router.push("/about") } />
       <Button title="Sair do aplicativo" onPress={() => BackHandler.exitApp()} />
       <StatusBar style="auto" />
@@ -49,7 +50,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor:'#f8f8ec',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 15,
@@ -61,7 +62,8 @@ const styles = StyleSheet.create({
   inputbox:{
     flexDirection: 'row',
     gap: 20,
-    margin: 40,
+    marginHorizontal: 40,
+    marginVertical:10,
     alignItems: 'center',
   },
   emailinput: {
@@ -69,4 +71,8 @@ const styles = StyleSheet.create({
     fontFamily: 'bold',
     fontSize: 15,
   },
+  button:{
+    width: "100%",
+  
+  }
 });
