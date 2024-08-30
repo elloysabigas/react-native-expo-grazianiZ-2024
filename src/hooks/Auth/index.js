@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useUsersDatabase } from "../../database/useUsersDatabase"
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const AuthContext = createContext({});
 
@@ -20,6 +21,10 @@ export function AuthProvider({children}){
 
     const { authUser } = useUsersDatabase();
 
+    useEffect(() => {
+        
+    },[]);
+
     const signIn = async ({email, password}) => {
         const response = await authUser({ email, password });
 
@@ -32,8 +37,8 @@ export function AuthProvider({children}){
              throw new Error("Usuário ou senha inválidos");
         }
 
-        console.log(response);
-
+        await AsyncStorage.setItem("@payment:user", JSON.stringify(response));
+        
         setUser({
             autenticated: true,
             user: response, 
@@ -43,6 +48,7 @@ export function AuthProvider({children}){
         });
     };
     const signOut = async () => {
+        await AsyncStorage.deleteItem("@payment:user");
         setUser({});
     };
 
