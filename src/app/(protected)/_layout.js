@@ -16,7 +16,7 @@ function CustomDrawerContent(props) {
       <View style={{marginTop: 20, justifyContent:'center', alignItems:'center', backgroundColor: '#e4ebf0', paddingVertical:10}}>
         <Image  source={{uri: 'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png', }} style={{width:100, height:100, borderRadius:50, margin:10, marginTop: 10 }} />
         <Text style={{textAlign: "center", fontSize: 20,}}>
-          {user.user.nome}
+          {user?.user?.nome}
         </Text>
       </View>
         <DrawerContentScrollView {...props}>

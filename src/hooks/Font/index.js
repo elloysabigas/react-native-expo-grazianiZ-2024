@@ -8,6 +8,16 @@ export function FontProvider({children}) {
 
     const [loaded, error] = useFonts({
         bold: require("../../assets/fonts/Montserrat-Bold.ttf"),
+        black: require("../../assets/fonts/Montserrat-Black.ttf"),
+        blackitalic: require("../../assets/fonts/Montserrat-BlackItalic.ttf"),
+        regular: require("../../assets/fonts/Montserrat-Regular.ttf"),
+        semibold: require("../../assets/fonts/Montserrat-SemiBold.ttf"),
+        light: require("../../assets/fonts/Montserrat-Light.ttf"),
+        medium: require("../../assets/fonts/Montserrat-Medium.ttf"),
+        thin: require("../../assets/fonts/Montserrat-Thin.ttf"),
+        extralight: require("../../assets/fonts/Montserrat-ExtraLight.ttf"),
+        italic: require("../../assets/fonts/Montserrat-italic.ttf"),
+        thinitalic: require("../../assets/fonts/Montserrat-ThinItalic.ttf"),
     });
 
     if (!loaded && !error) {
