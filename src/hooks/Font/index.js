@@ -14,9 +14,7 @@ export function FontProvider({children}) {
         semibold: require("../../assets/fonts/Montserrat-SemiBold.ttf"),
         light: require("../../assets/fonts/Montserrat-Light.ttf"),
         medium: require("../../assets/fonts/Montserrat-Medium.ttf"),
-        thin: require("../../assets/fonts/Montserrat-Thin.ttf"),
-        extralight: require("../../assets/fonts/Montserrat-ExtraLight.ttf"),
-        italic: require("../../assets/fonts/Montserrat-italic.ttf"),
+        thin: require("../../assets/fonts/Montserrat-Thin.ttf"),        extralight: require("../../assets/fonts/Montserrat-ExtraLight.ttf"),
         thinitalic: require("../../assets/fonts/Montserrat-ThinItalic.ttf"),
     });
 
