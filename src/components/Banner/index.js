@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import PagerView from "react-native-pager-view";
 
 
@@ -12,13 +12,13 @@ export function Banner() {
     <View style={styles.container}>
         <PagerView initialPage={0} style={styles.content} onPageSelected={onPageSelected}>
             <View key='1' style={styles.page}>
-                <Text style={styles.text}>Banner 1</Text>
+                <Image style={styles.image} source={require('../../../src/assets/images/banner1.png')} />
             </View>
             <View key='2' style={styles.page}>
-                <Text style={styles.text}>Banner 2</Text>
+            <Image style={styles.image} source={require('../../../src/assets/images/banner2.png')} />
             </View>
             <View key='3' style={styles.page}>
-                <Text style={styles.text}>Banner 3</Text>
+            <Image style={styles.image} source={require('../../../src/assets/images/banner3.png')} />
             </View>
         </PagerView>
         <View style={styles.bulletContent}>
@@ -36,10 +36,11 @@ const styles = StyleSheet.create({
     },
     content:{
         marginTop: 10,
-        height: 100,
+        height: 200,
         alignItems:'center',
         justifyContent: 'center',
         width: '100%',
+       
     },
     page: {
         justifyContent: 'center',
@@ -55,17 +56,26 @@ const styles = StyleSheet.create({
       bullet:{
         width: 10,
         height: 10,
-        backgroundColor: '#a5b5cf',
+        backgroundColor: '#c8e6d4',
         marginTop: -25,
         borderRadius: 5,
         marginHorizontal: 5,
        },
        activeBullet: {
-        backgroundColor: '#4a6183',
+        backgroundColor: '#30804f',
        },
        text: {
         fontSize: 15,
         fontFamily: 'bold',
+       }, 
+       image : {
+        width: '110%',
+        height: '120%',
+        resizeMode: 'cover',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 10,
+        borderRadius: 10,
        }
     });
       

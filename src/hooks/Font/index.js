@@ -21,7 +21,8 @@ export function FontProvider({children}) {
     if (!loaded && !error) {
         return(
             <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-                <Text style={{fontSize: 28, marginTop: 15}}>Carregando as fontes</Text>
+                
+                <Text style={{fontSize: 28, marginTop: 15}}>Carregando, por favor, aguarde...</Text>
                 <ActivityIndicator size='large' color='0000ff' />
             </View>
         );

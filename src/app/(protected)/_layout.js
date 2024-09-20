@@ -13,8 +13,8 @@ function CustomDrawerContent(props) {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{marginTop: 20, justifyContent:'center', alignItems:'center', backgroundColor: '#e4ebf0', paddingVertical:10}}>
-        <Image  source={{uri: 'https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-High-Quality-Image.png', }} style={{width:100, height:100, borderRadius:50, margin:10, marginTop: 10 }} />
+      <View style={{marginTop: 20, justifyContent:'center', alignItems:'center', backgroundColor: '#c8e6d4', paddingVertical:10}}>
+      <Image source={require('../../../src/assets/images/elloysa.png')} style={{width:100, height:100, borderRadius:50, margin:10, marginTop: 10 }}/> 
         <Text style={{textAlign: "center", fontSize: 20,}}>
           {user?.user?.nome}
         </Text>
@@ -22,8 +22,8 @@ function CustomDrawerContent(props) {
         <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
         </DrawerContentScrollView>
-        <TouchableOpacity onPress={()=>signOut()} style={{justifyContent:"center", alignItems: 'center', height: 50, margin: 10, backgroundColor:"#4180ab", borderRadius: 9,}}>
-          <Text style={{color: "#fffffd", fontFamily: 'bold'}}>Deslogar</Text>
+        <TouchableOpacity onPress={()=>signOut()} style={{justifyContent:"center", alignItems: 'center', height: 50, margin: 10, backgroundColor:"#ff893a", borderRadius: 9,}}>
+          <Text style={{color: "#fffefe", fontFamily: 'bold'}}>Deslogar</Text>
         </TouchableOpacity>
      
     </View>

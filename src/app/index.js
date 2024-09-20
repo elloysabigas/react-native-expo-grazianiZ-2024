@@ -40,8 +40,8 @@ export default function App() {
       </View>
 
       <Button style={styles.button} title="Entrar" onPress={handleEntrarSuper}  />
-      <Button title="Sobre" onPress={() => router.push("/about") } />
-      <Button title="Sair do aplicativo" onPress={() => BackHandler.exitApp()} />
+      <Button style={styles.button} title="Sobre" onPress={() => router.push("/about") } />
+      <Button style={styles.button} title="Sair do aplicativo" onPress={() => BackHandler.exitApp()} />
       <StatusBar style="auto" />
     </View>
   );
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
   },
   button:{
     width: "100%",
+    color:'#a6033f',
   
   }
 });
