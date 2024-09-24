@@ -1,8 +1,9 @@
 import { router } from "expo-router";
 import { useState } from "react";
-import { Button, StyleSheet, TextInput, View } from "react-native";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {Picker} from '@react-native-picker/picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 export default function Payment(){
@@ -116,6 +117,12 @@ export default function Payment(){
       
       const [id, setId] = useState(1);
 
+      const [date, setDate] = useState(new Date());
+
+      const [viewCalender, setViewCalender] = useState(false);
+
+      const handleCalendar = (event, selecteDate) => {setDate(selecteDate); setViewCalender(false);}
+
 
 
 
@@ -140,10 +147,15 @@ export default function Payment(){
                 </Picker>
             </View>
             <View style={styles.inputView}>
-                <TextInput placeholder="usuário" />
-            </View>
-            <View style={styles.inputView}>
-                <TextInput placeholder="data" />
+              <Text onPress={()=>setViewCalender(true)} style={styles.inputData}>
+                {data.toLocaleDateString().split("T")[0]}
+                </Text>
+              { viewCalender && (
+                <DateTimePicker value={data} onChange={handleCalendar}
+                mode="date"
+                />
+              )}
+               
             </View>
             <View style={styles.inputView}>
                 <TextInput placeholder="observações" />
@@ -182,5 +194,12 @@ const styles = StyleSheet.create({
         flex:1,
         textAlign:"right",
         padding:10,
+    },
+    inputData: {
+      width:"100%",
+      textAlign:"center",
+      fontFamily:'regular',
+      fontSize:14,
+      
     },
 });
