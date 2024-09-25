@@ -121,13 +121,16 @@ export default function Payment(){
 
       const [viewCalender, setViewCalender] = useState(false);
 
-      const handleCalendar = (event, selecteDate) => {setDate(selecteDate); setViewCalender(false);}
+      const handleCalendar = (event, selecteDate) => {setViewCalender(false);setDate(selecteDate) ;}
+
+      const [observacao, setObservacao] = useState("");
 
 
 
 
     return(
         <View style={styles.content }>
+          <Text>Inserir Pagamentos</Text>
             <View style={styles.inputView}>
             <Ionicons name="cash-outline" size={24} color="black" />
                 <TextInput placeholder="valor" keyboardType="decimal-pad" style={styles.inputValor} value={valor} onChangeText={setValor} />
@@ -147,18 +150,19 @@ export default function Payment(){
                 </Picker>
             </View>
             <View style={styles.inputView}>
-              <Text onPress={()=>setViewCalender(true)} style={styles.inputData}>
-                {data.toLocaleDateString().split("T")[0]}
-                </Text>
-              { viewCalender && (
-                <DateTimePicker value={data} onChange={handleCalendar}
-                mode="date"
-                />
-              )}
+               <Text onPress={()=>setViewCalender(true)} style={styles.inputData}>
+                    {date.toLocaleDateString().split("T")[0]}
+               </Text>
+                    {viewCalender && (
+                     <DateTimePicker value={date} onChange={handleCalendar} mode="date" testID="dateTimePicker" />
+                     )}
+
+
+
                
             </View>
             <View style={styles.inputView}>
-                <TextInput placeholder="observações" />
+                <TextInput placeholder="observações" style={styles.inputObservacao} value="observacao" onChangeText={setObservacao} multiline={true} />
             </View>
             <View style={styles.contentButton}>
                 <Button title="salvar"/>
@@ -184,6 +188,7 @@ const styles = StyleSheet.create({
         margin: 10,
         alignItems:"center",
         flexDirection:"row",
+        padding: 10,
     },
     contentButton:{
         flexDirection:"row",
@@ -199,7 +204,13 @@ const styles = StyleSheet.create({
       width:"100%",
       textAlign:"center",
       fontFamily:'regular',
-      fontSize:14,
-      
+      fontSize:20,
+      padding:10,
     },
+    inputObservacao:{
+      fontFamily:"regular",
+      fontSize:16,
+      flex:1,
+      lineHeight:20,
+    }
 });

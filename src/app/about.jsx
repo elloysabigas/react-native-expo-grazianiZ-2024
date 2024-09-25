@@ -6,7 +6,7 @@ export default function About() {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <Image style={styles.image} source={require('../../src/assets/icon.png')} />
-            <Text style={styles.title}>🌿 Nosso Aplicativo 🪴</Text>
+            <Text style={styles.title}>Nosso Aplicativo 🪴</Text>
             <Text style={styles.text1}>
                 Explore uma nova maneira de cuidar das suas plantas com nosso aplicativo, a ferramenta essencial para todos os amantes de plantas. 
                 Projetado para facilitar o cuidado diário e a manutenção de suas plantas, ele transforma a experiência de jardinagem em algo prático e prazeroso. 
@@ -16,8 +16,14 @@ export default function About() {
 
             <Text style={styles.text2}>🌟 Funcionalidades 🌟</Text>
             <Text style={styles.text3}>
-                • Lembretes Personalizados: Crie alertas para regar, fertilizar e podar suas plantas.{"\n"}
-                • Cronograma de Cuidados: Um calendário interativo para planejar atividades específicas.{"\n"}
+                • Lembretes Personalizados: Crie alertas para regar, fertilizar e podar suas plantas.
+            </Text>
+
+            <Text style={styles.text3}>
+                • Cronograma de Cuidados: Um calendário interativo para planejar atividades específicas.
+            </Text>
+
+            <Text style={styles.text3}>
                 • Informações sobre Plantas: Dicas e orientações sobre diferentes espécies e suas necessidades.
             </Text>
 
