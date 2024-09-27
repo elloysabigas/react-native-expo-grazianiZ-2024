@@ -24,11 +24,7 @@ export default function About() {
             </Text>
 
             <Text style={styles.text3}>
-                • Informações sobre Plantas: Dicas e orientações sobre diferentes espécies e suas necessidades.
-            </Text>
-
-            <Text style={styles.text4}>
-                Apresente o aplicativo como uma ferramenta essencial para amantes de plantas, que ajuda a gerenciar o cuidado diário e o cronograma de manutenção.
+                 Apresente o aplicativo como uma ferramenta essencial para amantes de plantas, que ajuda a gerenciar o cuidado diário e o cronograma de manutenção.
             </Text>
 
             <Button
@@ -58,12 +54,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         color: "#4a4a4a",
         textAlign: "center",
+        fontFamily: "light",
     },
     text1: {
         fontSize: 16,
         color: "#555",
         marginBottom: 20,
         textAlign: "justify",
+        lineHeight: 23,
     },
     text2: {
         fontSize: 22,
@@ -71,13 +69,16 @@ const styles = StyleSheet.create({
         color: "#333",
         marginVertical: 10,
         textAlign: "center",
+        fontFamily: "light",
+        padding:20,
+        
     },
     text3: {
         fontSize: 16,
         color: "#555",
         marginBottom: 20,
         textAlign: "justify",
-        lineHeight: 24,
+        lineHeight: 23,
     },
     text4: {
         fontSize: 16,
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     button: {
         justifyContent: "center",
         alignItems: 'center',
-        height: 50,
+        height: 100,
         margin: 10,
         backgroundColor: "#ff893a",
         borderRadius: 9,

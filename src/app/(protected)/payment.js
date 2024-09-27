@@ -130,9 +130,9 @@ export default function Payment(){
 
     return(
         <View style={styles.content }>
-          <Text>Inserir Pagamentos</Text>
+          <Text style={{fontFamily:'semibold', fontSize: 16, color:'#006356'}}>Inserir Pagamentos</Text>
             <View style={styles.inputView}>
-            <Ionicons name="cash-outline" size={24} color="black" />
+            <Ionicons name="cash" size={24} color="#006356"/>
                 <TextInput placeholder="valor" keyboardType="decimal-pad" style={styles.inputValor} value={valor} onChangeText={setValor} />
             </View>
             <View style={styles.inputView}>
@@ -165,9 +165,9 @@ export default function Payment(){
                 <TextInput placeholder="observações" style={styles.inputObservacao} value="observacao" onChangeText={setObservacao} multiline={true} />
             </View>
             <View style={styles.contentButton}>
-                <Button title="salvar"/>
-                <Button title="continuar"/>
-                <Button title="cancelar" onPress={() => router.back()}/>
+                <Button title="salvar" color='#ff893a'/>
+                <Button title="continuar"  color='#ff893a'/>
+                <Button title="cancelar"  color='#ff893a' onPress={() => router.back()}/>
             </View>
         </View>
     );
@@ -194,6 +194,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         gap: 10, 
         justifyContent: "space-around",
+        marginTop:70,
+        borderRadius:50
     },
     inputValor:{
         flex:1,

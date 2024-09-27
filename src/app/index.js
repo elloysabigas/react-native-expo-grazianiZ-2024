@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, BackHandler, Button, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { Alert, BackHandler, Button, StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function App() {
-  const {signIn} = useAuth();
+  const { signIn } = useAuth();
   const [email, setEmail] = useState("super@email.com");
   const [password, setPassword] = useState("A123456a!");
   const [passwordVisibility, setPasswordVisibility] = useState(false);
@@ -26,8 +27,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+    <LinearGradient 
+      style={styles.container}
+      colors={['#dfe5e4','#ffe5d4','#ffc7a1']}
+    >
+      <Image style={styles.image} source={require('../../src/assets/icon.png')} />
+      <Text style={styles.title}>LOGIN</Text>
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
         <TextInput 
@@ -36,7 +41,7 @@ export default function App() {
           value={email} 
           onChangeText={setEmail} 
           keyboardType="email-address" 
-          autoCapitalize="none"
+          autoCapitalize="none" 
         />
       </View>
 
@@ -50,35 +55,32 @@ export default function App() {
           secureTextEntry={!passwordVisibility} 
         />
         <TouchableOpacity onPress={togglePasswordVisibility}>
-          <Ionicons 
-            name={passwordVisibility ? "eye-off-outline" : "eye-outline"} 
-            size={20} 
-            color='black' 
-          />
+          <Ionicons name={passwordVisibility ? "eye-off-outline" : "eye-outline"} size={20} color='black' />
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={handleEntrarSuper}>
-        <Text style={styles.buttonText}>Entrar</Text>
-      </TouchableOpacity>
+      <View style={styles.botoes}>
+        <TouchableOpacity style={styles.button} onPress={handleEntrarSuper}>
+          <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/about")}>
-        <Text style={styles.buttonText}>Sobre</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => router.push("/about")}>
+          <Text style={styles.buttonText}>Sobre</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => BackHandler.exitApp()}>
-        <Text style={styles.buttonText}>Sair do aplicativo</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => BackHandler.exitApp()}>
+          <Text style={styles.buttonText}>Sair do aplicativo</Text>
+        </TouchableOpacity>
+      </View>
 
       <StatusBar style="auto" />
-    </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8ec',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -87,6 +89,8 @@ const styles = StyleSheet.create({
     fontFamily: 'bold',
     fontSize: 24,
     marginBottom: 20,
+   marginTop: -100,
+    color: '#006356',
   }, 
   inputbox: {
     flexDirection: 'row',
@@ -106,18 +110,32 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor:"#ff893a" ,
+    backgroundColor: "#ff893a",
     borderRadius: 5,
     paddingVertical: 15,
     paddingHorizontal: 20,
     marginVertical: 10,
     width: '100%',
     alignItems: 'center',
+    marginTop: 10,
   },
   buttonText: {
     color: '#fff',
     fontFamily: 'bold',
     fontSize: 16,
-    color:"#fffefe",
+  },
+  botoes: {
+    marginTop: 60,
+    width: '90%',
+    alignItems: 'center',
+  },
+  image: {
+    width: 400,
+    height: 400,
+    resizeMode: "contain",
+    marginBottom: 20,
+    marginTop: -120,
+    
+ 
   },
 });

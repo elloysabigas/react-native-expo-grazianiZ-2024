@@ -36,9 +36,12 @@ const DrawerLayout = () => {
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Drawer drawerContent={(props) => <CustomDrawerContent {...props} />}>
-                <Drawer.Screen name="index" options={{drawerLabel: "Principal", headerTitle: "Principal", drawerIcon: ()=> <Ionicons name="home-outline" size={20} color="black" /> }} />
-            <Drawer.Screen name="list" options={{drawerLabel: "Listagem", headerTitle: "Listagem", drawerIcon: ()=> <Ionicons name="list-outline" size={20} color="black"/>}} />
-            <Drawer.Screen name="payment" options={{drawerLabel: "Pagamentos", headerTitle: "Pagamentos", drawerIcon: ()=> <Ionicons name="diamond-outline" size={20} color="black"/>}} />
+                <Drawer.Screen name="index" options={{drawerLabel: "Principal", headerTitle: "Principal", drawerIcon: ()=> <Ionicons name="home" size={20} color="#006356" /> }} />
+          
+            <Drawer.Screen name="cuidados" options={{drawerLabel: "Criar Tarefa", headerTitle: "Criar Tarefa", drawerIcon: ()=> <Ionicons name="cloud" size={20} color="#006356"/>}} />
+            <Drawer.Screen name="minhas" options={{drawerLabel: "minhas Plantas", headerTitle: "minhas Plantas", drawerIcon: ()=> <Ionicons name="leaf" size={20} color="#006356"/>}} /> 
+            <Drawer.Screen name="list" options={{drawerLabel: "Listagem", headerTitle: "Listagem", drawerIcon: ()=> <Ionicons name="list" size={20} color="#006356"/>}} />
+            <Drawer.Screen name="payment" options={{drawerLabel: "Pagamentos", headerTitle: "Pagamentos", drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>}} />
           </Drawer>
         </GestureHandlerRootView>
       );

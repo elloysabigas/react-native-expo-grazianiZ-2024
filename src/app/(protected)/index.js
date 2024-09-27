@@ -9,6 +9,7 @@ export default function Home(){
     return(
         <View style={{flex:1}}>
             <Banner />
+            <Text></Text>
         </View> 
     );
 }
