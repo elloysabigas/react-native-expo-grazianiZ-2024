@@ -4,116 +4,31 @@ import { Button, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, Vi
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {Picker} from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { z } from "zod";
+import { useAuth } from "../../hooks/Auth/index";
+import { usePaymentsDatabase } from "../../database/usePaymentsDatabase";
+import { useUsersDatabase } from "../../database/useUsersDatabase";
+
+
+
+//user_id INTEGER NOT NULL, 
+//user_cadastro INTEGER NOT NULL,
+//valor_pago REAL NOT NULL,
+//data_pagamento DATE NOT NULL,
+//observacao TEXT,
+
+const paymentSchema = z.object({
+  valor_pago: z.number().gt(0),
+  user_id: z.number().int().positive(),
+  user_cadastro: z.number().int().positive(),
+  data_pagamento: z.date(),
+  observacao: z.string(),
+})
 
 
 export default function Payment(){
     const [valor, setValor] = useState("0,00");
-    const [sugestoes, setSugestoes] = useState([{
-      "id": 1,
-      "nome": "Derwin Hallede"
-    }, {
-      "id": 2,
-      "nome": "Channa Dibdall"
-    }, {
-      "id": 3,
-      "nome": "Haleigh Kingswood"
-    }, {
-      "id": 4,
-      "nome": "Bucky Peachment"
-    }, {
-      "id": 5,
-      "nome": "Adan Gready"
-    }, {
-      "id": 6,
-      "nome": "Alistair Knowller"
-    }, {
-      "id": 7,
-      "nome": "Rhona Carlo"
-    }, {
-      "id": 8,
-      "nome": "Benedicta Djakovic"
-    }, {
-      "id": 9,
-      "nome": "Cornall Fold"
-    }, {
-      "id": 10,
-      "nome": "Stacee Rontsch"
-    }, {
-      "id": 11,
-      "nome": "Karita Epsly"
-    }, {
-      "id": 12,
-      "nome": "Dorthea Damper"
-    }, {
-      "id": 13,
-      "nome": "Trudie Reven"
-    }, {
-      "id": 14,
-      "nome": "Bay Maccari"
-    }, {
-      "id": 15,
-      "nome": "Yvette Beckworth"
-    }, {
-      "id": 16,
-      "nome": "Jaquelyn Litterick"
-    }, {
-      "id": 17,
-      "nome": "Sam Dendle"
-    }, {
-      "id": 18,
-      "nome": "Giovanna Bourdas"
-    }, {
-      "id": 19,
-      "nome": "Loralie Novik"
-    }, {
-      "id": 20,
-      "nome": "Pansie Berthomieu"
-    }, {
-      "id": 21,
-      "nome": "Berny Rampley"
-    }, {
-      "id": 22,
-      "nome": "Gerri Rodinger"
-    }, {
-      "id": 23,
-      "nome": "Amaleta Crocket"
-    }, {
-      "id": 24,
-      "nome": "Ingra Anselmi"
-    }, {
-      "id": 25,
-      "nome": "Pierre Rase"
-    }, {
-      "id": 26,
-      "nome": "Boycey Arundell"
-    }, {
-      "id": 27,
-      "nome": "Andrey Gatteridge"
-    }, {
-      "id": 28,
-      "nome": "Augie Bleakman"
-    }, {
-      "id": 29,
-      "nome": "Marillin Ashe"
-    }, {
-      "id": 30,
-      "nome": "Hamilton Skinn"
-    }, {
-      "id": 31,
-      "nome": "Olivero Tewkesbury"
-    }, {
-      "id": 32,
-      "nome": "Em Marini"
-    }, {
-      "id": 33,
-      "nome": "Wilow Hairsnape"
-    }, {
-      "id": 34,
-      "nome": "Eyde Pren"
-    }, {
-      "id": 35,
-      "nome": "Gillan Jiggle"
-    }]);
+    const [sugestoes, setSugestoes] = useState([]);
 
     const [id, setId] = useState(1);
     const [date, setDate] = useState(new Date());
@@ -121,6 +36,12 @@ export default function Payment(){
     const [observacao, setObservacao] = useState("");
     
     const valueRef = useRef();
+
+    const {user} = useAuth();
+    const {createPayment} = usePaymentsDatabase();
+    const { getAllUsers } = useUsersDatabase();
+    
+
 
     const handleCalendar = (event, selecteDate) => {
         if (selecteDate) {
@@ -130,7 +51,18 @@ export default function Payment(){
     };
 
     useEffect(() => {
-        valueRef?.current?.focus();
+
+    (async () => {
+      valueRef?.current?.focus();
+      try {
+        const users = await getAllUsers();
+        setSugestoes(users);
+        setId(users[0].id);
+      }catch (error) {
+        console.log(error);
+      }
+    })();
+
     }, []);
 
     const handleChangeValor = (value) => {
@@ -150,6 +82,43 @@ export default function Payment(){
         setValor("0,00")
       }
     
+    };
+
+    const convertValue = (value) => {
+      try {
+        let valorLimpo = value.replace(",", "").replace(".", "");
+        let valorConvertido = Number(valorLimpo) / 100;
+        if (valorConvertido ===0 || isNaN(valorConvertido)) {
+         return 0
+         }
+       return valorConvertido
+       } catch(error) {
+        return valorConvertido
+       }
+     
+    }
+
+    const handleSubmit = async () => {
+      const payment = {
+        user_id: id,
+        user_cadastro: Number(user.user.id),
+        valor_pago: convertValue(valor), 
+        data_pagamento: date,
+        observacao,
+      };
+
+      try {
+        const result = await paymentSchema.parseAsync(payment);
+        const { insertedID } = await createPayment(payment);
+        console.log(insertedID);
+        setValor("0,00")
+        setId(sugestoes[0].id);
+        setDate(new Date());
+        setObservacao("")
+        valueRef?.current?.focus();
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     return (
@@ -192,7 +161,7 @@ export default function Payment(){
                     />
                 </View>
                 <View style={styles.contentButton}>
-                    <Button title="salvar" color='#ff893a'/>
+                    <Button title="salvar" onPress={handleSubmit}  color='#ff893a'/>
                     <Button title="continuar"  color='#ff893a'/>
                     <Button title="cancelar"  color='#ff893a' onPress={() => router.back()}/>
                 </View>
