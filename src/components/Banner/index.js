@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import PagerView from "react-native-pager-view";
-import { Calendar, DateData } from "react-native-calendars";
-import { Feather } from "@expo/vector-icons"
+import { Calendar, DateData, LocaleConfig } from "react-native-calendars";
+import { Feather } from "@expo/vector-icons";
+import { ptBR } from "../../utils/localecalendarConfig";
+
+LocaleConfig.locales["pt-BR"] = ptBR;
+LocaleConfig.defaultLocale = "pt-BR"; 
 
 export function Banner() {
     const [page, setPage] = useState(0);
@@ -36,40 +40,48 @@ export function Banner() {
                 <View style={[styles.bullet, page === 2 && styles.activeBullet]}></View>
             </View>
             <View>
-                <Calendar
-                    style={styles.calendar}
+                
+            <Calendar
+    style={styles.calendar}
+    renderArrow={(direction) => (
+        <Feather
+            size={24}
+            color="#333" // Setas escuras para melhor contraste
+            name={direction === "right" ? "chevron-right" : "chevron-left"}
+        />
+    )}
+    headerStyle={{
+        borderBottomWidth: 0.5,
+        borderBottomColor: "#E8E8E8",
+        paddingBottom: 10,
+        marginBottom: 10,
+    }}
+    theme={{
+        textMonthFontSize: 18,
+        monthTextColor: '#333', // Cor do texto do mês
+        todayTextColor: "#F06543",
+        selectedDayBackgroundColor: '#F06543',
+        selectedDayTextColor: '#FFFFFF', // Texto branco para o dia selecionado
+        arrowColor: '#333', // Cor das setas
+        backgroundColor: 'transparent',
+        dayTextColor: '#333', // Cor do texto dos dias
+        textDisabledColor: '#d9e1e8', // Cor dos dias desativados
+        textDayFontFamily: 'sans-serif-medium', // Fonte personalizada
+        textMonthFontFamily: 'sans-serif-medium',
+        textDayHeaderFontFamily: 'sans-serif',
+        textDayHeaderFontWeight: 'bold',
+        textDayHeaderFontSize: 14,
+    }}
+    minDate={new Date().toDateString()}
+    hideExtraDays={true}
+    onDayPress={onDayPress}
+    markedDates={
+        selectedDay && {
+            [selectedDay.dateString]: { selected: true, selectedColor: '#F06543' },
+        }
+    }
+/>
 
-                    renderArrow={(direction: "right" | "left") => (
-                        <Feather size={24} color="#E8E8E8" name={`chevron-${direction}`} />
-                    )}
-                    
-                    headerStyle={{
-                        borderBottomWidth: 0.5,
-                        borderBottomColor: "#E8E8E8",
-                        paddingBottom: 10,
-                        marginBottom: 10,
-                    }}
-                    theme={{
-                        textMonthFontSize: 18,
-                        monthTextColor: '#E8E8E8',
-                        todayTextColor: "#F06543",
-                        selectedDayBackgroundColor: '#F06543',
-                        selectedDayTextColor: '#E8E8E8',
-                        arrowColor: '#E8E8E8',
-                        backgroundColor: 'transparent',
-                        textDayStyle: '#E8E8E8',
-                        textDisabledColor : '#717171'
-                        
-                    }}
-                    minDate={new Date ().toDateString()}
-                    hideExtraDays={true}
-                    onDayPress={onDayPress} // Corrigir para usar a função onDayPress
-                    markedDates={
-                        selectedDay && {
-                            [selectedDay.dateString]: { selected: true }, // Usar dateString do selectedDay
-                        }
-                    }
-                />
             </View>
         </View>
     );
@@ -78,6 +90,7 @@ export function Banner() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#f0f4f8', // Background mais claro para destacar o calendário
     },
     content: {
         padding: 24,
@@ -88,7 +101,14 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     calendar: {
-        backgroundColor: "transparent",
+        borderRadius: 10,
+        backgroundColor: '#ffffff', // Fundo branco para o calendário
+        elevation: 4, // Adiciona sombra para destacar o calendário
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+        padding: 10, // Espaçamento interno para dar mais respiro aos elementos
     },
     page: {
         justifyContent: 'center',
@@ -124,5 +144,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 10,
         borderRadius: 10,
-    }
+    },
 });
