@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import PagerView from "react-native-pager-view";
 import { Calendar, DateData, LocaleConfig } from "react-native-calendars";
 import { Feather } from "@expo/vector-icons";
@@ -10,13 +10,13 @@ LocaleConfig.defaultLocale = "pt-BR";
 
 export function Banner() {
     const [page, setPage] = useState(0);
-    const [selectedDay, setSelectedDay] = useState(null); // Definir o estado para o dia selecionado
+    const [selectedDay, setSelectedDay] = useState(null); 
 
     const onPageSelected = (e) => {
         setPage(e.nativeEvent.position);
     };
 
-    // Função para lidar com a seleção de dia
+    
     const onDayPress = (day) => {
         setSelectedDay(day);
     };
@@ -46,7 +46,7 @@ export function Banner() {
     renderArrow={(direction) => (
         <Feather
             size={24}
-            color="#333" // Setas escuras para melhor contraste
+            color="#333" 
             name={direction === "right" ? "chevron-right" : "chevron-left"}
         />
     )}
@@ -58,15 +58,15 @@ export function Banner() {
     }}
     theme={{
         textMonthFontSize: 18,
-        monthTextColor: '#333', // Cor do texto do mês
+        monthTextColor: '#333', 
         todayTextColor: "#F06543",
         selectedDayBackgroundColor: '#F06543',
-        selectedDayTextColor: '#FFFFFF', // Texto branco para o dia selecionado
-        arrowColor: '#333', // Cor das setas
+        selectedDayTextColor: '#FFFFFF', 
+        arrowColor: '#333', 
         backgroundColor: 'transparent',
-        dayTextColor: '#333', // Cor do texto dos dias
-        textDisabledColor: '#d9e1e8', // Cor dos dias desativados
-        textDayFontFamily: 'sans-serif-medium', // Fonte personalizada
+        dayTextColor: '#333', 
+        textDisabledColor: '#d9e1e8', 
+        textDayFontFamily: 'sans-serif-medium', 
         textMonthFontFamily: 'sans-serif-medium',
         textDayHeaderFontFamily: 'sans-serif',
         textDayHeaderFontWeight: 'bold',
@@ -78,20 +78,45 @@ export function Banner() {
     markedDates={
         selectedDay && {
             [selectedDay.dateString]: { selected: true, selectedColor: '#F06543' },
-        }
-    }
-/>
-
+             }
+           }
+        />
+        
+        <TouchableOpacity style={styles.button} >
+          <Text style={styles.buttonText}  > Adicionar PLanta</Text>
+        </TouchableOpacity>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+     container: {
         flex: 1,
-        backgroundColor: '#f0f4f8', // Background mais claro para destacar o calendário
+        backgroundColor: '#f0f4f8', 
     },
+    button: {
+        backgroundColor: "#ff893a",
+        borderRadius: 5,
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        marginVertical: 10,
+        width: '50%',
+        alignItems: 'center',
+        marginTop: 50,
+        alignItems: 'center',
+        marginLeft: 100,
+      },
+      buttonText: {
+        color: '#fff',
+        fontFamily: 'bold',
+        fontSize: 16,
+      },
+      botoes: {
+        marginTop: 60,
+        width: '90%',
+        alignItems: 'center',
+      },
     content: {
         padding: 24,
         marginTop: 10,
@@ -102,13 +127,13 @@ const styles = StyleSheet.create({
     },
     calendar: {
         borderRadius: 10,
-        backgroundColor: '#ffffff', // Fundo branco para o calendário
-        elevation: 4, // Adiciona sombra para destacar o calendário
+        backgroundColor: '#ffffff', 
+        elevation: 4, 
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 2,
-        padding: 10, // Espaçamento interno para dar mais respiro aos elementos
+        padding: 10,
     },
     page: {
         justifyContent: 'center',
