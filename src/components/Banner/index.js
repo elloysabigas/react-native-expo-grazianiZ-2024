@@ -81,10 +81,6 @@ export function Banner() {
              }
            }
         />
-        
-        <TouchableOpacity style={styles.button} >
-          <Text style={styles.buttonText}  > Adicionar PLanta</Text>
-        </TouchableOpacity>
             </View>
         </View>
     );

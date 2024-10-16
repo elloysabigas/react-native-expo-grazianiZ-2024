@@ -1,68 +1,101 @@
-import { StyleSheet, Text, View, TextInput, StatusBar, SafeAreaView } from "react-native";
-import React, { useState } from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, SafeAreaView, Image, FlatList, TouchableOpacity, Text } from "react-native";
+import React from 'react';
+import { useRouter } from 'expo-router'; // Importa o hook para navegação
 
 export default function List() {
-    const [text, setText] = useState('');
+  const router = useRouter(); // Hook para controle de navegação
 
-    return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.cabecalho}>
-                <View style={styles.inputContainer}>
-                    <TextInput 
-                        style={styles.textInput}    
-                        placeholder="Pesquisar"  
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        value={text}
-                        onChangeText={(value) => setText(value)}
-                    />
-                    <Ionicons name="search" size={24} color="#d7dbe4" style={styles.icon} />
-                </View>
-            </View>
-            
-            <Text style={styles.title}>Categorias</Text>
-        </SafeAreaView>
-    );
+  // Dados simulados para os botões com imagens
+  const categories = [
+    { id: '1', image: require('../../../src/assets/images/folhas.jpg'), title: 'Folhas' },
+    { id: '2', image: require('../../../src/assets/images/flores.jpg'), title: 'Flores' },
+    { id: '3', image: require('../../../src/assets/images/3.jpg'), title: 'Cacto' },
+    { id: '4', image: require('../../../src/assets/images/4.jpg'), title: 'Árvores' },
+    { id: '8', image: require('../../../src/assets/images/8.jpg'), title: 'Arbustos' },
+    { id: '5', image: require('../../../src/assets/images/5.jpg'), title: 'Ervas' },
+    { id: '6', image: require('../../../src/assets/images/6.jpg'), title: 'Frutas' },
+    { id: '7', image: require('../../../src/assets/images/7.jpg'), title: 'Legumes' },
+  ];
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => {
+        switch (item.id) {
+          case '1':
+            router.push('/folha'); // Navega para a página "folha.js"
+            break;
+          case '2':
+            router.push('/flores'); // Navega para a página "flores.js"
+            break;
+          case '3':
+            router.push('/cacto'); // Navega para a página "cacto.js"
+            break;
+          case '4':
+            router.push('/arvores'); // Navega para a página "arvores.js"
+            break;
+          case '8':
+            router.push('/arbustos'); // Navega para a página "arbustos.js"
+            break;
+          case '5':
+            router.push('/ervas'); // Navega para a página "ervas.js"
+            break;
+          case '6':
+            router.push('/frutas'); // Navega para a página "frutas.js"
+            break;
+          case '7':
+            router.push('/legumes'); // Navega para a página "legumes.js"
+            break;
+          default:
+            break;
+        }
+      }}
+    >
+      <Image source={item.image} style={styles.image} />
+    </TouchableOpacity>
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+        <Text style={{ fontSize: 24, fontFamily:'regular', marginBottom: 24, color:"#005f56" }}>Categorias</Text>
+      <FlatList
+        data={categories}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        numColumns={2} // Define que haverá 2 colunas
+        columnWrapperStyle={styles.row} // Estilo para as colunas
+      />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 16,
-    },
-    title: {
-        marginTop: StatusBar.currentHeight + 16,
-        fontSize: 24,
-        fontWeight: "bold",
-        color: "#006356",
-        fontFamily: "bold",
-    },
-    cabecalho: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 20,
-        
-    },
-    inputContainer: {
-        borderRadius: 40,
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: 'white',
-        borderRadius: 8,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        width: '100%', 
-    },
-    textInput: {
-        flex: 1,
-        fontSize: 16,
-        paddingVertical: 8,
-    },
-    icon: {
-        marginLeft: 8, 
-    },
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#f9f9f9',
+  },
+  row: {
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  button: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 8,
+    padding: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  image: {
+    width: 160,
+    height: 160,
+    borderRadius: 20,
+  },
 });
