@@ -1,26 +1,45 @@
-import { Stack, useRouter } from 'expo-router'; // Importa useRouter para navegação
-import { SafeAreaView, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons'; // Importação do Ionicons
-import React, { useState } from 'react'; // Importação de useState
+import { Stack, useRouter } from 'expo-router'; 
+import { SafeAreaView, StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Image } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons'; 
+import React, { useState } from 'react'; 
 
-export default function Folhagem() {
-  const [text, setText] = useState(''); // useState para gerenciar o valor do campo de pesquisa
-  const router = useRouter(); // Hook para controlar a navegação
+export default function Flores() {
+  const [text, setText] = useState(''); 
+  const router = useRouter(); 
+
+  // Lista de categorias com imagem e título
+  const categories = [
+    { id: '1', image: require('../../../src/assets/images/samambaia.png'), title: 'Samambaia' },
+    { id: '2', image: require('../../../src/assets/images/costela.jpg'), title: 'Costela de Adão' },
+    { id: '3', image: require('../../../src/assets/images/samambaia.png'), title: 'Tulipa' },
+    { id: '4', image: require('../../../src/assets/images/samambaia.png'), title: 'Girassol' },
+  ];
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => {
+        // Defina a navegação para as páginas específicas de cada planta
+        router.push(`/planta/${item.id}`);
+      }}
+    >
+      <View style={styles.buttonContent}>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.buttonText}>{item.title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Cabeçalho com ícone de seta e título */}
+     
       <View style={styles.header}>
-        {/* Botão de voltar */}
         <TouchableOpacity onPress={() => router.push('/cuidados')}>
-        <Ionicons name="chevron-back" size={24} color="#005f56" style={{marginLeft:4}} />
+          <Ionicons name="chevron-back" size={24} color="#005f56" style={{marginLeft:8}} />
         </TouchableOpacity>
-
-        {/* Título */}
-        <Text style={styles.title}>Plantas de folha</Text>
+        <Text style={styles.title}>Plantas de Folha</Text>
       </View>
 
-      {/* Campo de pesquisa */}
       <View style={styles.cabecalho}>
         <View style={styles.inputContainer}>
           <TextInput 
@@ -34,6 +53,14 @@ export default function Folhagem() {
           <Ionicons name="search" size={24} color="#d7dbe4" style={styles.icon} />
         </View>
       </View>
+
+      {/* FlatList para renderizar os botões */}
+      <FlatList
+        data={categories}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        numColumns={1} // Exibe um item por linha (uma coluna)
+      />
     </SafeAreaView>
   );
 }
@@ -45,17 +72,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   header: {
-    flexDirection: 'row', // Coloca a seta e o texto lado a lado
+    flexDirection: 'row', 
     alignItems: 'center',
     marginBottom: 20,
   },
   title: {
     fontSize: 20,
     color: "#005f56",
-    textAlign: 'center',
     fontFamily: 'regular',
-    marginLeft:20,
-   
+    textAlign: 'center',
+    marginLeft: 20,
   },
   cabecalho: {
     flexDirection: 'row',
@@ -83,5 +109,34 @@ const styles = StyleSheet.create({
   icon: {
     marginLeft: 8,
     color: '#bbb',
+  },
+  button: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 8,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 5,
+    height: 180,
+  },
+  buttonContent: {
+    flexDirection: 'row', // Alinha a imagem e o texto na horizontal
+    alignItems: 'center', // Alinha o conteúdo no centro verticalmente
+  },
+  image: {
+    width: 150,  // Tamanho ajustado da imagem
+    height: 150, // Tamanho ajustado da imagem
+    marginRight: 20, // Espaço entre a imagem e o texto
+  },
+  buttonText: {
+    fontSize: 16,
+    color: '#005f56',
+    fontFamily: 'regular',
+    textAlign: 'left', // Alinha o texto à esquerda
   },
 });

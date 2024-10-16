@@ -1,26 +1,25 @@
-import { Stack, useRouter } from 'expo-router'; // Importa useRouter para navegação
+import { Stack, useRouter } from 'expo-router'; 
 import { SafeAreaView, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons'; // Importação do Ionicons
-import React, { useState } from 'react'; // Importação de useState
+import Ionicons from 'react-native-vector-icons/Ionicons'; 
+import React, { useState } from 'react'; 
 
 export default function Flores() {
-  const [text, setText] = useState(''); // useState para gerenciar o valor do campo de pesquisa
-  const router = useRouter(); // Hook para controlar a navegação
-
+  const [text, setText] = useState(''); 
+  const router = useRouter(); 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Cabeçalho com ícone de seta e título */}
+     
       <View style={styles.header}>
-        {/* Botão de voltar */}
+       
         <TouchableOpacity onPress={() => router.push('/cuidados')}>
           <Ionicons name="chevron-back" size={24} color="#005f56" style={{marginLeft:8}} />
         </TouchableOpacity>
 
-        {/* Título */}
+    
         <Text style={styles.title}>Flores</Text>
       </View>
 
-      {/* Campo de pesquisa */}
+     
       <View style={styles.cabecalho}>
         <View style={styles.inputContainer}>
           <TextInput 
