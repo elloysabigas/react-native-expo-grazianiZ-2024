@@ -19,15 +19,19 @@ export default function Flores() {
     { id: '8', image: require('../../../src/assets/images/16.jpg'), title: 'Bromélia' },
     { id: '9', image: require('../../../src/assets/images/17.jpg'), title: 'Copo-de-Leite' },
     { id: '10', image: require('../../../src/assets/images/18.jpg'), title: 'Antúrio' },
-    
   ];
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.button}
       onPress={() => {
-        // Defina a navegação para as páginas específicas de cada planta
-        router.push(`/planta/${item.id}`);
+        // Verifica se o item é "Samambaia"
+        if (item.title === 'Samambaia') {
+          router.push('/sobresamambaia'); // Redireciona para a página "sobresamambaia"
+        } else {
+          // Para as outras plantas, navega para a página padrão
+          router.push(`/planta/${item.id}`);
+        }
       }}
     >
       <View style={styles.buttonContent}>
@@ -39,7 +43,6 @@ export default function Flores() {
 
   return (
     <SafeAreaView style={styles.container}>
-     
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.push('/cuidados')}>
           <Ionicons name="chevron-back" size={24} color="#005f56" style={{marginLeft:8}} />
@@ -118,31 +121,30 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#fff',
-    borderRadius: 15, // Reduzindo o raio para um botão menor
+    borderRadius: 15,
     justifyContent: 'center',
-    alignItems: 'flex-start', // Alinhando o conteúdo à esquerda
+    alignItems: 'flex-start',
     marginVertical: 8,
-    padding: 20, // Diminuindo o padding
+    padding: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
     elevation: 2,
-    height: 120, // Diminuindo a altura do botão
-    
+    height: 120,
   },
   buttonContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    flex: 1, // Permite que o conteúdo ocupe todo o espaço disponível
+    flex: 1,
   },
   image: {
-    width: 100,  // Tamanho ajustado da imagem
-    height: 100, // Tamanho ajustado da imagem
-    marginRight: 12, // Espaço entre a imagem e o texto
+    width: 100,
+    height: 100,
+    marginRight: 12,
   },
   buttonText: {
-    fontSize: 16, // Tamanho do texto ajustado
+    fontSize: 16,
     color: '#005f56',
     fontFamily: 'regular',
     textAlign: 'left',

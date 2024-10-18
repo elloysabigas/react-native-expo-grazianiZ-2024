@@ -7,8 +7,9 @@ export default function Flores() {
   
   return (
     <SafeAreaView style={styles.container}>
-     
      <Image style={styles.image} source={require('../../../src/assets/images/samambaia.jpg')} />
+
+      <Text style={styles.title}>Samambaia</Text>
 
     </SafeAreaView>
   );
@@ -20,5 +21,10 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#f9f9f9',
   },
- 
+
+  image: {
+    width: '100%',
+    height: 300,
+  },
+
 });
