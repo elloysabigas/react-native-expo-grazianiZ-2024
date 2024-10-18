@@ -9,10 +9,17 @@ export default function Flores() {
 
   // Lista de categorias com imagem e título
   const categories = [
-    { id: '1', image: require('../../../src/assets/images/samambaia.png'), title: 'Samambaia' },
-    { id: '2', image: require('../../../src/assets/images/costela.jpg'), title: 'Costela de Adão' },
-    { id: '3', image: require('../../../src/assets/images/samambaia.png'), title: 'Tulipa' },
-    { id: '4', image: require('../../../src/assets/images/samambaia.png'), title: 'Girassol' },
+    { id: '1', image: require('../../../src/assets/images/9.jpg'), title: 'Samambaia' },
+    { id: '2', image: require('../../../src/assets/images/10.jpg'), title: 'Costela de Adão' },
+    { id: '3', image: require('../../../src/assets/images/11.jpg'), title: 'Alocasia Wentii' },
+    { id: '4', image: require('../../../src/assets/images/12.jpg'), title: 'Pacov' },
+    { id: '5', image: require('../../../src/assets/images/13.jpg'), title: 'Cróton' },
+    { id: '6', image: require('../../../src/assets/images/14.jpg'), title: 'Maranta Tricolor' },
+    { id: '7', image: require('../../../src/assets/images/15.jpg'), title: 'Zamiculca' },
+    { id: '8', image: require('../../../src/assets/images/16.jpg'), title: 'Bromélia' },
+    { id: '9', image: require('../../../src/assets/images/17.jpg'), title: 'Copo-de-Leite' },
+    { id: '10', image: require('../../../src/assets/images/18.jpg'), title: 'Antúrio' },
+    
   ];
 
   const renderItem = ({ item }) => (
@@ -77,11 +84,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     color: "#005f56",
     fontFamily: 'regular',
     textAlign: 'center',
-    marginLeft: 20,
+    marginLeft: 16,
   },
   cabecalho: {
     flexDirection: 'row',
@@ -93,17 +100,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 50,
+    borderRadius: 30,
     borderWidth: 1,
     borderColor: '#ddd',
     paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingVertical: 8,
     width: '100%',
   },
   textInput: {
     flex: 1,
     fontSize: 16,
-    paddingVertical: 8,
     color: '#333',
   },
   icon: {
@@ -112,31 +118,33 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#fff',
-    borderRadius: 20,
+    borderRadius: 15, // Reduzindo o raio para um botão menor
     justifyContent: 'center',
-    alignItems: 'center',
-    margin: 8,
-    padding: 20,
+    alignItems: 'flex-start', // Alinhando o conteúdo à esquerda
+    marginVertical: 8,
+    padding: 20, // Diminuindo o padding
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 5,
-    height: 180,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+    height: 120, // Diminuindo a altura do botão
+    
   },
   buttonContent: {
-    flexDirection: 'row', // Alinha a imagem e o texto na horizontal
-    alignItems: 'center', // Alinha o conteúdo no centro verticalmente
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1, // Permite que o conteúdo ocupe todo o espaço disponível
   },
   image: {
-    width: 150,  // Tamanho ajustado da imagem
-    height: 150, // Tamanho ajustado da imagem
-    marginRight: 20, // Espaço entre a imagem e o texto
+    width: 100,  // Tamanho ajustado da imagem
+    height: 100, // Tamanho ajustado da imagem
+    marginRight: 12, // Espaço entre a imagem e o texto
   },
   buttonText: {
-    fontSize: 16,
+    fontSize: 16, // Tamanho do texto ajustado
     color: '#005f56',
     fontFamily: 'regular',
-    textAlign: 'left', // Alinha o texto à esquerda
+    textAlign: 'left',
   },
 });
