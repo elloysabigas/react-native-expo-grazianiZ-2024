@@ -9,19 +9,19 @@ export default function Flores() {
   const [showProblems, setShowProblems] = useState(false);
 
   const handlePress1 = () => {
-    setShowMessage1(!showMessage1);
+    setShowMessage1(true);
     setShowMessage2(false); 
     setShowMessage3(false);
   };
 
   const handlePress2 = () => {
-    setShowMessage2(!showMessage2);
+    setShowMessage2(true);
     setShowMessage1(false); 
     setShowMessage3(false);
   };
 
   const handlePress3 = () => {
-    setShowMessage3(!showMessage3);
+    setShowMessage3(true);
     setShowMessage1(false); 
     setShowMessage2(false);
   };
@@ -60,28 +60,12 @@ export default function Flores() {
           </TouchableOpacity>
         </View>
 
-        {showMessage1 && (
+        {(showMessage1 || showMessage2 || showMessage3) && (
           <TouchableOpacity style={styles.overlay} onPress={closeMessage} activeOpacity={1}>
             <View style={styles.messageContainer}>
-              <Text style={styles.messageText}>A planta é fácil de cuidar e boa para iniciantes</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-
-        {showMessage2 && (
-          <TouchableOpacity style={styles.overlay} onPress={closeMessage} activeOpacity={1}>
-            <View style={styles.messageContainer}>
-              <Text style={styles.messageText}>As plantas crescem de 30 cm a 1,2 m de altura</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-
-        {showMessage3 && (
-          <TouchableOpacity style={styles.overlay} onPress={closeMessage} activeOpacity={1}>
-            <View style={styles.messageContainer}>
-              <Text style={styles.messageText}>
-                Elas podem ajudar a melhorar a qualidade do ar em ambientes internos ao filtrar poluentes e toxinas.
-              </Text>
+              {showMessage1 && <Text style={styles.messageText}>A planta é fácil de cuidar e boa para iniciantes</Text>}
+              {showMessage2 && <Text style={styles.messageText}>As plantas crescem de 30 cm a 1,2 m de altura</Text>}
+              {showMessage3 && <Text style={styles.messageText}>Elas podem ajudar a melhorar a qualidade do ar em ambientes internos ao filtrar poluentes e toxinas.</Text>}
             </View>
           </TouchableOpacity>
         )}
@@ -151,13 +135,15 @@ export default function Flores() {
           </View>
           {showProblems && (
             <View style={styles.problemDetails}>
-              <Text style={styles.problemText}>O amarelecimento das folhas das samambaias pode ser um sinal de que a planta não está nas condições ideais. Esse fenômeno pode ocorrer por diversos motivos, como excesso de luz, rega inadequada, umidade baixa, deficiência nutricional ou a presença de pragas e doenças. Para resolver o problema, é importante observar as condições em que a samambaia está sendo cultivada e fazer os ajustes necessários.
+              <Text style={styles.problemText}>
+                O amarelecimento das folhas das samambaias pode ser um sinal de que a planta não está nas condições ideais. Esse fenômeno pode ocorrer por diversos motivos, como excesso de luz, rega inadequada, umidade baixa, deficiência nutricional ou a presença de pragas e doenças. Para resolver o problema, é importante observar as condições em que a samambaia está sendo cultivada e fazer os ajustes necessários.
 
-Para cuidar adequadamente de samambaias, siga algumas diretrizes básicas. Primeiro, coloque a planta em um local com luz indireta, evitando a exposição ao sol direto, que pode queimar as folhas. Mantenha o solo levemente úmido, regando quando a parte superior começar a secar, mas evite encharcar para prevenir raízes podres. Samambaias também apreciam um ambiente úmido, então você pode borrifar água nas folhas ou usar um umidificador para aumentar a umidade.
+                Para cuidar adequadamente de samambaias, siga algumas diretrizes básicas. Primeiro, coloque a planta em um local com luz indireta, evitando a exposição ao sol direto, que pode queimar as folhas. Mantenha o solo levemente úmido, regando quando a parte superior começar a secar, mas evite encharcar para prevenir raízes podres. Samambaias também apreciam um ambiente úmido, então você pode borrifar água nas folhas ou usar um umidificador para aumentar a umidade.
 
-Quanto à temperatura, mantenha a planta em um ambiente entre 18°C e 24°C, evitando correntes de ar frio. Durante a primavera e o verão, fertilize uma vez por mês com um fertilizante balanceado, diluído pela metade. Não esqueça de podar folhas secas ou amareladas para estimular o crescimento saudável. Por fim, se a planta estiver crescendo muito e as raízes estiverem apertadas, considere transplantá-la para um vaso maior a cada 1-2 anos.
+                Quanto à temperatura, mantenha a planta em um ambiente entre 18°C e 24°C, evitando correntes de ar frio. Durante a primavera e o verão, fertilize uma vez por mês com um fertilizante balanceado, diluído pela metade. Não esqueça de podar folhas secas ou amareladas para estimular o crescimento saudável. Por fim, se a planta estiver crescendo muito e as raízes estiverem apertadas, considere transplantá-la para um vaso maior a cada 1-2 anos.
 
-Com esses cuidados e ajustes, suas samambaias devem prosperar e exibir folhas verdes e saudáveis.</Text>
+                Com esses cuidados e ajustes, suas samambaias devem prosperar e exibir folhas verdes e saudáveis.
+              </Text>
             </View>
           )}
         </View>
@@ -219,10 +205,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 130,
     marginVertical: 5,
-    height:40,
-  },
-  marginLeft: {
-    marginLeft: 20,
+    height: 40,
   },
   smallButton2: {
     paddingVertical: 10,
@@ -232,9 +215,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 130,
     marginVertical: 5,
-    height: 40, // Ajuste a altura aqui
+    height: 40,
   },
-
   marginLeft2: {
     marginLeft: 20,
   },
@@ -285,7 +267,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f2f2',
     padding: 10,
     borderRadius: 15,
-    // Removido height para ajuste automático
   },
   imageItem: {
     paddingTop: 10,
@@ -316,19 +297,13 @@ const styles = StyleSheet.create({
   },
   iconButton: {
     marginLeft: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   problemDetails: {
-    marginTop: 5,
-    padding: 10,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 10,
-    // Removido height para ajuste automático
+    marginTop: 10,
   },
   problemText: {
-    fontSize: 12,
-    color: '#777',
-    textAlign: 'justify',
+    fontSize: 14,
+    color: '#333',
   },
 });
+
