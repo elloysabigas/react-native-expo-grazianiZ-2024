@@ -34,7 +34,8 @@
     "react-native-screens": "3.31.1",
     "react-native-vector-icons": "^10.2.0",
     "typescript": "~5.3.3",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "@shopify/flash-list": "1.6.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
