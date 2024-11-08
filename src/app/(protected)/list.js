@@ -23,10 +23,12 @@ export default function List(){
 
     renderItem = ({item}) => (
         <View>
-            <View></View>
-            <View></View>
-            <View></View>
-             <Text>{item.created_at}</Text>
+            <View>
+                  <Text>Nome pagante</Text>
+                  <Text>{item.valor_pago}</Text>
+            </View>
+            <View><Text>{item.valor_pago}</Text></View>
+          
         </View>
        
       );
