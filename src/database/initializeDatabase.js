@@ -2,11 +2,8 @@ export async function initializeDatabase(database) {
     try {
         await database.execAsync(`
             /* DROP TABLE IF EXISTS payments;
-
             DROP TABLE IF EXISTS users;
-
             DROP INDEX IF EXISTS idx_users_nome;
-
             DROP INDEX IF EXISTS idx_payments_data_pagamento; */
 
             CREATE TABLE IF NOT EXISTS users (
@@ -35,17 +32,15 @@ export async function initializeDatabase(database) {
                 FOREIGN KEY (user_cadastro) REFERENCES users(id)
             );
 
-
             CREATE INDEX IF NOT EXISTS idx_users_nome ON users (nome);
-
             CREATE INDEX IF NOT EXISTS idx_payments_data_pagamento ON payments (data_pagamento);
 
-            /* INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Super', 'super@email.com', 'A123456a!', 'SUPER');
+            INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Super', 'super@email.com', 'A123456a!', 'SUPER');
             INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Adm', 'adm@email.com', 'A123456a!', 'ADM');
-            INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('User', 'user@email.com', 'A123456a!', 'USER'); */
-    
+            INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('User', 'user@email.com', 'A123456a!', 'USER');
         `);
     } catch (error) {
         console.log(error);
     }
 }
+

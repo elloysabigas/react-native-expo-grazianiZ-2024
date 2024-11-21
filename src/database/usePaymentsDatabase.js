@@ -10,10 +10,10 @@ export function usePaymentsDatabase() {
         observacao,
         numero_recibo,
     }) {
-        const statment = await database.prepareAsync(`
+        const statement = await database.prepareAsync(`
             INSERT INTO payments (user_id, user_cadastro, valor_pago, data_pagamento, observacao, numero_recibo) 
             VALUES ($user_id, $user_cadastro, $valor_pago, $data_pagamento, $observacao, $numero_recibo);
-            `);
+        `);
 
         try {
             const result = await statment.executeAsync({
@@ -36,9 +36,9 @@ export function usePaymentsDatabase() {
         }
     }
 
-    async function getPayments() {
+    async function getPayments(page) {
         try {
-            const payments = await database.getAllAsync("SELECT * FROM payments");
+            const payments = await database.getAllAsync(`SELECT p.*, u.nome FROM payments p, users u WHERE u.id = p.user_id ORDER BY data_pagamento DESC LIMIT 5 OFFSET ${page * 5}`);
             return payments;
         } catch (error){
             console.log(error);
