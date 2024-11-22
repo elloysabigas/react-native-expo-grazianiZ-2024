@@ -1,28 +1,30 @@
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Flores() {
   const [showMessage1, setShowMessage1] = useState(false);
   const [showMessage2, setShowMessage2] = useState(false);
   const [showMessage3, setShowMessage3] = useState(false);
-  const [showProblems, setShowProblems] = useState(false);
+  const [showProblems1, setShowProblems1] = useState(false);
+  const [showProblems2, setShowProblems2] = useState(false);
+  const [showProblems3, setShowProblems3] = useState(false);
 
   const handlePress1 = () => {
     setShowMessage1(true);
-    setShowMessage2(false); 
+    setShowMessage2(false);
     setShowMessage3(false);
   };
 
   const handlePress2 = () => {
     setShowMessage2(true);
-    setShowMessage1(false); 
+    setShowMessage1(false);
     setShowMessage3(false);
   };
 
   const handlePress3 = () => {
     setShowMessage3(true);
-    setShowMessage1(false); 
+    setShowMessage1(false);
     setShowMessage2(false);
   };
 
@@ -32,51 +34,32 @@ export default function Flores() {
     setShowMessage3(false);
   };
 
-  const toggleProblems = () => {
-    setShowProblems(!showProblems);
+  const toggleProblems1 = () => {
+    setShowProblems1(!showProblems1);
+  };
+
+  const toggleProblems2 = () => {
+    setShowProblems2(!showProblems2);
+  };
+
+  const toggleProblems3 = () => {
+    setShowProblems3(!showProblems3);
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <Image style={styles.image} source={require('../../../src/assets/images/samambaia.jpg')} />
-        
         <Text style={styles.title}>Samambaias</Text>
         <Text style={styles.title2}>Samambaias ● Cyrtomium</Text>
-
-        <View style={styles.buttonContainer}>
-          <View style={styles.column}>
-            <TouchableOpacity style={styles.smallButton} onPress={handlePress1}>
-              <Text style={styles.buttonText}>Fácil de Cuidar</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.smallButton} onPress={handlePress3}>
-              <Text style={styles.buttonText}>Purificadora de ar</Text>
-            </TouchableOpacity>
-          </View>
-
-          <TouchableOpacity style={[styles.smallButton2, styles.marginLeft2]} onPress={handlePress2}>
-            <Text style={styles.buttonText}>Média</Text>
-          </TouchableOpacity>
-        </View>
-
-        {(showMessage1 || showMessage2 || showMessage3) && (
-          <TouchableOpacity style={styles.overlay} onPress={closeMessage} activeOpacity={1}>
-            <View style={styles.messageContainer}>
-              {showMessage1 && <Text style={styles.messageText}>A planta é fácil de cuidar e boa para iniciantes</Text>}
-              {showMessage2 && <Text style={styles.messageText}>As plantas crescem de 30 cm a 1,2 m de altura</Text>}
-              {showMessage3 && <Text style={styles.messageText}>Elas podem ajudar a melhorar a qualidade do ar em ambientes internos ao filtrar poluentes e toxinas.</Text>}
-            </View>
-          </TouchableOpacity>
-        )}
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
           As samambaias são plantas vasculares antigas que se reproduzem por esporos, em vez de sementes ou flores. Elas têm frondes (folhas longas) que se desenrolam em espiral ao crescer e possuem rizomas (caules subterrâneos) que ajudam na propagação. Preferem ambientes úmidos e sombreados, sendo comuns em florestas tropicais e usadas como plantas ornamentais. Algumas espécies são conhecidas por melhorar a qualidade do ar em ambientes internos.
         </Text>
 
+        <Text style={styles.aboutTitle}>Detalhes</Text>
         <View style={styles.imageContainer}>
-          <Text style={styles.aboutTitle}>Detalhes</Text>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/29.jpg')} />
             <View style={styles.textContainer}>
@@ -124,40 +107,85 @@ export default function Flores() {
         <Text style={styles.aboutTitle}>Problemas Comuns</Text>
         <View style={styles.imageContainer2}>
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/40.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/faltadeumidade.png')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Amarelecimento</Text>
-              <Text style={styles.itemText2}>Sombra Parcial</Text>
+              <Text style={styles.itemText}>Falta de umidade</Text>
             </View>
-            <TouchableOpacity onPress={toggleProblems} style={styles.iconButton}>
-              <Icon name={showProblems ? "chevron-up" : "chevron-down"} size={20} color="#005f56" style={{marginLeft:50}} />
+            <TouchableOpacity onPress={toggleProblems1} style={styles.iconButton}>
+              <Icon name={showProblems1 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
             </TouchableOpacity>
           </View>
-          {showProblems && (
+          {showProblems1 && (
             <View style={styles.problemDetails}>
-              <Text style={styles.problemText}>
-                O amarelecimento das folhas das samambaias pode ser um sinal de que a planta não está nas condições ideais. Esse fenômeno pode ocorrer por diversos motivos, como excesso de luz, rega inadequada, umidade baixa, deficiência nutricional ou a presença de pragas e doenças. Para resolver o problema, é importante observar as condições em que a samambaia está sendo cultivada e fazer os ajustes necessários.
-
-                Para cuidar adequadamente de samambaias, siga algumas diretrizes básicas. Primeiro, coloque a planta em um local com luz indireta, evitando a exposição ao sol direto, que pode queimar as folhas. Mantenha o solo levemente úmido, regando quando a parte superior começar a secar, mas evite encharcar para prevenir raízes podres. Samambaias também apreciam um ambiente úmido, então você pode borrifar água nas folhas ou usar um umidificador para aumentar a umidade.
-
-                Quanto à temperatura, mantenha a planta em um ambiente entre 18°C e 24°C, evitando correntes de ar frio. Durante a primavera e o verão, fertilize uma vez por mês com um fertilizante balanceado, diluído pela metade. Não esqueça de podar folhas secas ou amareladas para estimular o crescimento saudável. Por fim, se a planta estiver crescendo muito e as raízes estiverem apertadas, considere transplantá-la para um vaso maior a cada 1-2 anos.
-
-                Com esses cuidados e ajustes, suas samambaias devem prosperar e exibir folhas verdes e saudáveis.
+              <Text style={styles.aboutTitle}>Sobre</Text>
+              <Text style={styles.title2}>
+                As samambaias adoram ambientes úmidos, por isso, a falta de umidade pode prejudicar seu crescimento e saúde. Quando o ambiente está muito seco, as folhas podem secar ou ficar amareladas nas bordas.
               </Text>
+              <Text style={styles.aboutTitle}>Como cuidar</Text>
+              <Text style={styles.title2}> Aumente a umidade ao redor da planta, utilizando um umidificador, colocando a planta sobre um prato com pedras e água ou pulverizando as folhas com água regularmente. Evite borrifar muito perto do fim da tarde para evitar o surgimento de fungos.</Text>
+            </View>
+          )}
+
+          <View style={styles.imageItem}>
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/sol.png')} />
+            <View style={styles.textContainer}>
+              <Text style={styles.itemText}>Exposição excessiva {'\n'} ao sol</Text>
+            </View>
+            <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
+              <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
+            </TouchableOpacity>
+          </View>
+          {showProblems2 && (
+            <View style={styles.problemDetails}>
+              <Text style={styles.aboutTitle}>Sobre</Text>
+              <Text style={styles.title2}>
+                Embora algumas samambaias tolerem luz indireta, a exposição direta ao sol pode queimar suas folhas, causando manchas marrons e descoloração.
+              </Text>
+              <Text style={styles.aboutTitle}>Como cuidar</Text>
+              <Text style={styles.title2}>Coloque a samambaia em um local com luz indireta e evite a luz solar direta. Se a planta estiver em um local muito iluminado, mova-a para um local mais sombreado.</Text>
+            </View>
+          )}
+
+          <View style={styles.imageItem}>
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/solo.png')} />
+            <View style={styles.textContainer}>
+              <Text style={styles.itemText}>Solo inadequado</Text>
+            </View>
+            <TouchableOpacity onPress={toggleProblems3} style={styles.iconButton}>
+              <Icon name={showProblems3 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
+            </TouchableOpacity>
+          </View>
+          {showProblems3 && (
+            <View style={styles.problemDetails}>
+              <Text style={styles.aboutTitle}>Sobre</Text>
+              <Text style={styles.title2}>
+                Samambaias preferem solos bem drenados, ricos em matéria orgânica. Um solo muito pesado pode reter água demais, o que leva ao apodrecimento das raízes.
+              </Text>
+              <Text style={styles.aboutTitle}>Como cuidar</Text>
+              <Text style={styles.title2}>Utilize um solo leve e bem drenado, como uma mistura de terra comum com composto orgânico ou perlita.</Text>
             </View>
           )}
         </View>
 
+        <Text style={styles.aboutTitle}>Curiosidades</Text>
         <View style={styles.imageContainer2}>
-          <Text style={styles.aboutTitle}>Curiosidades</Text>
-          <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
-            <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Temperatura</Text>
-              <Text style={styles.itemText2}>Aplique Fertilização Líquido {'\n'} a cada 2 a 4 meses</Text>
-            </View>
-          </View>
-        </View>
+        < View style={styles.imageItem}>
+    <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
+    <View style={styles.textContainer}>
+      <Text style={styles.itemText}>Temperatura</Text>
+      <Text style={styles.itemText2}>Aplique Fertilização Líquido {'\n'} a cada 2 a 4 meses</Text>
+    </View>
+    
+  </View>
+  <View style={styles.imageItem} >
+    <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
+    <View style={styles.textContainer}>
+      <Text style={styles.itemText}>Ciclo de vida único</Text>
+      <Text style={styles.itemText2}>O ciclo de vida das samambaias inclui uma fase independente chamada "gametófito", que é uma estrutura pequena e em forma de coração onde ocorrem as primeiras etapas da reprodução.</Text>
+    </View>
+    
+  </View>
+</View>
 
       </ScrollView>
     </SafeAreaView>
@@ -180,81 +208,20 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 20,
-    color: '#005f56',
+    color: '#033826',
   },
   title2: {
-    fontSize: 16,
-    color: '#1b1b1b',
+    fontSize: 14,
+    color: '#558678',
     textAlign: 'justify',
     padding: 10,
     fontFamily: 'regular',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    marginTop: 10,
-  },
-  column: {
-    flexDirection: 'column',
-  },
-  smallButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    backgroundColor: '#f4f5f9',
-    borderRadius: 5,
-    alignItems: 'center',
-    width: 130,
-    marginVertical: 5,
-    height: 40,
-  },
-  smallButton2: {
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    backgroundColor: '#f4f5f9',
-    borderRadius: 5,
-    alignItems: 'center',
-    width: 130,
-    marginVertical: 5,
-    height: 40,
-  },
-  marginLeft2: {
-    marginLeft: 20,
-  },
-  buttonText: {
-    color: '#005f56',
-    fontSize: 10,
-    fontWeight: 'bold',
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  messageContainer: {
-    width: 150,
-    backgroundColor: '#fff',
-    padding: 10,
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 3,
-  },
-  messageText: {
-    fontSize: 16,
-    color: '#333',
   },
   aboutTitle: {
     fontSize: 15,
     fontWeight: 'bold',
     marginTop: 20,
-    color: '#005F56',
+    color: '#033826',
   },
   imageContainer: {
     marginTop: 20,
@@ -273,6 +240,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 10,
+    justifyContent: 'space-between', // Alinhamento entre imagem, texto e ícone
   },
   itemImage: {
     width: 50,
@@ -283,10 +251,11 @@ const styles = StyleSheet.create({
   textContainer: {
     flexDirection: 'column',
     justifyContent: 'center',
+    flex: 1, // Garante que o texto ocupe o espaço disponível
   },
   itemText: {
     fontSize: 14,
-    color: '#009B86',
+    color: '#3c7c6c',
     lineHeight: 20,
     fontFamily: 'bold',
   },
@@ -296,7 +265,9 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   iconButton: {
-    marginLeft: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5, // Espaçamento entre o ícone e o texto
   },
   problemDetails: {
     marginTop: 10,
@@ -306,4 +277,3 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 });
-
