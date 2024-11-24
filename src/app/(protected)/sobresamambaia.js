@@ -1,38 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Flores() {
-  const [showMessage1, setShowMessage1] = useState(false);
-  const [showMessage2, setShowMessage2] = useState(false);
-  const [showMessage3, setShowMessage3] = useState(false);
   const [showProblems1, setShowProblems1] = useState(false);
   const [showProblems2, setShowProblems2] = useState(false);
   const [showProblems3, setShowProblems3] = useState(false);
-
-  const handlePress1 = () => {
-    setShowMessage1(true);
-    setShowMessage2(false);
-    setShowMessage3(false);
-  };
-
-  const handlePress2 = () => {
-    setShowMessage2(true);
-    setShowMessage1(false);
-    setShowMessage3(false);
-  };
-
-  const handlePress3 = () => {
-    setShowMessage3(true);
-    setShowMessage1(false);
-    setShowMessage2(false);
-  };
-
-  const closeMessage = () => {
-    setShowMessage1(false);
-    setShowMessage2(false);
-    setShowMessage3(false);
-  };
 
   const toggleProblems1 = () => {
     setShowProblems1(!showProblems1);
@@ -45,11 +18,15 @@ export default function Flores() {
   const toggleProblems3 = () => {
     setShowProblems3(!showProblems3);
   };
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <Image style={styles.image} source={require('../../../src/assets/images/samambaia.jpg')} />
+        <View style={styles.imageWrapper}>
+          <Image
+            source={require('../../../src/assets/images/samambaia.jpg')}
+            style={styles.fullWidthImage}
+          />
+        </View>
         <Text style={styles.title}>Samambaias</Text>
         <Text style={styles.title2}>Samambaias ● Cyrtomium</Text>
 
@@ -107,7 +84,7 @@ export default function Flores() {
         <Text style={styles.aboutTitle}>Problemas Comuns</Text>
         <View style={styles.imageContainer2}>
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/faltadeumidade.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/42.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Falta de umidade</Text>
             </View>
@@ -127,19 +104,19 @@ export default function Flores() {
           )}
 
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/sol.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Exposição excessiva {'\n'} ao sol</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
               <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
             </TouchableOpacity>
-          </View>
+            </View>
           {showProblems2 && (
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                Embora algumas samambaias tolerem luz indireta, a exposição direta ao sol pode queimar suas folhas, causando manchas marrons e descoloração.
+                Embora as samambaias tolerem luz indireta, a exposição direta ao sol pode queimar suas folhas, causando manchas marrons e descoloração.        
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
               <Text style={styles.title2}>Coloque a samambaia em um local com luz indireta e evite a luz solar direta. Se a planta estiver em um local muito iluminado, mova-a para um local mais sombreado.</Text>
@@ -147,7 +124,7 @@ export default function Flores() {
           )}
 
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/solo.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/43.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Solo inadequado</Text>
             </View>
@@ -183,10 +160,15 @@ export default function Flores() {
       <Text style={styles.itemText}>Ciclo de vida único</Text>
       <Text style={styles.itemText2}>O ciclo de vida das samambaias inclui uma fase independente chamada "gametófito", que é uma estrutura pequena e em forma de coração onde ocorrem as primeiras etapas da reprodução.</Text>
     </View>
-    
+  
   </View>
+ 
+   
 </View>
-
+ <TouchableOpacity style={styles.addButton}>
+        <Icon name="leaf" size={24} color="#fff" style={styles.addIcon} />
+        <Text style={styles.addText}>Adicionar Planta</Text>
+      </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -198,15 +180,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   scrollViewContent: {
-    padding: 16,
+    paddingBottom: 20,
   },
-  image: {
-    width: '100%',
-    height: 300,
+  imageWrapper: {
+    marginBottom: 20,
+  },
+  fullWidthImage: {
+    width: Dimensions.get('window').width, // Largura total da tela
+    height: 300, // Altura fixa
+    resizeMode: 'cover', // Ajusta a imagem para preencher sem distorção
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    marginHorizontal: 16,
     marginTop: 20,
     color: '#033826',
   },
@@ -214,12 +201,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#558678',
     textAlign: 'justify',
+    marginHorizontal: 16,
     padding: 10,
     fontFamily: 'regular',
   },
   aboutTitle: {
     fontSize: 15,
     fontWeight: 'bold',
+    marginHorizontal: 16,
     marginTop: 20,
     color: '#033826',
   },
@@ -228,30 +217,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f2f2',
     padding: 10,
     borderRadius: 15,
+    marginHorizontal: 16,
   },
   imageContainer2: {
     marginTop: 20,
     backgroundColor: '#f2f2f2',
     padding: 10,
     borderRadius: 15,
+    marginHorizontal: 16,
+    marginBottom: 20, // Adicionando o espaçamento inferior
   },
   imageItem: {
     paddingTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 10,
-    justifyContent: 'space-between', // Alinhamento entre imagem, texto e ícone
+    justifyContent: 'space-between',
+    
   },
   itemImage: {
     width: 50,
     height: 50,
     marginRight: 10,
     borderRadius: 15,
+    
   },
   textContainer: {
     flexDirection: 'column',
     justifyContent: 'center',
-    flex: 1, // Garante que o texto ocupe o espaço disponível
+    flex: 1,
   },
   itemText: {
     fontSize: 14,
@@ -267,13 +261,32 @@ const styles = StyleSheet.create({
   iconButton: {
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 5, // Espaçamento entre o ícone e o texto
+    padding: 5,
   },
   problemDetails: {
     marginTop: 10,
+    marginHorizontal: 16,
   },
-  problemText: {
-    fontSize: 14,
-    color: '#333',
+  addButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#033826',
+    padding: 15,
+    borderRadius: 30,
+    margin: 16,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
   },
-});
+  addIcon: {
+    marginRight: 10,
+  },
+  addText: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+});  

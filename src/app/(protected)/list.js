@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { usePaymentsDatabase } from "../../database/usePaymentsDatabase";
 import { FlashList } from "@shopify/flash-list";
-import { formatDateBrazilian } from "../../utilss/formatData";
+//import { formatDateBrazilian } from "../../utilss/formatData";
 import { setOriginalNode } from "typescript";
 
 

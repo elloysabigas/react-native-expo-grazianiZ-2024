@@ -42,6 +42,7 @@ const DrawerLayout = () => {
             <Drawer.Screen name="minhas" options={{drawerLabel: "Minhas Plantas", headerTitle: "Minhas Plantas", drawerIcon: ()=> <Ionicons name="leaf" size={20} color="#006356"/>}} /> 
             <Drawer.Screen name="list" options={{drawerLabel: "Listagem", headerTitle: "Listagem", drawerIcon: ()=> <Ionicons name="list" size={20} color="#006356"/>}} />
             <Drawer.Screen name="payment" options={{drawerLabel: "Pagamentos", headerTitle: "Pagamentos", drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>}} />
+            <Drawer.Screen name="arbustos" options={{drawerLabel: "arbustos", headerTitle: "arbustos", drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>}} />
           </Drawer>
         </GestureHandlerRootView>
       );
