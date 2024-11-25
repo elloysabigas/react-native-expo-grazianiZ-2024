@@ -12,7 +12,7 @@ export default function Flores() {
     { id: '1', image: require('../../../src/assets/images/9.jpg'), title: 'Samambaia' },
     { id: '2', image: require('../../../src/assets/images/10.jpg'), title: 'Costela de Adão' },
     { id: '3', image: require('../../../src/assets/images/11.jpg'), title: 'Alocasia Wentii' },
-    { id: '4', image: require('../../../src/assets/images/12.jpg'), title: 'Pacov' },
+    { id: '4', image: require('../../../src/assets/images/12.jpg'), title: 'Pacová' },
     { id: '5', image: require('../../../src/assets/images/13.jpg'), title: 'Cróton' },
     { id: '6', image: require('../../../src/assets/images/14.jpg'), title: 'Maranta Tricolor' },
     { id: '7', image: require('../../../src/assets/images/15.jpg'), title: 'Zamiculca' },
@@ -39,9 +39,17 @@ export default function Flores() {
         } else if (item.title === 'Pacov') {
           router.push('/sobrePacov'); // Redireciona para a página "sobreAlocasiaWentii"
         } else if (item.title === 'Cróton') {
-          router.push('/sobreCróton'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreCroton'); // Redireciona para a página "sobreAlocasiaWentii"
         } else if (item.title === 'Maranta Tricolor') {
           router.push('/sobreMarantaTricolor'); // Redireciona para a página "sobreAlocasiaWentii"
+        } else if (item.title === 'Zamiculca') {
+          router.push('/sobreZamiculca'); // Redireciona para a página "sobreAlocasiaWentii"
+        } else if (item.title === 'Bromélia') {
+          router.push('/sobreBromélia'); // Redireciona para a página "sobreAlocasiaWentii"
+        } else if (item.title === 'Copo-de-Leite') {
+          router.push('/sobreCopo-de-Leite'); // Redireciona para a página "sobreAlocasiaWentii"
+        } else if (item.title === 'Antúrio') {
+          router.push('/sobreAntúrio'); // Redireciona para a página "sobreAlocasiaWentii"
         } else {
           router.push(`/planta/${item.id}`);
         }
@@ -105,7 +113,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: "#005f56",
-    fontFamily: 'regular',
+    fontFamily: 'sourGummy',
     textAlign: 'center',
     marginLeft: 16,
   },
@@ -136,6 +144,7 @@ const styles = StyleSheet.create({
     color: '#bbb',
   },
   button: {
+    fontFamily: 'sourGummy',
     backgroundColor: '#fff',
     borderRadius: 15,
     justifyContent: 'center',
@@ -153,6 +162,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
+    
   },
   image: {
     width: 100,

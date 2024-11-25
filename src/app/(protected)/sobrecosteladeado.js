@@ -206,10 +206,10 @@ const styles = StyleSheet.create({
       },
       title: {
         fontSize: 24,
-        fontWeight: 'bold',
         marginHorizontal: 16,
         marginTop: 20,
         color: '#033826',
+        fontFamily: 'sourGummy',
       },
       title2: {
         fontSize: 14,
@@ -221,10 +221,10 @@ const styles = StyleSheet.create({
       },
       aboutTitle: {
         fontSize: 15,
-        fontWeight: 'bold',
         marginHorizontal: 16,
         marginTop: 20,
         color: '#033826',
+        fontFamily: 'sourGummy',
       },
     imageContainer: {
       marginTop: 20,
