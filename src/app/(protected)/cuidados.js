@@ -10,8 +10,6 @@ export default function List() {
     { id: '1', image: require('../../../src/assets/images/folhas.jpg'), title: 'Folhas' },
     { id: '2', image: require('../../../src/assets/images/flores.jpg'), title: 'Flores' },
     { id: '3', image: require('../../../src/assets/images/3.jpg'), title: 'Cacto' },
-    { id: '4', image: require('../../../src/assets/images/4.jpg'), title: 'Árvores' },
-    { id: '8', image: require('../../../src/assets/images/8.jpg'), title: 'Arbustos' },
     { id: '5', image: require('../../../src/assets/images/5.jpg'), title: 'Ervas' },
     { id: '6', image: require('../../../src/assets/images/6.jpg'), title: 'Frutas' },
     { id: '7', image: require('../../../src/assets/images/7.jpg'), title: 'Legumes' },
@@ -30,12 +28,6 @@ export default function List() {
             break;
           case '3':
             router.push('/cacto'); // Navega para a página "cacto.js"
-            break;
-          case '4':
-            router.push('/arvores'); // Navega para a página "arvores.js"
-            break;
-          case '8':
-            router.push('/arbustos'); // Navega para a página "arbustos.js"
             break;
           case '5':
             router.push('/ervas'); // Navega para a página "ervas.js"

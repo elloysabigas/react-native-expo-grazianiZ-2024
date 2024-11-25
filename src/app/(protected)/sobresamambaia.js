@@ -1,8 +1,10 @@
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons'; 
+import { Stack, useRouter } from 'expo-router'; 
 
-export default function Flores() {
+export default function CostelaDeAdao() {
   const [showProblems1, setShowProblems1] = useState(false);
   const [showProblems2, setShowProblems2] = useState(false);
   const [showProblems3, setShowProblems3] = useState(false);
@@ -18,13 +20,19 @@ export default function Flores() {
   const toggleProblems3 = () => {
     setShowProblems3(!showProblems3);
   };
+
+  const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.imageWrapper}>
+          <TouchableOpacity onPress={() => router.push('/folha')} style={styles.iconWrapper}>
+            <Ionicons name="chevron-back" size={30} color="#fff" />
+          </TouchableOpacity>
           <Image
             source={require('../../../src/assets/images/samambaia.jpg')}
             style={styles.fullWidthImage}
+            resizeMode="cover" // Ajuste para evitar distorções
           />
         </View>
         <Text style={styles.title}>Samambaias</Text>
@@ -160,15 +168,29 @@ export default function Flores() {
       <Text style={styles.itemText}>Ciclo de vida único</Text>
       <Text style={styles.itemText2}>O ciclo de vida das samambaias inclui uma fase independente chamada "gametófito", que é uma estrutura pequena e em forma de coração onde ocorrem as primeiras etapas da reprodução.</Text>
     </View>
-  
-  </View>
- 
-   
+  </View>   
 </View>
- <TouchableOpacity style={styles.addButton}>
-        <Icon name="leaf" size={24} color="#fff" style={styles.addIcon} />
-        <Text style={styles.addText}>Adicionar Planta</Text>
-      </TouchableOpacity>
+<Text style={styles.aboutTitle}>Como plantar</Text>
+<Text style={styles.title2}>
+  Para plantar uma samambaia, siga os passos abaixo:
+</Text>
+
+<Text style={styles.title2}>
+  1. Escolha um vaso com boa drenagem, pois o excesso de água pode prejudicar a raiz da samambaia.
+</Text>
+<Text style={styles.title2}>
+  2. Use um substrato rico em matéria orgânica, como uma mistura de terra comum com composto ou perlita.
+</Text>
+<Text style={styles.title2}>
+  3. Plante a samambaia com a raiz levemente enterrada, sem compactar demais o solo ao redor.
+</Text>
+<Text style={styles.title2}>
+  4. Regue a planta logo após o plantio, garantindo que o solo esteja úmido, mas não encharcado.
+</Text>
+<Text style={styles.title2}>
+  5. Coloque a samambaia em um local com luz indireta e mantenha a umidade do ambiente, borrifando água nas folhas se necessário.
+</Text>
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -184,6 +206,16 @@ const styles = StyleSheet.create({
   },
   imageWrapper: {
     marginBottom: 20,
+    position: 'relative', // Para o ícone de voltar sobrepor a imagem
+  },
+  iconWrapper: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    zIndex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semi-transparente para garantir visibilidade
+    padding: 10,
+    borderRadius: 20,
   },
   fullWidthImage: {
     width: Dimensions.get('window').width, // Largura total da tela
@@ -289,4 +321,4 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-});  
+}); 

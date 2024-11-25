@@ -21,15 +21,28 @@ export default function Flores() {
     { id: '10', image: require('../../../src/assets/images/18.jpg'), title: 'Antúrio' },
   ];
 
+  // Filtrar categorias com base no texto de pesquisa
+  const filteredCategories = categories.filter((category) =>
+    category.title.toLowerCase().includes(text.toLowerCase())
+  );
+
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.button}
       onPress={() => {
-        // Verifica se o item é "Samambaia"
         if (item.title === 'Samambaia') {
           router.push('/sobresamambaia'); // Redireciona para a página "sobresamambaia"
+        } else if (item.title === 'Costela de Adão') {
+          router.push('/sobrecosteladeado'); // Redireciona para a página "sobrecosteladeadao"
+        } else if (item.title === 'Alocasia Wentii') {
+          router.push('/sobreAlocasiaWentii'); // Redireciona para a página "sobreAlocasiaWentii"
+        } else if (item.title === 'Pacov') {
+          router.push('/sobrePacov'); // Redireciona para a página "sobreAlocasiaWentii"
+        } else if (item.title === 'Cróton') {
+          router.push('/sobreCróton'); // Redireciona para a página "sobreAlocasiaWentii"
+        } else if (item.title === 'Maranta Tricolor') {
+          router.push('/sobreMarantaTricolor'); // Redireciona para a página "sobreAlocasiaWentii"
         } else {
-          // Para as outras plantas, navega para a página padrão
           router.push(`/planta/${item.id}`);
         }
       }}
@@ -45,7 +58,7 @@ export default function Flores() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.push('/cuidados')}>
-          <Ionicons name="chevron-back" size={24} color="#005f56" style={{marginLeft:8}} />
+          <Ionicons name="chevron-back" size={24} color="#005f56" style={{ marginLeft: 8 }} />
         </TouchableOpacity>
         <Text style={styles.title}>Plantas de Folha</Text>
       </View>
@@ -64,12 +77,15 @@ export default function Flores() {
         </View>
       </View>
 
-      {/* FlatList para renderizar os botões */}
+      {/* FlatList para renderizar os botões filtrados */}
       <FlatList
-        data={categories}
+        data={filteredCategories}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        numColumns={1} // Exibe um item por linha (uma coluna)
+        numColumns={1}
+        ListEmptyComponent={() => (
+          <Text style={styles.emptyText}>Nenhuma planta encontrada</Text>
+        )}
       />
     </SafeAreaView>
   );
@@ -142,11 +158,17 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginRight: 12,
+    borderRadius: 8,
   },
   buttonText: {
     fontSize: 16,
     color: '#005f56',
     fontFamily: 'regular',
     textAlign: 'left',
+  },
+  emptyText: {
+    textAlign: 'center',
+    color: '#777',
+    marginTop: 20,
   },
 });
