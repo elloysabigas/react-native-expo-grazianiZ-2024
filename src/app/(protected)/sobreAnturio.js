@@ -30,17 +30,17 @@ export default function CostelaDeAdao() {
             <Ionicons name="chevron-back" size={30} color="#fff" />
           </TouchableOpacity>
           <Image
-            source={require('../../../src/assets/images/leite.png')}
+            source={require('../../../src/assets/images/anturio.png')}
             style={styles.fullWidthImage}
             resizeMode="cover" // Ajuste para evitar distorções
           />
         </View>
-        <Text style={styles.title}>Copo-de-leite</Text>
-        <Text style={styles.title2}>Zantedeschia aethiopica ● Araceae</Text>
+        <Text style={styles.title}>Antúrio</Text>
+        <Text style={styles.title2}>Antúrio ● Anthurium andraeanum</Text>
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
-          O Copo-de-leite é uma planta ornamental nativa da África do Sul, pertencente à família Araceae. É conhecida por suas flores brancas elegantes e folhas verdes exuberantes, sendo amplamente utilizada em arranjos florais e decoração.
+          O antúrio é uma planta tropical conhecida por suas flores brilhantes e folhas decorativas. As flores, na verdade, são brácteas coloridas que envolvem uma inflorescência chamada espádice. É amplamente cultivado como planta ornamental devido à sua aparência exótica e facilidade de cuidado. Prefere ambientes quentes e úmidos, sendo ideal para interiores bem iluminados.
         </Text>
 
         <Text style={styles.aboutTitle}>Detalhes</Text>
@@ -49,35 +49,42 @@ export default function CostelaDeAdao() {
             <Image style={styles.itemImage} source={require('../../../src/assets/images/29.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Temperatura</Text>
-              <Text style={styles.itemText2}>15°C - 25°C</Text>
+              <Text style={styles.itemText2}>18°C - 28°C</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Luz solar</Text>
-              <Text style={styles.itemText2}>Luz indireta ou meia-sombra</Text>
+              <Text style={styles.itemText2}>Luz indireta brilhante</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/31.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Água</Text>
-              <Text style={styles.itemText2}>Manter o solo úmido, mas não encharcado</Text>
+              <Text style={styles.itemText2}>A cada 1-2 semanas</Text>
+            </View>
+          </View>
+          <View style={styles.imageItem}>
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/32.jpg')} />
+            <View style={styles.textContainer}>
+              <Text style={styles.itemText}>Transplante</Text>
+              <Text style={styles.itemText2}>A cada 2 anos</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/33.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Fertilização</Text>
-              <Text style={styles.itemText2}>A cada 2-3 meses na primavera e verão</Text>
+              <Text style={styles.itemText2}>Fertilizante líquido a cada 2 meses</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Pragas</Text>
-              <Text style={styles.itemText2}>Ácaros</Text>
+              <Text style={styles.itemText2}>Cochonilhas</Text>
             </View>
           </View>
         </View>
@@ -97,52 +104,45 @@ export default function CostelaDeAdao() {
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                O amarelamento das folhas geralmente ocorre devido a excesso de água ou falta de nutrientes.
+                Amarelamento das folhas pode ser causado por excesso de rega ou exposição direta ao sol.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
               <Text style={styles.title2}>
-                Ajuste a frequência de rega e use fertilizante balanceado.
-              </Text>
-            </View>
-          )}
-
-          <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/46.png')} />
-            <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Queimaduras nas folhas</Text>
-            </View>
-            <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
-              <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
-            </TouchableOpacity>
-          </View>
-          {showProblems2 && (
-            <View style={styles.problemDetails}>
-              <Text style={styles.aboutTitle}>Sobre</Text>
-              <Text style={styles.title2}>
-                Folhas queimadas indicam exposição ao sol direto por longos períodos.
-              </Text>
-              <Text style={styles.aboutTitle}>Como cuidar</Text>
-              <Text style={styles.title2}>
-                Mova a planta para um local com luz indireta ou meia-sombra.
+                Ajuste a frequência da rega e posicione a planta em local com luz indireta.
               </Text>
             </View>
           )}
         </View>
 
+        <Text style={styles.aboutTitle}>Curiosidades</Text>
+        <View style={styles.imageContainer2}>
+          <View style={styles.imageItem}>
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
+            <View style={styles.textContainer}>
+              <Text style={styles.itemText}>Planta do amor</Text>
+              <Text style={styles.itemText2}>
+                Antúrios são símbolos de hospitalidade, felicidade e amor.
+              </Text>
+            </View>
+          </View>
+        </View>
         <Text style={styles.aboutTitle}>Como plantar</Text>
         <Text style={styles.title2}>
-          1. Escolha um vaso com boa drenagem e solo rico em matéria orgânica.
-        </Text>
-        <Text style={styles.title2}>
-          2. Plante os rizomas com cuidado, cobrindo-os com uma fina camada de solo.
-        </Text>
-        <Text style={styles.title2}>
-          3. Regue moderadamente e mantenha a planta em local iluminado, mas longe do sol direto.
+          1. Use um vaso com boa drenagem.{"\n"}
+          {"\n"}
+          2. Utilize solo rico em matéria orgânica.{"\n"}
+          {"\n"}
+          3. Plante o Antúrio com as raízes firmemente cobertas.{"\n"}
+          {"\n"}
+          4. Regue regularmente, mas sem encharcar o solo.{"\n"}
+          {"\n"}
+          5. Coloque em local com luz indireta brilhante.
         </Text>
       </ScrollView>
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

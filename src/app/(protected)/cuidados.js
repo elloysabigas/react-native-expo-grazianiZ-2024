@@ -49,7 +49,7 @@ export default function List() {
 
   return (
     <SafeAreaView style={styles.container}>
-        <Text style={{ fontSize: 24, fontFamily:'regular', marginBottom: 24, color:"#005f56" }}>Categorias</Text>
+        <Text style={{ fontSize: 24, fontFamily: 'sourGummy', marginBottom: 24, color:"#005f56" }}>Categorias</Text>
       <FlatList
         data={categories}
         renderItem={renderItem}

@@ -30,17 +30,17 @@ export default function CostelaDeAdao() {
             <Ionicons name="chevron-back" size={30} color="#fff" />
           </TouchableOpacity>
           <Image
-            source={require('../../../src/assets/images/zamioculca.png')}
+            source={require('../../../src/assets/images/bromelia.png')}
             style={styles.fullWidthImage}
             resizeMode="cover" // Ajuste para evitar distorções
           />
         </View>
-        <Text style={styles.title}>Zamioculca</Text>
-        <Text style={styles.title2}>Zamioculca ● Zamioculcas zamiifolia</Text>
+        <Text style={styles.title}>Bromélia</Text>
+        <Text style={styles.title2}>Bromélia ● Bromeliaceae</Text>
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
-        é uma planta ornamental pertencente à família Araceae, originária da África Oriental. Caracteriza-se por suas folhas verdes, brilhantes e espessas, que crescem a partir de rizomas subterrâneos. É muito apreciada por sua resistência, adaptabilidade a ambientes internos e facilidade de cuidado, sendo capaz de prosperar com pouca luz e pouca água. Apesar de ser amplamente utilizada na decoração, é tóxica se ingerida, devido à presença de cristais de oxalato de cálcio.
+        As bromélias são plantas pertencentes à família Bromeliaceae, que inclui mais de 3.000 espécies distribuídas principalmente nas Américas. Elas são conhecidas por sua capacidade de adaptação a diversos ambientes, desde florestas tropicais úmidas até áreas semiáridas.
         </Text>
 
         <Text style={styles.aboutTitle}>Detalhes</Text>
@@ -49,42 +49,42 @@ export default function CostelaDeAdao() {
     <Image style={styles.itemImage} source={require('../../../src/assets/images/29.jpg')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Temperatura</Text>
-      <Text style={styles.itemText2}>18°C - 30°C</Text>
+      <Text style={styles.itemText2}>20°C - 30°C</Text>
     </View>
   </View>
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Luz solar</Text>
-      <Text style={styles.itemText2}>Luz indireta ou meia-sombra</Text>
+      <Text style={styles.itemText2}>Luz indireta brilhante</Text>
     </View>
   </View>
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/31.jpg')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Água</Text>
-      <Text style={styles.itemText2}>A cada 10 a 15 dias</Text>
+      <Text style={styles.itemText2}>Uma vez por semana, mantendo água na roseta</Text>
     </View>
   </View>
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/32.jpg')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Transplante</Text>
-      <Text style={styles.itemText2}>A cada 12 a 24 meses</Text>
+      <Text style={styles.itemText2}>Após a floração ou a cada 2 anos</Text>
     </View>
   </View>
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/33.jpg')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Fertilização</Text>
-      <Text style={styles.itemText2}>A cada 2 a 3 meses com fertilizante NPK</Text>
+      <Text style={styles.itemText2}>Fertilizante líquido diluído a cada 1-2 meses</Text>
     </View>
   </View>
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Pragas</Text>
-      <Text style={styles.itemText2}>Cochonilhas</Text>
+      <Text style={styles.itemText2}>Pulgões, cochonilhas</Text>
     </View>
   </View>
 </View>
@@ -104,11 +104,11 @@ export default function CostelaDeAdao() {
     <View style={styles.problemDetails}>
       <Text style={styles.aboutTitle}>Sobre</Text>
       <Text style={styles.title2}>
-        Excesso de água pode causar apodrecimento das raízes e amarelecimento das folhas.
+        O excesso de água pode apodrecer as raízes e causar danos à roseta da bromélia.
       </Text>
       <Text style={styles.aboutTitle}>Como cuidar</Text>
       <Text style={styles.title2}>
-        Deixe o solo secar completamente entre regas e utilize um substrato bem drenado.
+        Certifique-se de que a água seja apenas moderada, e remova o excesso acumulado na base da planta.
       </Text>
     </View>
   )}
@@ -116,7 +116,7 @@ export default function CostelaDeAdao() {
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
     <View style={styles.textContainer}>
-      <Text style={styles.itemText}>Luz insuficiente</Text>
+      <Text style={styles.itemText}>Falta de luz</Text>
     </View>
     <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
       <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
@@ -126,11 +126,11 @@ export default function CostelaDeAdao() {
     <View style={styles.problemDetails}>
       <Text style={styles.aboutTitle}>Sobre</Text>
       <Text style={styles.title2}>
-        Luz insuficiente pode fazer a zamioculca crescer de forma desordenada e perder sua cor vibrante.
+        A falta de luz pode impedir a floração e deixar a bromélia com crescimento fraco.
       </Text>
       <Text style={styles.aboutTitle}>Como cuidar</Text>
       <Text style={styles.title2}>
-        Coloque a planta em um local com luz indireta e evite escuridão completa.
+        Coloque a planta em um local bem iluminado com luz indireta.
       </Text>
     </View>
   )}
@@ -141,18 +141,18 @@ export default function CostelaDeAdao() {
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
     <View style={styles.textContainer}>
-      <Text style={styles.itemText}>Purificação do ar</Text>
+      <Text style={styles.itemText}>Flores únicas</Text>
       <Text style={styles.itemText2}>
-        A zamioculca é conhecida por filtrar toxinas do ar, como formaldeído.
+        As bromélias florescem apenas uma vez em sua vida, mas deixam brotos que continuam o ciclo.
       </Text>
     </View>
   </View>
   <View style={styles.imageItem}>
     <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
     <View style={styles.textContainer}>
-      <Text style={styles.itemText}>Resistência</Text>
+      <Text style={styles.itemText}>Reservatório natural</Text>
       <Text style={styles.itemText2}>
-        É quase indestrutível, ideal para quem não tem experiência com plantas.
+        As rosetas das bromélias coletam água da chuva e servem de abrigo para pequenos insetos e animais.
       </Text>
     </View>
   </View>
@@ -160,16 +160,16 @@ export default function CostelaDeAdao() {
 
 <Text style={styles.aboutTitle}>Como plantar</Text>
 <Text style={styles.title2}>
-  1. Escolha um vaso com drenagem adequada para evitar excesso de água.
+  1. Escolha um vaso com boa drenagem e substrato específico para bromélias.
 </Text>
 <Text style={styles.title2}>
-  2. Use um substrato bem drenado, como terra com areia e húmus.
+  2. Plante a bromélia de forma que sua base fique firme no solo, mas não enterrada.
 </Text>
 <Text style={styles.title2}>
-  3. Plante os rizomas sem enterrá-los completamente, mantendo-os na superfície.
+  3. Mantenha água na roseta central da planta e regue o solo apenas quando estiver seco.
 </Text>
 <Text style={styles.title2}>
-  4. Regue levemente após o plantio e coloque a planta em luz indireta.
+  4. Coloque a planta em local iluminado com luz indireta, evitando sol direto.
 </Text>
 
       </ScrollView>

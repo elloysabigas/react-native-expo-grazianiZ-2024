@@ -7,6 +7,10 @@ export default function Flores() {
   const [text, setText] = useState(''); 
   const router = useRouter(); 
 
+  // Função para normalizar texto (remove acentos)
+  const normalizeText = (text) =>
+    text.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
   // Lista de categorias com imagem e título
   const categories = [
     { id: '1', image: require('../../../src/assets/images/9.jpg'), title: 'Samambaia' },
@@ -23,7 +27,7 @@ export default function Flores() {
 
   // Filtrar categorias com base no texto de pesquisa
   const filteredCategories = categories.filter((category) =>
-    category.title.toLowerCase().includes(text.toLowerCase())
+    normalizeText(category.title.toLowerCase()).includes(normalizeText(text.toLowerCase()))
   );
 
   const renderItem = ({ item }) => (
@@ -31,25 +35,25 @@ export default function Flores() {
       style={styles.button}
       onPress={() => {
         if (item.title === 'Samambaia') {
-          router.push('/sobresamambaia'); // Redireciona para a página "sobresamambaia"
+          router.push('/sobresamambaia'); 
         } else if (item.title === 'Costela de Adão') {
-          router.push('/sobrecosteladeado'); // Redireciona para a página "sobrecosteladeadao"
+          router.push('/sobrecosteladeado'); 
         } else if (item.title === 'Alocasia Wentii') {
-          router.push('/sobreAlocasiaWentii'); // Redireciona para a página "sobreAlocasiaWentii"
-        } else if (item.title === 'Pacov') {
-          router.push('/sobrePacov'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreAlocasiaWentii'); 
+        } else if (item.title === 'Pacová') {
+          router.push('/sobrePacov'); 
         } else if (item.title === 'Cróton') {
-          router.push('/sobreCroton'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreCroton'); 
         } else if (item.title === 'Maranta Tricolor') {
-          router.push('/sobreMarantaTricolor'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreMarantaTricolor'); 
         } else if (item.title === 'Zamiculca') {
-          router.push('/sobreZamiculca'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreZamiculca'); 
         } else if (item.title === 'Bromélia') {
-          router.push('/sobreBromélia'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreBromelia'); 
         } else if (item.title === 'Copo-de-Leite') {
-          router.push('/sobreCopo-de-Leite'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreCopo-de-Leite'); 
         } else if (item.title === 'Antúrio') {
-          router.push('/sobreAntúrio'); // Redireciona para a página "sobreAlocasiaWentii"
+          router.push('/sobreAnturio'); 
         } else {
           router.push(`/planta/${item.id}`);
         }
@@ -85,7 +89,6 @@ export default function Flores() {
         </View>
       </View>
 
-      {/* FlatList para renderizar os botões filtrados */}
       <FlatList
         data={filteredCategories}
         renderItem={renderItem}
@@ -144,7 +147,6 @@ const styles = StyleSheet.create({
     color: '#bbb',
   },
   button: {
-    fontFamily: 'sourGummy',
     backgroundColor: '#fff',
     borderRadius: 15,
     justifyContent: 'center',
@@ -162,7 +164,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-    
   },
   image: {
     width: 100,
