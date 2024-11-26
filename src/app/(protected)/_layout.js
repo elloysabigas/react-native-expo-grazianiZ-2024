@@ -188,6 +188,86 @@ const DrawerLayout = () => {
                    headerShown: false       // Não mostra o cabeçalho padrão da tela
                  }} 
                  />
+            <Drawer.Screen 
+                name="sobreOrquidea" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreRosa" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobrePaeonia" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreLirio" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreZinnaElegans" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreGeranios" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreGirassol" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreFlorDeCerejeira" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreTulipas" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
+            <Drawer.Screen 
+                name="sobreHibisco" 
+                options={{
+                  drawerLabel: () => null, // Oculta o texto no Drawer
+                  drawerIcon: () => null,  // Remove o ícone no Drawer
+                   headerShown: false       // Não mostra o cabeçalho padrão da tela
+                 }} 
+                 />
 
           </Drawer>
         </GestureHandlerRootView>

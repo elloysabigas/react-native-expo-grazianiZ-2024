@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons'; 
 import { Stack, useRouter } from 'expo-router'; 
 
-export default function Lirio() {
+export default function Geranium() {
   const [showProblems1, setShowProblems1] = useState(false);
   const [showProblems2, setShowProblems2] = useState(false);
   const [showProblems3, setShowProblems3] = useState(false);
@@ -30,17 +30,17 @@ export default function Lirio() {
             <Ionicons name="chevron-back" size={30} color="#fff" />
           </TouchableOpacity>
           <Image
-            source={require('../../../src/assets/images/lirio.png')}
+            source={require('../../../src/assets/images/geraneo.png')} // Imagem do gerânio
             style={styles.fullWidthImage}
-            resizeMode="cover" // Ajuste para evitar distorções
+            resizeMode="cover"
           />
         </View>
-        <Text style={styles.title}>Lírios</Text>
-        <Text style={styles.title2}>Lírios ● Lilium</Text>
+        <Text style={styles.title}>Gerânio</Text>
+        <Text style={styles.title2}>Gerânio ● Pelargonium</Text>
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
-          Os lírios são plantas bulbosas conhecidas pelas suas flores grandes e perfumadas, que vêm em uma ampla variedade de cores, incluindo branco, amarelo, rosa e vermelho. Nativas de regiões temperadas, essas plantas preferem solos bem drenados e climas frescos. Além de serem populares como plantas ornamentais, os lírios também têm simbolismos profundos em várias culturas, representando pureza e refinamento.
+          O gerânio é uma planta ornamental muito popular em jardins e vasos. Com flores vibrantes que variam do vermelho ao rosa, roxo e branco, o gerânio é fácil de cultivar e muito resistente. Ideal para climas temperados e subtropicais, essa planta atrai polinizadores como abelhas e borboletas e é conhecida por suas propriedades medicinais e aromáticas.
         </Text>
 
         <Text style={styles.aboutTitle}>Detalhes</Text>
@@ -49,42 +49,42 @@ export default function Lirio() {
             <Image style={styles.itemImage} source={require('../../../src/assets/images/29.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Temperatura</Text>
-              <Text style={styles.itemText2}>18°C - 25°C</Text>
+              <Text style={styles.itemText2}>15°C - 25°C</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Luz solar</Text>
-              <Text style={styles.itemText2}>Sol pleno</Text>
+              <Text style={styles.itemText2}>Sol pleno ou meia-sombra</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/31.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Água</Text>
-              <Text style={styles.itemText2}>2-3 vezes por semana</Text>
+              <Text style={styles.itemText2}>2 a 3 vezes por semana</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/32.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Transplante</Text>
-              <Text style={styles.itemText2}>A cada 2 a 3 anos</Text>
+              <Text style={styles.itemText2}>A cada 2 anos</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/33.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Fertilização</Text>
-              <Text style={styles.itemText2}>Aplique fertilizante balanceado a cada 4-6 semanas durante a primavera e o verão</Text>
+              <Text style={styles.itemText2}>Mensal, durante a primavera e o verão</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Pragas</Text>
-              <Text style={styles.itemText2}>Pulgões e caracóis</Text>
+              <Text style={styles.itemText2}>Pulgões, mosca branca e ácaros</Text>
             </View>
           </View>
         </View>
@@ -92,7 +92,7 @@ export default function Lirio() {
         <Text style={styles.aboutTitle}>Problemas Comuns</Text>
         <View style={styles.imageContainer2}>
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/42.jpg')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Folhas amareladas</Text>
             </View>
@@ -104,37 +104,37 @@ export default function Lirio() {
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                Quando as folhas do lírio começam a amarelar, isso pode ser um sinal de excesso de água ou de falta de nutrientes. Os lírios preferem solos bem drenados e podem sofrer se permanecerem em solo encharcado.
+                Folhas amareladas no gerânio podem ser causadas por excesso de água, doenças ou deficiência de nutrientes.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
-              <Text style={styles.title2}>Verifique se o solo está bem drenado e evite regar excessivamente. Se necessário, aplique um fertilizante balanceado para garantir que a planta tenha os nutrientes adequados.</Text>
+              <Text style={styles.title2}>Verifique a drenagem do solo, evite regar em excesso e aplique um fertilizante balanceado para corrigir deficiências.</Text>
             </View>
           )}
 
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/45.png')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Crescimento atrofiado</Text>
+              <Text style={styles.itemText}>Crescimento lento</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
               <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
             </TouchableOpacity>
-            </View>
+          </View>
           {showProblems2 && (
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                O crescimento atrofiado dos lírios pode ser causado por falta de luz solar adequada ou nutrientes insuficientes.
+                O crescimento lento pode ser causado pela falta de luz solar, excesso de rega ou baixa temperatura.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
-              <Text style={styles.title2}>Certifique-se de que a planta está recebendo luz solar direta e fertilize regularmente para promover o crescimento saudável.</Text>
+              <Text style={styles.title2}>Certifique-se de que a planta receba luz solar direta e regue moderadamente, sem encharcar o solo.</Text>
             </View>
           )}
 
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/43.jpg')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/46.png')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Manchas nas folhas</Text>
+              <Text style={styles.itemText}>Folhas secas</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems3} style={styles.iconButton}>
               <Icon name={showProblems3 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
@@ -144,10 +144,10 @@ export default function Lirio() {
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                Manchas nas folhas podem ser um sinal de fungos ou doenças fúngicas, geralmente causadas por umidade excessiva e ventilação inadequada.
+                As folhas secas podem ser um sinal de falta de água, ou estresse causado por altas temperaturas.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
-              <Text style={styles.title2}>Remova as folhas afetadas e melhore a circulação de ar ao redor da planta. Evite molhar as folhas durante a rega e considere o uso de fungicidas, se necessário.</Text>
+              <Text style={styles.title2}>Mantenha o solo úmido, mas não encharcado, e evite deixar a planta exposta ao calor extremo.</Text>
             </View>
           )}
         </View>
@@ -157,37 +157,34 @@ export default function Lirio() {
           < View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Simbolismo</Text>
-              <Text style={styles.itemText2}>O lírio é frequentemente associado à pureza, renovação e fertilidade em diversas culturas ao redor do mundo.</Text>
+              <Text style={styles.itemText}>Propriedades Medicinais</Text>
+              <Text style={styles.itemText2}>O óleo essencial de gerânio é utilizado na aromaterapia para aliviar o estresse e promover relaxamento.</Text>
             </View>
           </View>
           <View style={styles.imageItem} >
             <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Flor de corte</Text>
-              <Text style={styles.itemText2}>Os lírios são frequentemente usados em arranjos florais devido à sua durabilidade e beleza impressionante.</Text>
+              <Text style={styles.itemText}>Atração de polinizadores</Text>
+              <Text style={styles.itemText2}>Gerânios atraem abelhas e borboletas, ajudando na polinização de outras plantas ao redor.</Text>
             </View>
-          </View>   
+          </View>
         </View>
+
         <Text style={styles.aboutTitle}>Como plantar</Text>
         <Text style={styles.title2}>
-          Para plantar um lírio, siga os passos abaixo:
-        </Text>
-
-        <Text style={styles.title2}>
-          1. Escolha um vaso com boa drenagem para evitar o apodrecimento das raízes.
+          1. Escolha um local com sol pleno ou meia-sombra.
         </Text>
         <Text style={styles.title2}>
-          2. Use um solo leve e bem drenado, misturado com composto ou areia.
+          2. Utilize um solo bem drenado e rico em matéria orgânica.
         </Text>
         <Text style={styles.title2}>
-          3. Plante o bulbo com a ponta voltada para cima, cobrindo-o levemente com terra.
+          3. Plante as sementes ou mudas com espaçamento adequado para que a planta se desenvolva bem.
         </Text>
         <Text style={styles.title2}>
-          4. Regue após o plantio e mantenha o solo úmido, mas não encharcado.
+          4. Regue regularmente, mas evite encharcar o solo.
         </Text>
         <Text style={styles.title2}>
-          5. Coloque o lírio em um local que receba luz solar direta e boa ventilação.
+          5. Fertilize durante a primavera e o verão para estimular o crescimento e florescimento.
         </Text>
       </ScrollView>
     </SafeAreaView>
@@ -204,22 +201,22 @@ const styles = StyleSheet.create({
   },
   imageWrapper: {
     marginBottom: 20,
-    position: 'relative', // Para o ícone de voltar sobrepor a imagem
+    position: 'relative',
   },
   iconWrapper: {
     position: 'absolute',
     top: 20,
     left: 20,
     zIndex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semi-transparente para garantir visibilidade
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     padding: 10,
     borderRadius: 20,
     marginTop: 30,
   },
   fullWidthImage: {
-    width: Dimensions.get('window').width, // Largura total da tela
-    height: 300, // Altura fixa
-    resizeMode: 'cover', // Ajusta a imagem para preencher sem distorção
+    width: Dimensions.get('window').width,
+    height: 300,
+    resizeMode: 'cover',
   },
   title: {
     fontSize: 24,
@@ -256,7 +253,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 15,
     marginHorizontal: 16,
-    marginBottom: 20, // Adicionando o espaçamento inferior
+    marginBottom: 20,
   },
   imageItem: {
     paddingTop: 10,
@@ -264,14 +261,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
     justifyContent: 'space-between',
-    
   },
   itemImage: {
     width: 50,
     height: 50,
     marginRight: 10,
     borderRadius: 15,
-    
   },
   textContainer: {
     flexDirection: 'column',

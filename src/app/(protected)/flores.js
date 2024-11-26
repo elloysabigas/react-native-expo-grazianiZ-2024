@@ -72,7 +72,7 @@ export default function Flores() {
         <TouchableOpacity onPress={() => router.push('/cuidados')}>
           <Ionicons name="chevron-back" size={24} color="#005f56" style={{ marginLeft: 8 }} />
         </TouchableOpacity>
-        <Text style={styles.title}>Plantas de Folha</Text>
+        <Text style={styles.title}>Flores</Text>
       </View>
 
       <View style={styles.cabecalho}>
