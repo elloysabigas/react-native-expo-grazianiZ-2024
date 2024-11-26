@@ -236,6 +236,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semi-transparente para garantir visibilidade
     padding: 10,
     borderRadius: 20,
+    marginTop: 30,
   },
   fullWidthImage: {
     width: Dimensions.get('window').width, // Largura total da tela

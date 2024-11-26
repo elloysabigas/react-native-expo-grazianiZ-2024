@@ -1,13 +1,12 @@
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Ionicons from 'react-native-vector-icons/Ionicons'; 
-import { Stack, useRouter } from 'expo-router'; 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Stack, useRouter } from 'expo-router';
 
-export default function Pacova() {
+export default function Rosa() {
   const [showProblems1, setShowProblems1] = useState(false);
   const [showProblems2, setShowProblems2] = useState(false);
-  const [showProblems3, setShowProblems3] = useState(false);
 
   const toggleProblems1 = () => {
     setShowProblems1(!showProblems1);
@@ -17,32 +16,26 @@ export default function Pacova() {
     setShowProblems2(!showProblems2);
   };
 
-  const toggleProblems3 = () => {
-    setShowProblems3(!showProblems3);
-  };
-
   const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.imageWrapper}>
-          <TouchableOpacity onPress={() => router.push('/folha')} style={styles.iconWrapper}>
+          <TouchableOpacity onPress={() => router.push('/flores')} style={styles.iconWrapper}>
             <Ionicons name="chevron-back" size={30} color="#fff" />
           </TouchableOpacity>
           <Image
-            source={require('../../../src/assets/images/pacova.png')} // Certifique-se de que a imagem está no caminho correto
+            source={require('../../../src/assets/images/rosa.png')} // Substituir pelo caminho da imagem da rosa
             style={styles.fullWidthImage}
             resizeMode="cover"
           />
         </View>
-        <Text style={styles.title}>Pacová</Text>
-        <Text style={styles.title2}>Philodendron martianum ● Planta Brasileira</Text>
+        <Text style={styles.title}>Rosa</Text>
+        <Text style={styles.title2}>Rosas ● Rosa grandiflora</Text>
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
-          O Pacová, conhecido pelo seu nome científico Philodendron martianum, é uma planta ornamental brasileira. 
-          Suas folhas largas e brilhantes são características marcantes, sendo ideal para compor ambientes internos 
-          com um toque tropical.
+          As rosas são flores amplamente conhecidas e cultivadas por sua beleza e fragrância. Representam amor, paixão e elegância, sendo muito usadas em jardins e decorações. Existem mais de 100 espécies de rosas, que variam em cor, tamanho e formato. Elas requerem cuidados específicos para florescerem de forma saudável.
         </Text>
 
         <Text style={styles.aboutTitle}>Detalhes</Text>
@@ -51,35 +44,42 @@ export default function Pacova() {
             <Image style={styles.itemImage} source={require('../../../src/assets/images/29.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Temperatura</Text>
-              <Text style={styles.itemText2}>20°C - 28°C</Text>
+              <Text style={styles.itemText2}>15°C - 25°C</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Luz solar</Text>
-              <Text style={styles.itemText2}>Luz Difusa</Text>
+              <Text style={styles.itemText2}>6 a 8 horas diárias</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/31.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Água</Text>
-              <Text style={styles.itemText2}>Solo levemente úmido</Text>
+              <Text style={styles.itemText2}>2 a 3 vezes por semana</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/32.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Transplante</Text>
-              <Text style={styles.itemText2}>A cada 1-2 anos</Text>
+              <Text style={styles.itemText2}>A cada 18 a 24 meses</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/33.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Fertilização</Text>
-              <Text style={styles.itemText2}>A cada 2 meses</Text>
+              <Text style={styles.itemText2}>A cada 15 dias</Text>
+            </View>
+          </View>
+          <View style={styles.imageItem}>
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
+            <View style={styles.textContainer}>
+              <Text style={styles.itemText}>Pragas</Text>
+              <Text style={styles.itemText2}>Ácaros e pulgões</Text>
             </View>
           </View>
         </View>
@@ -87,9 +87,9 @@ export default function Pacova() {
         <Text style={styles.aboutTitle}>Problemas Comuns</Text>
         <View style={styles.imageContainer2}>
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Folhas murchas</Text>
+              <Text style={styles.itemText}>Pulgões</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems1} style={styles.iconButton}>
               <Icon name={showProblems1 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
@@ -97,21 +97,21 @@ export default function Pacova() {
           </View>
           {showProblems1 && (
             <View style={styles.problemDetails}>
-              <Text style={styles.aboutTitle}>Causa</Text>
+              <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                Falta de água ou umidade baixa.
+                Pulgões podem sugar a seiva e enfraquecer a planta, causando folhas amareladas.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
               <Text style={styles.title2}>
-                Aumente a rega e umedeça o ambiente.
+                Use inseticidas naturais ou solução de sabão diluído para eliminá-los.
               </Text>
             </View>
           )}
 
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/45.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Folhas queimadas</Text>
+              <Text style={styles.itemText}>Fungos</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
               <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
@@ -119,13 +119,13 @@ export default function Pacova() {
           </View>
           {showProblems2 && (
             <View style={styles.problemDetails}>
-              <Text style={styles.aboutTitle}>Causa</Text>
+              <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                Exposição ao sol direto.
+                Fungos podem causar manchas pretas nas folhas e apodrecer os botões.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
               <Text style={styles.title2}>
-                Mantenha em locais com luz difusa.
+                Remova as partes afetadas e aplique fungicidas específicos.
               </Text>
             </View>
           )}
@@ -133,85 +133,74 @@ export default function Pacova() {
 
         <Text style={styles.aboutTitle}>Curiosidades</Text>
         <View style={styles.imageContainer2}>
-          <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
-            <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Baixa manutenção</Text>
-              <Text style={styles.itemText2}>
-                Ideal para iniciantes, exige cuidados simples.
-              </Text>
-            </View>
-          </View>
-          <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
-            <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Nativa do Brasil</Text>
-              <Text style={styles.itemText2}>
-                Presente em florestas tropicais e úmidas.
-              </Text>
-            </View>
-          </View>
-        </View>
-
+        < View style={styles.imageItem}>
+    <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
+    <View style={styles.textContainer}>
+      <Text style={styles.itemText2}>Rosas vermelhas simbolizam amor, enquanto as amarelas representam amizade. Algumas espécies têm até propriedades medicinais.</Text>
+    </View>
+    
+  </View>
+</View>
+   
+        
         <Text style={styles.aboutTitle}>Como plantar</Text>
         <Text style={styles.title2}>
-          Plante em solo fértil com boa drenagem. Mantenha a planta em ambientes úmidos e com luz indireta.
+          Plante em solo bem drenado e rico em matéria orgânica. Regue regularmente e podar as partes secas para estimular o crescimento.
         </Text>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#f9f9f9',
-      },
-      scrollViewContent: {
-        paddingBottom: 20,
-      },
-      imageWrapper: {
-        marginBottom: 20,
-        position: 'relative', // Para o ícone de voltar sobrepor a imagem
-      },
-      iconWrapper: {
-        position: 'absolute',
-        top: 20,
-        left: 20,
-        zIndex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semi-transparente para garantir visibilidade
-        padding: 10,
-        borderRadius: 20,
-        marginTop: 30,
-      },
-      fullWidthImage: {
-        width: Dimensions.get('window').width, // Largura total da tela
-        height: 300, // Altura fixa
-        resizeMode: 'cover', // Ajusta a imagem para preencher sem distorção
-      },
-      title: {
-        fontSize: 24,
-        marginHorizontal: 16,
-        marginTop: 20,
-        color: '#033826',
-        fontFamily: 'sourGummy',
-      },
-      title2: {
-        fontSize: 14,
-        color: '#558678',
-        textAlign: 'justify',
-        marginHorizontal: 16,
-        padding: 10,
-        fontFamily: 'regular',
-      },
-      aboutTitle: {
-        fontSize: 15,
-        marginHorizontal: 16,
-        marginTop: 20,
-        color: '#033826',
-        fontFamily: 'sourGummy',
-      },
+      flex: 1,
+      backgroundColor: '#f9f9f9',
+    },
+    scrollViewContent: {
+      paddingBottom: 20,
+    },
+    imageWrapper: {
+      marginBottom: 20,
+      position: 'relative', // Para o ícone de voltar sobrepor a imagem
+    },
+    iconWrapper: {
+      position: 'absolute',
+      top: 20,
+      left: 20,
+      zIndex: 1,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semi-transparente para garantir visibilidade
+      padding: 10,
+      borderRadius: 20,
+      marginTop: 30,
+    },
+    fullWidthImage: {
+      width: Dimensions.get('window').width, // Largura total da tela
+      height: 300, // Altura fixa
+      resizeMode: 'cover', // Ajusta a imagem para preencher sem distorção
+    },
+    title: {
+      fontSize: 24,
+      marginHorizontal: 16,
+      marginTop: 20,
+      color: '#033826',
+      fontFamily: 'sourGummy',
+    },
+    title2: {
+      fontSize: 14,
+      color: '#558678',
+      textAlign: 'justify',
+      marginHorizontal: 16,
+      padding: 10,
+      fontFamily: 'regular',
+    },
+    aboutTitle: {
+      fontSize: 15,
+      marginHorizontal: 16,
+      marginTop: 20,
+      color: '#033826',
+      fontFamily: 'sourGummy',
+    },
     imageContainer: {
       marginTop: 20,
       backgroundColor: '#f2f2f2',
@@ -290,3 +279,4 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
   }); 
+  

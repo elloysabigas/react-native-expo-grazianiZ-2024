@@ -1,13 +1,12 @@
 import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Ionicons from 'react-native-vector-icons/Ionicons'; 
-import { Stack, useRouter } from 'expo-router'; 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Stack, useRouter } from 'expo-router';
 
-export default function CostelaDeAdao() {
+export default function Paeonia() {
   const [showProblems1, setShowProblems1] = useState(false);
   const [showProblems2, setShowProblems2] = useState(false);
-  const [showProblems3, setShowProblems3] = useState(false);
 
   const toggleProblems1 = () => {
     setShowProblems1(!showProblems1);
@@ -17,30 +16,26 @@ export default function CostelaDeAdao() {
     setShowProblems2(!showProblems2);
   };
 
-  const toggleProblems3 = () => {
-    setShowProblems3(!showProblems3);
-  };
-
   const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.imageWrapper}>
-          <TouchableOpacity onPress={() => router.push('/folha')} style={styles.iconWrapper}>
+          <TouchableOpacity onPress={() => router.push('/flores')} style={styles.iconWrapper}>
             <Ionicons name="chevron-back" size={30} color="#fff" />
           </TouchableOpacity>
           <Image
-            source={require('../../../src/assets/images/anturio.png')}
+            source={require('../../../src/assets/images/peonia.png')} // Substituir pelo caminho da imagem da Paeonia
             style={styles.fullWidthImage}
-            resizeMode="cover" // Ajuste para evitar distorções
+            resizeMode="cover"
           />
         </View>
-        <Text style={styles.title}>Antúrio</Text>
-        <Text style={styles.title2}>Antúrio ● Anthurium andraeanum</Text>
+        <Text style={styles.title}>Paeonia</Text>
+        <Text style={styles.title2}>Paeônia ● Paeonia lactiflora</Text>
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
-          O antúrio é uma planta tropical conhecida por suas flores brilhantes e folhas decorativas. As flores, na verdade, são brácteas coloridas que envolvem uma inflorescência chamada espádice. É amplamente cultivado como planta ornamental devido à sua aparência exótica e facilidade de cuidado. Prefere ambientes quentes e úmidos, sendo ideal para interiores bem iluminados.
+          As paeônias são flores perenes populares por sua beleza e fragrância encantadora. Nativas de regiões temperadas da Ásia, Europa e América do Norte, essas plantas ornamentais são frequentemente cultivadas em jardins. Sua floração exuberante é um dos maiores atrativos, com tons que variam entre branco, rosa, vermelho e até amarelo.
         </Text>
 
         <Text style={styles.aboutTitle}>Detalhes</Text>
@@ -49,42 +44,42 @@ export default function CostelaDeAdao() {
             <Image style={styles.itemImage} source={require('../../../src/assets/images/29.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Temperatura</Text>
-              <Text style={styles.itemText2}>18°C - 28°C</Text>
+              <Text style={styles.itemText2}>10°C - 25°C</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Luz solar</Text>
-              <Text style={styles.itemText2}>Luz indireta brilhante</Text>
+              <Text style={styles.itemText2}>6 a 8 horas diárias</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/31.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Água</Text>
-              <Text style={styles.itemText2}>A cada 1-2 semanas</Text>
+              <Text style={styles.itemText2}>1 a 2 vezes por semana</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/32.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Transplante</Text>
-              <Text style={styles.itemText2}>A cada 2 anos</Text>
+              <Text style={styles.itemText2}>A cada 24 meses</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/33.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Fertilização</Text>
-              <Text style={styles.itemText2}>Fertilizante líquido a cada 2 meses</Text>
+              <Text style={styles.itemText2}>A cada 20 dias</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Pragas</Text>
-              <Text style={styles.itemText2}>Cochonilhas</Text>
+              <Text style={styles.itemText2}>Ácaros e pulgões</Text>
             </View>
           </View>
         </View>
@@ -92,9 +87,9 @@ export default function CostelaDeAdao() {
         <Text style={styles.aboutTitle}>Problemas Comuns</Text>
         <View style={styles.imageContainer2}>
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Folhas amareladas</Text>
+              <Text style={styles.itemText}>Mofo cinzento</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems1} style={styles.iconButton}>
               <Icon name={showProblems1 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
@@ -104,11 +99,33 @@ export default function CostelaDeAdao() {
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                Amarelamento das folhas pode ser causado por excesso de rega ou exposição direta ao sol.
+                O mofo cinzento pode afetar as flores e folhas, causando descoloração e apodrecimento.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
               <Text style={styles.title2}>
-                Ajuste a frequência da rega e posicione a planta em local com luz indireta.
+                Remova as áreas afetadas e use fungicidas específicos para evitar a propagação.
+              </Text>
+            </View>
+          )}
+
+          <View style={styles.imageItem}>
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/38.png')} />
+            <View style={styles.textContainer}>
+              <Text style={styles.itemText}>Raiz podre</Text>
+            </View>
+            <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
+              <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
+            </TouchableOpacity>
+          </View>
+          {showProblems2 && (
+            <View style={styles.problemDetails}>
+              <Text style={styles.aboutTitle}>Sobre</Text>
+              <Text style={styles.title2}>
+                A podridão da raiz ocorre devido ao excesso de umidade e pode comprometer a planta.
+              </Text>
+              <Text style={styles.aboutTitle}>Como cuidar</Text>
+              <Text style={styles.title2}>
+                Certifique-se de que o solo tem boa drenagem e evite regar em excesso.
               </Text>
             </View>
           )}
@@ -116,33 +133,24 @@ export default function CostelaDeAdao() {
 
         <Text style={styles.aboutTitle}>Curiosidades</Text>
         <View style={styles.imageContainer2}>
-          <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
-            <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Planta do amor</Text>
-              <Text style={styles.itemText2}>
-                Antúrios são símbolos de hospitalidade, felicidade e amor.
-              </Text>
-            </View>
-          </View>
-        </View>
+        < View style={styles.imageItem}>
+    <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
+    <View style={styles.textContainer}>
+      <Text style={styles.itemText2}>Na cultura chinesa, a paeônia é considerada um símbolo de riqueza e prosperidade. Além disso, seus extratos são utilizados na medicina tradicional.</Text>
+    </View>
+    
+  </View>
+</View>
+
+
         <Text style={styles.aboutTitle}>Como plantar</Text>
         <Text style={styles.title2}>
-          1. Use um vaso com boa drenagem.{"\n"}
-          {"\n"}
-          2. Utilize solo rico em matéria orgânica.{"\n"}
-          {"\n"}
-          3. Plante o Antúrio com as raízes firmemente cobertas.{"\n"}
-          {"\n"}
-          4. Regue regularmente, mas sem encharcar o solo.{"\n"}
-          {"\n"}
-          5. Coloque em local com luz indireta brilhante.
+          Plante em solo bem drenado, rico em matéria orgânica, e evite locais com vento excessivo. A poda anual ajuda a estimular o crescimento saudável.
         </Text>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
