@@ -9,20 +9,20 @@ export default function Flores() {
 
   // Função para normalizar texto (remove acentos)
   const normalizeText = (text) =>
-    text.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    text.normalize('NFD').replace(/[̀-ͯ]/g, "");
 
   // Lista de categorias com imagem e título
   const categories = [
-    { id: '1', image: require('../../../src/assets/images/44.png'), title: 'Haworthia Fasciata' },
-    { id: '2', image: require('../../../src/assets/images/20.png'), title: 'Echevera mexican' },
-    { id: '3', image: require('../../../src/assets/images/21.png'), title: 'Echeveria Carnicolor' },
-    { id: '4', image: require('../../../src/assets/images/22.png'), title: 'Sedum\nnussbaumerianum' },  // Adicionando a quebra de linha
-    { id: '5', image: require('../../../src/assets/images/23.png'), title: 'Gollum Jade\nCrassula ovata' },  // Adicionando a quebra de linha
-    { id: '6', image: require('../../../src/assets/images/24.png'), title: 'Planta fantasma' },
-    { id: '7', image: require('../../../src/assets/images/25.png'), title: 'Mammillaria Gracilis\nFragilis Cactus' },  // Adicionando a quebra de linha
-    { id: '8', image: require('../../../src/assets/images/26.png'), title: 'Echinocactus grusonii' },
-    { id: '9', image: require('../../../src/assets/images/27.png'), title: 'Figueira da Índia' },
-    { id: '10', image: require('../../../src/assets/images/28.png'), title: 'Sedum\nMorganianum' },  // Adicionando a quebra de linha
+    { id: '1', image: require('../../../src/assets/images/cac1.png'), title: 'Haworthia Fasciata' },
+    { id: '2', image: require('../../../src/assets/images/cac2.png'), title: 'Echevera mexican' },
+    { id: '3', image: require('../../../src/assets/images/cac3.png'), title: 'Echeveria Carnicolor' },
+    { id: '4', image: require('../../../src/assets/images/cac4.png'), title: 'Sedum\nnussbaumerianum' },
+    { id: '5', image: require('../../../src/assets/images/cac5.png'), title: 'Gollum Jade\nCrassula ovata' },
+    { id: '6', image: require('../../../src/assets/images/cac6.png'), title: 'Planta fantasma' },
+    { id: '7', image: require('../../../src/assets/images/cac7.png'), title: 'Mammillaria Gracilis\nFragilis Cactus' },
+    { id: '8', image: require('../../../src/assets/images/cac8.png'), title: 'Echinocactus grusonii' },
+    { id: '9', image: require('../../../src/assets/images/cac9.png'), title: 'Figueira da Índia' },
+    { id: '10', image: require('../../../src/assets/images/cac10.png'), title: 'Sedum\nMorganianum' },
   ];
   
 
@@ -35,28 +35,40 @@ export default function Flores() {
     <TouchableOpacity
   style={styles.button}
   onPress={() => {
-    if (item.title === 'Orquídea') {
-      router.push('/sobreOrquidea');
-    } else if (item.title === 'Rosa') {
-      router.push('/sobreRosa');
-    } else if (item.title === 'Paeonia') {
-      router.push('/sobrePaeonia');
-    } else if (item.title === 'Lírio') {
-      router.push('/sobreLirio');
-    } else if (item.title === 'Zinna elegans') {
-      router.push('/sobreZinnaElegans');
-    } else if (item.title === 'Gerânios') {
-      router.push('/sobreGeranios');
-    } else if (item.title === 'Girassol') {
-      router.push('/sobreGirassol');
-    } else if (item.title === 'Flor de cerejeira') {
-      router.push('/sobreFlorDeCerejeira');
-    } else if (item.title === 'Tulipas') {
-      router.push('/sobreTulipas');
-    } else if (item.title === 'Hibisco') {
-      router.push('/sobreHibisco');
-    } else {
-      router.push(`/planta/${item.id}`);
+    switch (item.title) {
+      case 'Haworthia Fasciata':
+        router.push('/sobreHaworthiaFasciata');
+        break;
+      case 'Echevera mexican':
+        router.push('/sobreEcheveraMexican');
+        break;
+      case 'Echeveria Carnicolor':
+        router.push('/sobreEcheveriaCarnicolor');
+        break;
+      case 'Sedum\nnussbaumerianum':
+        router.push('/sobreSedumNussbaumerianum');
+        break;
+      case 'Gollum Jade\nCrassula ovata':
+        router.push('/sobreGollumJade');
+        break;
+      case 'Planta fantasma':
+        router.push('/sobrePlantaFantasma');
+        break;
+      case 'Mammillaria Gracilis\nFragilis Cactus':
+        router.push('/sobreMammillariaGracilis');
+        break;
+      case 'Echinocactus grusonii':
+        router.push('/sobreEchinocactusGrusonii');
+        break;
+      case 'Figueira da Índia':
+        router.push('/sobreFigueiraDaIndia');
+        break;
+      case 'Sedum\nMorganianum':
+        router.push('/sobreSedumMorganianum');
+        break;
+      default:
+        router.push(`/planta/${item.id}`);
+        break;
     }
   }}
 >
@@ -73,7 +85,7 @@ export default function Flores() {
         <TouchableOpacity onPress={() => router.push('/cuidados')}>
           <Ionicons name="chevron-back" size={24} color="#005f56" style={{ marginLeft: 8 }} />
         </TouchableOpacity>
-        <Text style={styles.title}>Plantas de Folha</Text>
+        <Text style={styles.title}>Suculentas e cactos</Text>
       </View>
 
       <View style={styles.cabecalho}>
@@ -149,7 +161,6 @@ const styles = StyleSheet.create({
     color: '#bbb',
   },
   button: {
-    
     backgroundColor: '#fff',
     borderRadius: 15,
     justifyContent: 'center',

@@ -4,32 +4,48 @@ import PagerView from "react-native-pager-view";
 
 export function Banner() {
   const [page, setPage] = useState(0);
-  const pagerRef = useRef(null); // Referência para o PagerView
+  const [page2, setPage2] = useState(0);
+  const pagerRef1 = useRef(null); // Referência para o primeiro PagerView
+  const pagerRef2 = useRef(null); // Referência para o segundo PagerView
 
-  // Função chamada ao mudar a página manualmente ou automaticamente
-  const onPageSelected = (e) => {
+  const onPageSelected1 = (e) => {
     setPage(e.nativeEvent ? e.nativeEvent.position : e);
   };
 
-  // Roda automaticamente o banner
+  const onPageSelected2 = (e) => {
+    setPage2(e.nativeEvent ? e.nativeEvent.position : e);
+  };
+
+  // Função para rotação automática do primeiro carrossel
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextPage = (page + 1) % 3; // Total de páginas: 3
-      pagerRef.current?.setPage(nextPage); // Atualiza para a próxima página
+      const nextPage = (page + 1) % 3; // Número de páginas do primeiro carrossel
+      pagerRef1.current?.setPage(nextPage);
       setPage(nextPage);
-    }, 3000); // Troca a cada 3 segundos
+    }, 3000);
 
-    return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
+    return () => clearInterval(interval);
   }, [page]);
+
+  // Função para rotação automática do segundo carrossel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextPage = (page2 + 1) % 3; // Número de páginas do segundo carrossel
+      pagerRef2.current?.setPage(nextPage);
+      setPage2(nextPage);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [page2]);
 
   return (
     <View style={styles.container}>
-      {/* PagerView com imagens */}
+      {/* Primeiro carrossel */}
       <PagerView
-        ref={pagerRef}
+        ref={pagerRef1}
         initialPage={0}
         style={styles.content}
-        onPageSelected={onPageSelected}
+        onPageSelected={onPageSelected1}
       >
         <View key="1" style={styles.page}>
           <Image
@@ -51,11 +67,45 @@ export function Banner() {
         </View>
       </PagerView>
 
-      {/* Indicadores de página */}
+      {/* Indicadores de página do primeiro carrossel */}
       <View style={styles.bulletContent}>
         <View style={[styles.bullet, page === 0 && styles.activeBullet]}></View>
         <View style={[styles.bullet, page === 1 && styles.activeBullet]}></View>
         <View style={[styles.bullet, page === 2 && styles.activeBullet]}></View>
+      </View>
+
+      {/* Segundo carrossel */}
+      <PagerView
+        ref={pagerRef2}
+        initialPage={0}
+        style={styles.content}
+        onPageSelected={onPageSelected2}
+      >
+        <View key="1" style={styles.page}>
+          <Image
+            source={require("../../assets/images/banner1.png")}
+            style={styles.image}
+          />
+        </View>
+        <View key="2" style={styles.page}>
+          <Image
+            source={require("../../assets/images/banner2.png")}
+            style={styles.image}
+          />
+        </View>
+        <View key="3" style={styles.page}>
+          <Image
+            source={require("../../assets/images/banner3.png")}
+            style={styles.image}
+          />
+        </View>
+      </PagerView>
+
+      {/* Indicadores de página do segundo carrossel */}
+      <View style={styles.bulletContent}>
+        <View style={[styles.bullet, page2 === 0 && styles.activeBullet]}></View>
+        <View style={[styles.bullet, page2 === 1 && styles.activeBullet]}></View>
+        <View style={[styles.bullet, page2 === 2 && styles.activeBullet]}></View>
       </View>
     </View>
   );
@@ -64,9 +114,8 @@ export function Banner() {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    position: "absolute", // Fixa o banner no topo
-    top: 0, // Alinha no topo
-    zIndex: 10, // Garante que fique acima de outros elementos
+    position: "relative",
+    zIndex: 10,
   },
   content: {
     width: "100%",
@@ -77,6 +126,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 4,
+    marginBottom: 20, // Espaçamento entre os carrosséis
   },
   page: {
     justifyContent: "center",
@@ -103,8 +153,8 @@ const styles = StyleSheet.create({
     transform: [{ scale: 1 }],
   },
   activeBullet: {
-    backgroundColor: "#98c58a", 
+    backgroundColor: "#98c58a",
     opacity: 1,
-    transform: [{ scale: 1.3 }], 
+    transform: [{ scale: 1.3 }],
   },
 });

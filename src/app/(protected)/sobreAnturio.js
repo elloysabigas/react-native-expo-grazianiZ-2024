@@ -92,7 +92,7 @@ export default function CostelaDeAdao() {
         <Text style={styles.aboutTitle}>Problemas Comuns</Text>
         <View style={styles.imageContainer2}>
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/a.png')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Folhas amareladas</Text>
             </View>

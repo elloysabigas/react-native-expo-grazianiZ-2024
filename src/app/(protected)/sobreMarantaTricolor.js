@@ -93,7 +93,7 @@ export default function CostelaDeAdao() {
 <View style={styles.imageContainer2}>
   {/* Problema 1: Folhas Amareladas */}
   <View style={styles.imageItem}>
-    <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
+    <Image style={styles.itemImage} source={require('../../../src/assets/images/a.png')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Folhas Amareladas</Text>
     </View>
@@ -120,7 +120,7 @@ export default function CostelaDeAdao() {
 
   {/* Problema 2: Folhas Secas nas Pontas */}
   <View style={styles.imageItem}>
-    <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
+    <Image style={styles.itemImage} source={require('../../../src/assets/images/a.png')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Folhas Secas nas Pontas</Text>
     </View>
@@ -146,7 +146,7 @@ export default function CostelaDeAdao() {
 
   {/* Problema 3: Deformação ou Amarelamento nas Folhas Inferiores */}
   <View style={styles.imageItem}>
-    <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
+    <Image style={styles.itemImage} source={require('../../../src/assets/images/a.png')} />
     <View style={styles.textContainer}>
       <Text style={styles.itemText}>Deformação ou Amarelamento nas Folhas Inferiores</Text>
     </View>

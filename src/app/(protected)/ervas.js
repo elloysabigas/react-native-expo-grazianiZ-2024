@@ -1,26 +1,94 @@
-import { Stack, useRouter } from 'expo-router'; // Importa useRouter para navegação
-import { SafeAreaView, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons'; // Importação do Ionicons
-import React, { useState } from 'react'; // Importação de useState
+import { Stack, useRouter } from 'expo-router'; 
+import { SafeAreaView, StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Image } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons'; 
+import React, { useState } from 'react'; 
 
 export default function Flores() {
-  const [text, setText] = useState(''); // useState para gerenciar o valor do campo de pesquisa
-  const router = useRouter(); // Hook para controlar a navegação
+  const [text, setText] = useState(''); 
+  const router = useRouter(); 
+
+  // Função para normalizar texto (remove acentos)
+  const normalizeText = (text) =>
+    text.normalize('NFD').replace(/[̀-ͯ]/g, "");
+
+  // Lista de categorias com imagem e título
+  const categories = [
+    { id: '1', image: require('../../../src/assets/images/erv1.png'), title: 'Orégano' },
+    { id: '2', image: require('../../../src/assets/images/erv2.png'), title: 'Alho poró' },
+    { id: '3', image: require('../../../src/assets/images/erv3.png'), title: 'Alecrim' },
+    { id: '4', image: require('../../../src/assets/images/erv4.png'), title: 'Tomilho' },
+    { id: '5', image: require('../../../src/assets/images/erv5.png'), title: 'Salsicha' },
+    { id: '6', image: require('../../../src/assets/images/erv6.png'), title: 'Estragão' },
+    { id: '7', image: require('../../../src/assets/images/erv7.png'), title: 'Hortelã' },
+    { id: '8', image: require('../../../src/assets/images/erv8.png'), title: 'Baunilha' },
+    { id: '9', image: require('../../../src/assets/images/erv9.png'), title: 'Canela' },
+    { id: '10', image: require('../../../src/assets/images/erv10.png'), title: 'Cravo' },
+  ];
+  
+
+  // Filtrar categorias com base no texto de pesquisa
+  const filteredCategories = categories.filter((category) =>
+    normalizeText(category.title.toLowerCase()).includes(normalizeText(text.toLowerCase()))
+  );
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+  style={styles.button}
+  onPress={() => {
+    switch (item.title) {
+      case 'Orégano':
+        router.push('/sobreOregano');
+        break;
+      case 'Alho poró':
+        router.push('/sobreAlhoPoro');
+        break;
+      case 'Alecrim':
+        router.push('/sobreAlecrim');
+        break;
+      case 'Tomilho':
+        router.push('/sobreTomilho');
+        break;
+      case 'Salsicha':
+        router.push('/sobreSalsicha');
+        break;
+      case 'Estragão':
+        router.push('/sobreEstragao');
+        break;
+      case 'Hortelã':
+        router.push('/sobreHortela');
+        break;
+      case 'Baunilha':
+        router.push('/sobreBaunilha');
+        break;
+      case 'Canela':
+        router.push('/sobreCanela');
+        break;
+      case 'Cravo':
+        router.push('/sobreCravo');
+        break;
+      default:
+        router.push(`/planta/${item.id}`);
+        break;
+  
+    }
+  }}
+>
+      <View style={styles.buttonContent}>
+        <Image source={item.image} style={styles.image} />
+        <Text style={styles.buttonText}>{item.title}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Cabeçalho com ícone de seta e título */}
       <View style={styles.header}>
-        {/* Botão de voltar */}
         <TouchableOpacity onPress={() => router.push('/cuidados')}>
-          <Ionicons name="chevron-back" size={24} color="#005f56" style={{marginLeft:8}} />
+          <Ionicons name="chevron-back" size={24} color="#005f56" style={{ marginLeft: 8 }} />
         </TouchableOpacity>
-
-        {/* Título */}
         <Text style={styles.title}>Ervas</Text>
       </View>
 
-      {/* Campo de pesquisa */}
       <View style={styles.cabecalho}>
         <View style={styles.inputContainer}>
           <TextInput 
@@ -34,6 +102,16 @@ export default function Flores() {
           <Ionicons name="search" size={24} color="#d7dbe4" style={styles.icon} />
         </View>
       </View>
+
+      <FlatList
+        data={filteredCategories}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        numColumns={1}
+        ListEmptyComponent={() => (
+          <Text style={styles.emptyText}>Nenhuma planta encontrada</Text>
+        )}
+      />
     </SafeAreaView>
   );
 }
@@ -43,18 +121,19 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: '#f9f9f9',
+    marginTop: 50,
   },
   header: {
-    flexDirection: 'row', // Coloca a seta e o texto lado a lado
+    flexDirection: 'row', 
     alignItems: 'center',
     marginBottom: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     color: "#005f56",
-    fontFamily: 'regular',
+    fontFamily: 'sourGummy',
     textAlign: 'center',
-    marginLeft:20,
+    marginLeft: 16,
   },
   cabecalho: {
     flexDirection: 'row',
@@ -66,21 +145,56 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 50,
+    borderRadius: 30,
     borderWidth: 1,
     borderColor: '#ddd',
     paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingVertical: 8,
     width: '100%',
   },
   textInput: {
     flex: 1,
     fontSize: 16,
-    paddingVertical: 8,
     color: '#333',
   },
   icon: {
     marginLeft: 8,
     color: '#bbb',
+  },
+  button: {
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    marginVertical: 8,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+    height: 120,
+  },
+  buttonContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    marginRight: 12,
+    borderRadius: 8,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: '#005f56',
+    fontFamily: 'regular',
+    textAlign: 'left',
+  },
+  emptyText: {
+    textAlign: 'center',
+    color: '#777',
+    marginTop: 20,
   },
 });

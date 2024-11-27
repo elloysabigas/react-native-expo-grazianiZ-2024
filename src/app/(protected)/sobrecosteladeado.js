@@ -92,7 +92,7 @@ export default function CostelaDeAdao() {
         <Text style={styles.aboutTitle}>Problemas Comuns</Text>
         <View style={styles.imageContainer2}>
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/44.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/a.png')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Folhas amareladas:</Text>
             </View>
@@ -112,7 +112,7 @@ export default function CostelaDeAdao() {
           )}
 
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/45.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/b.png')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Folhas sem furos ou menores</Text>
             </View>
@@ -132,7 +132,7 @@ export default function CostelaDeAdao() {
           )}
 
           <View style={styles.imageItem}>
-            <Image style={styles.itemImage} source={require('../../../src/assets/images/46.png')} />
+            <Image style={styles.itemImage} source={require('../../../src/assets/images/c.png')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Manchas marrons ou pontas secas nas folhas</Text>
             </View>
