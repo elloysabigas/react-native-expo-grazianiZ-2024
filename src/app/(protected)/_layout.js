@@ -340,14 +340,7 @@ const DrawerLayout = () => {
                    headerShown: false       // Não mostra o cabeçalho padrão da tela
                  }} 
                  />
-            <Drawer.Screen 
-                name="sobreSedumMorganianum" 
-                options={{
-                  drawerLabel: () => null, // Oculta o texto no Drawer
-                  drawerIcon: () => null,  // Remove o ícone no Drawer
-                   headerShown: false       // Não mostra o cabeçalho padrão da tela
-                 }} 
-                 />
+            
             <Drawer.Screen 
                 name="sobreOregano" 
                 options={{
@@ -494,14 +487,6 @@ const DrawerLayout = () => {
                  />
             <Drawer.Screen 
                 name="sobreJaca" 
-                options={{
-                  drawerLabel: () => null, // Oculta o texto no Drawer
-                  drawerIcon: () => null,  // Remove o ícone no Drawer
-                   headerShown: false       // Não mostra o cabeçalho padrão da tela
-                 }} 
-                 />
-            <Drawer.Screen 
-                name="sobreGoiaba" 
                 options={{
                   drawerLabel: () => null, // Oculta o texto no Drawer
                   drawerIcon: () => null,  // Remove o ícone no Drawer
