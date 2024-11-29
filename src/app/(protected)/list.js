@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import { usePaymentsDatabase } from "../../database/usePaymentsDatabase";
 import { FlashList } from "@shopify/flash-list";
-//import { formatDateBrazilian } from "../../utilss/formatData";
+import { formatDateToBrazilian } from "../../utils/formatData";
 import { setOriginalNode } from "typescript";
+import { formatCurrentBRL } from "../../utils/formatCurrent";
 
 
 export default function List(){
@@ -41,11 +42,11 @@ export default function List(){
             <View style={{flex:1, gap: 5}}> 
                 <Text style={{fontFamily:"bold", fontSize: 20, textTransform: "uppercase" }}>{item.nome}</Text>
                 <View style={{flexDirection:'row', gap:10}}>
-                  <Text style={{fontFamily:'regular'}}>{formatDateBrazilian (item.data_pagamento || new Date())}</Text>
+                  <Text style={{fontFamily:'regular'}}>{formatDateToBrazilian (item.data_pagamento || new Date())}</Text>
                   <Text>{item.numero_recibo}</Text>
                 </View>
             </View>
-            <View><Text style={{flex:1, justifyContent:'center', alignItems:'center',}}>{formatCurrencyBRL (item.valor_pago || 0)}</Text></View>
+            <View><Text style={{flex:1, justifyContent:'center', alignItems:'center',}}>{formatCurrentBRL (item.valor_pago || 0)}</Text></View>
           
         </View>
        

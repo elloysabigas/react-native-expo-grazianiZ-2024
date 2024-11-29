@@ -29,7 +29,7 @@ export default function Payment() {
       const [observacao, setObservacao] = useState("");
       const [numeroRecibo, setNumeroRecibo] = useState("");
       const valueRef = useRef();
-      const {user} = useAuth();
+      const { user } = useAuth();
       const {createPayment} = usePaymentsDatabase();
       const {getAllUsers} = useUsersDatabase();
 
@@ -91,7 +91,7 @@ export default function Payment() {
             user_id: id,
             user_cadastro: Number(user.user.id),
             valor_pago: convertValue(valor),
-            data_pagamento: data.toISOString,
+            data_pagamento: data.toISOString(),
             numero_recibo: numeroRecibo,
             observacao,
             
@@ -101,7 +101,7 @@ export default function Payment() {
 
           try {
             const result = await paymentSchema.parseAsync(payment);
-            payment.data_pagamento = new Date(payment.data_pagamento).toISOString().replace("T", " "),split(".")[0];
+            payment.data_pagamento = new Date(payment.data_pagamento).toISOString().replace("T", " ").split(".")[0];
             const {insertedID} = await createPayment(payment);
             console.log(insertedID);
             setValor("0,00");

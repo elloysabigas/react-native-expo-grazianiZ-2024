@@ -16,7 +16,7 @@ export function usePaymentsDatabase() {
         `);
 
         try {
-            const result = await statment.executeAsync({
+            const result = await statement.executeAsync({
                 $user_id: user_id,
                 $user_cadastro: user_cadastro,
                 $valor_pago: valor_pago,
@@ -32,13 +32,13 @@ export function usePaymentsDatabase() {
             console.log(error)
             throw error
         } finally {
-            await statment.finalizeAsync();
+            await statement.finalizeAsync();
         }
     }
 
     async function getPayments(page) {
         try {
-            const payments = await database.getAllAsync(`SELECT p.*, u.nome FROM payments p, users u WHERE u.id = p.user_id ORDER BY data_pagamento DESC LIMIT 5 OFFSET ${page * 5}`);
+            const payments = await database.getAllAsync(`SELECT p.*, u.nome FROM payments p, users u WHERE u.id = p.user_id ORDER BY p.data_pagamento DESC LIMIT 5 OFFSET ${page * 5}`);
             return payments;
         } catch (error){
             console.log(error);
