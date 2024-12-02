@@ -1,6 +1,6 @@
 import { Button, Text, View } from "react-native";
 import { useAuth } from "../../hooks/Auth/index.js";
-import { Banner } from "../../components/Banner/index.js";
+import { Banner } from "../../components/Banner/ideias.js";
 
 export default function Home(){
 

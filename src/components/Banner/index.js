@@ -77,37 +77,7 @@ export function Banner() {
           </View>
 
           {/* Segundo carrossel */}
-          <PagerView
-            ref={pagerRef2}
-            initialPage={0}
-            style={styles.content2}
-            onPageSelected={onPageSelected2}
-          >
-            <View key="1" style={styles.page}>
-              <Image
-                source={require("../../assets/images/hor1.png")}
-                style={styles.image}
-              />
-            </View>
-            <View key="2" style={styles.page}>
-              <Image
-                source={require("../../assets/images/hor2.png")}
-                style={styles.image}
-              />
-            </View>
-            <View key="3" style={styles.page}>
-              <Image
-                source={require("../../assets/images/hor3.png")}
-                style={styles.image}
-              />
-            </View>
-            <View key="4" style={styles.page}>
-              <Image
-                source={require("../../assets/images/hor4.png")}
-                style={styles.image}
-              />
-            </View>
-          </PagerView>
+         
 
           {/* Indicadores de página do segundo carrossel */}
           <View style={styles.bulletContent}>

@@ -10,7 +10,7 @@ const StackLayout = () =>{
         if(!user?.authenticated){
            router.replace("signin")
         } else {
-           router.replace("(protected)/");
+           router.replace("(protected)/cuidados");
         }
     }, [user]);
 
