@@ -37,15 +37,16 @@ const DrawerLayout = () => {
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Drawer drawerContent={(props) => <CustomDrawerContent {...props} />}>
                 <Drawer.Screen name="index" options={{drawerLabel: "Principal", headerTitle: "Principal", drawerIcon: ()=> <Ionicons name="home" size={20} color="#006356" /> }} />
+                <Drawer.Screen name="ideias" options={{drawerLabel: "Inspire-se", headerTitle: "Principal", drawerIcon: ()=> <Ionicons name="star" size={20} color="#006356" /> }} />
           
-            <Drawer.Screen name="cuidados" options={{drawerLabel: "Descubra", headerTitle: "Descubra", drawerIcon: ()=> <Ionicons name="search" size={20} color="#006356"/>}} />
+            <Drawer.Screen name="cuidados" options={{drawerLabel: "Pesquise", headerTitle: "Pesquise", drawerIcon: ()=> <Ionicons name="search" size={20} color="#006356"/>}} />
             <Drawer.Screen name="list" options={{drawerLabel: "Listagem", headerTitle: "Listagem", drawerIcon: ()=> <Ionicons name="list" size={20} color="#006356"/>}} />
             <Drawer.Screen name="payment" options={{drawerLabel: "Pagamentos", headerTitle: "Pagamentos", drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>}} />
             <Drawer.Screen 
             name="cacto" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -54,7 +55,7 @@ const DrawerLayout = () => {
             name="ervas" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -63,7 +64,7 @@ const DrawerLayout = () => {
             name="flores" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -72,7 +73,7 @@ const DrawerLayout = () => {
             name="folha" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -81,7 +82,7 @@ const DrawerLayout = () => {
             name="frutas" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -90,7 +91,7 @@ const DrawerLayout = () => {
             name="legumes" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -99,7 +100,7 @@ const DrawerLayout = () => {
             name="sobreAbacate" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -108,7 +109,7 @@ const DrawerLayout = () => {
             name="sobreAbacaxi" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -117,7 +118,7 @@ const DrawerLayout = () => {
             name="sobreAbobora" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -126,7 +127,7 @@ const DrawerLayout = () => {
             name="sobreAbobrinha" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -135,7 +136,7 @@ const DrawerLayout = () => {
             name="sobreAgriao" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -144,7 +145,7 @@ const DrawerLayout = () => {
             name="sobreAlcachofra" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -153,7 +154,7 @@ const DrawerLayout = () => {
             name="sobreAlecrim" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -162,7 +163,7 @@ const DrawerLayout = () => {
             name="sobreAlface" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -171,7 +172,7 @@ const DrawerLayout = () => {
             name="sobreAlho" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -180,7 +181,7 @@ const DrawerLayout = () => {
             name="sobreAlhoPoro" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -189,7 +190,7 @@ const DrawerLayout = () => {
             name="sobreAlmeirao" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -198,7 +199,7 @@ const DrawerLayout = () => {
             name="sobreAlocasiaWentii" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -207,7 +208,7 @@ const DrawerLayout = () => {
             name="sobreAmeixa" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -216,7 +217,7 @@ const DrawerLayout = () => {
             name="sobreAmora" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -225,7 +226,7 @@ const DrawerLayout = () => {
             name="sobreAnturio" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -234,7 +235,7 @@ const DrawerLayout = () => {
             name="sobreBaunilha" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -243,7 +244,7 @@ const DrawerLayout = () => {
             name="sobreBerinjela" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -252,7 +253,7 @@ const DrawerLayout = () => {
             name="sobreBromelia" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -261,7 +262,7 @@ const DrawerLayout = () => {
             name="sobreCanela" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -270,7 +271,7 @@ const DrawerLayout = () => {
             name="sobreCereja" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -279,7 +280,7 @@ const DrawerLayout = () => {
             name="sobreCopo-de-Leite" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -288,7 +289,7 @@ const DrawerLayout = () => {
             name="sobrecosteladeado" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -297,7 +298,7 @@ const DrawerLayout = () => {
             name="sobreCravo" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -306,7 +307,7 @@ const DrawerLayout = () => {
             name="sobreCroton" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -315,7 +316,7 @@ const DrawerLayout = () => {
             name="sobreEcheveraMexican" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -324,7 +325,7 @@ const DrawerLayout = () => {
             name="sobreEcheveriaCarnicolor" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -333,7 +334,7 @@ const DrawerLayout = () => {
             name="sobreEchinocactusGrusonii" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -342,7 +343,7 @@ const DrawerLayout = () => {
             name="sobreEstragao" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -351,7 +352,7 @@ const DrawerLayout = () => {
             name="sobreFigueiraDaIndia" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -360,7 +361,7 @@ const DrawerLayout = () => {
             name="sobreFlorDeCerejeira" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -369,7 +370,7 @@ const DrawerLayout = () => {
             name="sobreGeranios" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -378,7 +379,7 @@ const DrawerLayout = () => {
             name="sobreGirassol" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -387,7 +388,7 @@ const DrawerLayout = () => {
             name="sobreGollumJade" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -396,7 +397,7 @@ const DrawerLayout = () => {
             name="sobreHaworthiaFasciata" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -405,7 +406,7 @@ const DrawerLayout = () => {
             name="sobreHibisco" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -414,7 +415,7 @@ const DrawerLayout = () => {
             name="sobreHortela" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -423,7 +424,7 @@ const DrawerLayout = () => {
             name="sobreJaca" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -432,7 +433,7 @@ const DrawerLayout = () => {
             name="sobreKiwi" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -441,7 +442,7 @@ const DrawerLayout = () => {
             name="sobreLaranja" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -450,7 +451,7 @@ const DrawerLayout = () => {
             name="sobreLimao" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -459,7 +460,7 @@ const DrawerLayout = () => {
             name="sobreLirio" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -468,7 +469,7 @@ const DrawerLayout = () => {
             name="sobreMammillariaGracilis" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -477,7 +478,7 @@ const DrawerLayout = () => {
             name="sobreMarantaTricolor" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -486,7 +487,7 @@ const DrawerLayout = () => {
             name="sobreOregano" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -495,7 +496,7 @@ const DrawerLayout = () => {
             name="sobreOrquidea" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -504,7 +505,7 @@ const DrawerLayout = () => {
             name="sobrePacov" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -513,7 +514,7 @@ const DrawerLayout = () => {
             name="sobrePaeonia" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -522,7 +523,7 @@ const DrawerLayout = () => {
             name="sobrePlantaFantasma" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -531,7 +532,7 @@ const DrawerLayout = () => {
             name="sobreRepolho" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -540,7 +541,7 @@ const DrawerLayout = () => {
             name="sobreRosa" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -549,7 +550,7 @@ const DrawerLayout = () => {
             name="sobreSalsao" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -558,7 +559,7 @@ const DrawerLayout = () => {
             name="sobreSalsicha" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -567,7 +568,7 @@ const DrawerLayout = () => {
             name="sobresamambaia" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -576,7 +577,7 @@ const DrawerLayout = () => {
             name="sobreSedumMorganianum" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -585,7 +586,7 @@ const DrawerLayout = () => {
             name="sobreTomilho" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,   
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -594,7 +595,7 @@ const DrawerLayout = () => {
             name="sobreTulipas" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -603,7 +604,7 @@ const DrawerLayout = () => {
             name="sobreUva" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -612,7 +613,7 @@ const DrawerLayout = () => {
             name="sobreZamiculca" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 
@@ -621,7 +622,7 @@ const DrawerLayout = () => {
             name="sobreZinnaElegans" 
             options={{
             drawerLabel: "Pagamentos", 
-            headerTitle: "Pagamentos", 
+            headerShown: false,  
             drawerIcon: ()=> <Ionicons name="cash" size={20} color="#006356"/>,
             drawerItemStyle: { display: 'none' }
             }} 

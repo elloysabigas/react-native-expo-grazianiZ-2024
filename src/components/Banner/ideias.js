@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { SafeAreaView, ScrollView, Image, StyleSheet, View } from "react-native";
+import { SafeAreaView, ScrollView, Image, StyleSheet, View, Text } from "react-native";
 import PagerView from "react-native-pager-view";
 
 export function Banner() {
@@ -377,8 +377,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#f4f4f9", // Cor de fundo neutra para contraste
   },
   content: {
-    width: "90%", // Um pouco maior para dar mais destaque
-    height: 320, // Altura ajustada para um carrossel mais destacado
+    width: "95%", // Um pouco maior para dar mais destaque
+    height: 400, // Altura ajustada para um carrossel mais destacado
     borderRadius: 15,
     overflow: "hidden",
     marginVertical: 15,
@@ -389,6 +389,14 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowRadius: 6,
     backgroundColor: "#fff",
+  },
+  title: {
+    marginTop:30,
+    fontSize: 24,
+    color: "#005f56",
+    fontFamily: 'sourGummy',
+    textAlign: 'center',
+    marginLeft: 16,
   },
   page: {
     flex: 1,
@@ -409,8 +417,8 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   bullet: {
-    width: 12,
-    height: 12,
+    width: 6,
+    height: 6,
     borderRadius: 6,
     backgroundColor: "#ddd",
     margin: 4,
