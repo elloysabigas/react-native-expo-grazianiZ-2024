@@ -23,7 +23,7 @@ function CustomDrawerContent(props) {
     alignItems: 'center',
     }}>
       <Image 
-        source={require('../../../src/assets/images/usuario.png')} 
+        source={require('../../../src/assets/images/eu.png')} 
         style={{ width: 100,
           height: 100,
           borderRadius: 50,

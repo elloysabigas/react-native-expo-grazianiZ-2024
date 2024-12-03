@@ -378,7 +378,7 @@ const styles = StyleSheet.create({
   },
   content: {
     width: "95%", // Um pouco maior para dar mais destaque
-    height: 400, // Altura ajustada para um carrossel mais destacado
+    height: 360, // Altura ajustada para um carrossel mais destacado
     borderRadius: 15,
     overflow: "hidden",
     marginVertical: 15,
@@ -405,8 +405,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   image: {
-    width: "100%",
-    height: "100%",
+    width: "90%",
+    height: 340,
     resizeMode: "cover",
     borderRadius: 15,
   },
