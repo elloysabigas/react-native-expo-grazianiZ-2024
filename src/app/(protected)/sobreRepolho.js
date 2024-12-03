@@ -30,17 +30,17 @@ export default function Abobora() {
             <Ionicons name="chevron-back" size={30} color="#fff" />
           </TouchableOpacity>
           <Image
-            source={require('../../../src/assets/images/leg11.png')} // Manter a imagem da página
+            source={{ uri: 'https://cerradocase.com.br/wp-content/uploads/2023/08/sddefault.jpg' }}  // Manter a imagem da página
             style={styles.fullWidthImage}
             resizeMode="cover"
           />
         </View>
-        <Text style={styles.title}>Abóbora</Text>
-        <Text style={styles.title2}>Abóbora ● Cucurbita spp.</Text>
+        <Text style={styles.title}>Repolho</Text>
+        <Text style={styles.title2}>Repolho ● Brassica oleracea</Text>
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
-          A abóbora é um vegetal da família Cucurbitaceae, amplamente cultivada em diversas partes do mundo. É conhecida por sua polpa nutritiva e sabor adocicado, sendo usada em sopas, tortas, purês e outros pratos. Além de ser uma excelente fonte de vitamina A e antioxidantes, a abóbora é muito versátil na culinária.
+          O repolho é um vegetal crucífero amplamente cultivado e consumido em diversas partes do mundo. É conhecido por suas folhas compactas e por ser rico em vitaminas C e K, além de fibras. É muito versátil e usado em saladas, sopas, conservas e como acompanhamento em vários pratos.
         </Text>
 
         <Text style={styles.aboutTitle}>Detalhes</Text>
@@ -49,21 +49,21 @@ export default function Abobora() {
             <Image style={styles.itemImage} source={require('../../../src/assets/images/29.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Temperatura</Text>
-              <Text style={styles.itemText2}>15°C - 25°C</Text>
+              <Text style={styles.itemText2}>10°C - 20°C</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Luz solar</Text>
-              <Text style={styles.itemText2}>Sol pleno</Text>
+              <Text style={styles.itemText2}>Sol pleno a meia sombra</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/31.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Água</Text>
-              <Text style={styles.itemText2}>Regar moderadamente</Text>
+              <Text style={styles.itemText2}>Solo úmido, mas não encharcado</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
@@ -77,14 +77,14 @@ export default function Abobora() {
             <Image style={styles.itemImage} source={require('../../../src/assets/images/33.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Fertilização</Text>
-              <Text style={styles.itemText2}>Adicione fertilizante equilibrado uma vez por mês</Text>
+              <Text style={styles.itemText2}>Fertilizante rico em nitrogênio a cada 2 semanas</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/34.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Pragas</Text>
-              <Text style={styles.itemText2}>Pulgões e caramujos</Text>
+              <Text style={styles.itemText2}>Lagartas e pulgões</Text>
             </View>
           </View>
         </View>
@@ -104,17 +104,17 @@ export default function Abobora() {
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                O excesso de água pode levar ao apodrecimento das raízes e ao desenvolvimento de doenças fúngicas.
+                Excesso de água pode causar apodrecimento das raízes e doenças fúngicas.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
-              <Text style={styles.title2}>Deixe o solo secar entre as regas e garanta uma boa drenagem.</Text>
+              <Text style={styles.title2}>Mantenha o solo levemente úmido e com boa drenagem.</Text>
             </View>
           )}
 
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/30.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Falta de luz</Text>
+              <Text style={styles.itemText}>Pragas</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems2} style={styles.iconButton}>
               <Icon name={showProblems2 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
@@ -124,17 +124,17 @@ export default function Abobora() {
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                A abóbora necessita de luz solar direta para se desenvolver de maneira adequada. A falta de luz pode reduzir o crescimento e a qualidade do fruto.
+                Lagartas e pulgões podem prejudicar as folhas do repolho.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
-              <Text style={styles.title2}>Posicione a planta em um local com exposição solar de pelo menos 6 horas diárias.</Text>
+              <Text style={styles.title2}>Use controle biológico ou inseticidas naturais.</Text>
             </View>
           )}
 
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/43.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Solo ácido</Text>
+              <Text style={styles.itemText}>Solo pobre</Text>
             </View>
             <TouchableOpacity onPress={toggleProblems3} style={styles.iconButton}>
               <Icon name={showProblems3 ? "chevron-up" : "chevron-down"} size={20} color="#005f56" />
@@ -144,10 +144,10 @@ export default function Abobora() {
             <View style={styles.problemDetails}>
               <Text style={styles.aboutTitle}>Sobre</Text>
               <Text style={styles.title2}>
-                O solo muito ácido pode dificultar a absorção de nutrientes e afetar o crescimento da planta.
+                Solo pobre em nutrientes pode afetar o desenvolvimento do repolho.
               </Text>
               <Text style={styles.aboutTitle}>Como cuidar</Text>
-              <Text style={styles.title2}>Use um solo com pH entre 6.0 e 7.0 para melhores resultados.</Text>
+              <Text style={styles.title2}>Adicione matéria orgânica ou fertilizante ao solo.</Text>
             </View>
           )}
         </View>
@@ -157,22 +157,22 @@ export default function Abobora() {
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Usos culinários</Text>
-              <Text style={styles.itemText2}>A abóbora é popular em pratos como sopas e tortas doces.</Text>
+              <Text style={styles.itemText}>Saúde</Text>
+              <Text style={styles.itemText2}>Repolho é excelente para o sistema imunológico.</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
             <View style={styles.textContainer}>
-              <Text style={styles.itemText}>Propriedades medicinais</Text>
-              <Text style={styles.itemText2}>Rica em antioxidantes e nutrientes, a abóbora é ótima para a saúde do coração.</Text>
+              <Text style={styles.itemText}>Usos culinários</Text>
+              <Text style={styles.itemText2}>Utilizado em conservas e saladas.</Text>
             </View>
           </View>   
         </View>
 
         <Text style={styles.aboutTitle}>Como plantar</Text>
         <Text style={styles.title2}>
-          Para plantar a abóbora, inicie com sementes de abóbora ou mudas. Plante-as em um solo bem drenado, em um local que receba luz solar direta. Mantenha o solo úmido, mas evite excesso de água para prevenir doenças.
+          Plante as sementes de repolho em solo fértil, mantenha o solo úmido e escolha locais com luz solar adequada.
         </Text>
       </ScrollView>
     </SafeAreaView>

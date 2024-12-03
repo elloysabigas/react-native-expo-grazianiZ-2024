@@ -30,17 +30,17 @@ export default function Abobora() {
             <Ionicons name="chevron-back" size={30} color="#fff" />
           </TouchableOpacity>
           <Image
-            source={require('../../../src/assets/images/leg11.png')} // Manter a imagem da página
+            source={require('../../../src/assets/images/abo.png')} // Manter a imagem da página
             style={styles.fullWidthImage}
             resizeMode="cover"
           />
         </View>
-        <Text style={styles.title}>Abóbora</Text>
-        <Text style={styles.title2}>Abóbora ● Cucurbita spp.</Text>
+        <Text style={styles.title}>Abobrinha</Text>
+        <Text style={styles.title2}>Abobrinha ● Cucurbita pepo</Text>
 
         <Text style={styles.aboutTitle}>Sobre</Text>
         <Text style={styles.title2}>
-          A abóbora é um vegetal da família Cucurbitaceae, amplamente cultivada em diversas partes do mundo. É conhecida por sua polpa nutritiva e sabor adocicado, sendo usada em sopas, tortas, purês e outros pratos. Além de ser uma excelente fonte de vitamina A e antioxidantes, a abóbora é muito versátil na culinária.
+          A abobrinha é um vegetal de rápido crescimento pertencente à família Cucurbitaceae. É valorizada por seu sabor suave e versatilidade na culinária, sendo usada em refogados, sopas, saladas e até em massas. Rica em fibras e vitaminas, a abobrinha contribui para uma alimentação equilibrada.
         </Text>
 
         <Text style={styles.aboutTitle}>Detalhes</Text>
@@ -158,21 +158,21 @@ export default function Abobora() {
             <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Usos culinários</Text>
-              <Text style={styles.itemText2}>A abóbora é popular em pratos como sopas e tortas doces.</Text>
+              <Text style={styles.itemText2}>Muito utilizada em massas, sopas e até recheios.</Text>
             </View>
           </View>
           <View style={styles.imageItem}>
             <Image style={styles.itemImage} source={require('../../../src/assets/images/41.jpg')} />
             <View style={styles.textContainer}>
               <Text style={styles.itemText}>Propriedades medicinais</Text>
-              <Text style={styles.itemText2}>Rica em antioxidantes e nutrientes, a abóbora é ótima para a saúde do coração.</Text>
+              <Text style={styles.itemText2}>Rica em antioxidantes e nutrientes, a abobrinha é ótima para a saúde do coração.</Text>
             </View>
           </View>   
         </View>
 
         <Text style={styles.aboutTitle}>Como plantar</Text>
         <Text style={styles.title2}>
-          Para plantar a abóbora, inicie com sementes de abóbora ou mudas. Plante-as em um solo bem drenado, em um local que receba luz solar direta. Mantenha o solo úmido, mas evite excesso de água para prevenir doenças.
+          Para plantar a abóbora, inicie com sementes de abobrinha ou mudas. Plante-as em um solo bem drenado, em um local que receba luz solar direta. Mantenha o solo úmido, mas evite excesso de água para prevenir doenças.
         </Text>
       </ScrollView>
     </SafeAreaView>

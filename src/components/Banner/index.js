@@ -1,25 +1,20 @@
 import { useState, useEffect, useRef } from "react";
-import { SafeAreaView, ScrollView, Image, StyleSheet, View } from "react-native";
+import { SafeAreaView, ScrollView, Image, StyleSheet, View, Text, FlatList, TouchableOpacity } from "react-native";
 import PagerView from "react-native-pager-view";
+import { useRouter } from 'expo-router'; // Para navegação
 
 export function Banner() {
   const [page, setPage] = useState(0);
-  const [page2, setPage2] = useState(0);
-  const pagerRef1 = useRef(null); // Referência para o primeiro PagerView
-  const pagerRef2 = useRef(null); // Referência para o segundo PagerView
+  const pagerRef1 = useRef(null);
+  const router = useRouter(); // Hook de navegação
 
   const onPageSelected1 = (e) => {
     setPage(e.nativeEvent ? e.nativeEvent.position : e);
   };
 
-  const onPageSelected2 = (e) => {
-    setPage2(e.nativeEvent ? e.nativeEvent.position : e);
-  };
-
-  // Função para rotação automática do primeiro carrossel
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextPage = (page + 1) % 3; // Número de páginas do primeiro carrossel
+      const nextPage = (page + 1) % 3; // Número de páginas do carrossel
       pagerRef1.current?.setPage(nextPage);
       setPage(nextPage);
     }, 3000);
@@ -27,16 +22,25 @@ export function Banner() {
     return () => clearInterval(interval);
   }, [page]);
 
-  // Função para rotação automática do segundo carrossel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const nextPage = (page2 + 1) % 3; // Número de páginas do segundo carrossel
-      pagerRef2.current?.setPage(nextPage);
-      setPage2(nextPage);
-    }, 3000);
+  // Dados dos botões
+  const categories = [
+    { id: '1', image: require('../../assets/images/folhas.jpg'), title: 'Folhas', route: '/folha' },
+    { id: '2', image: require('../../assets/images/flores.jpg'), title: 'Flores', route: '/flores' },
+    { id: '3', image: require('../../assets/images/3.jpg'), title: 'Cactos', route: '/cactos' },
+    { id: '4', image: require('../../assets/images/5.jpg'), title: 'Ervas', route: '/ervas' },
+    { id: '5', image: require('../../assets/images/6.jpg'), title: 'frutas', route: '/frutas' },
+    { id: '6', image: require('../../assets/images/7.jpg'), title: 'legumes', route: '/legumes' },
+  ];
 
-    return () => clearInterval(interval);
-  }, [page2]);
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => router.push(item.route)} // Navega para a rota especificada
+    >
+      <Image source={item.image} style={styles.buttonImage} />
+      
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -76,15 +80,15 @@ export function Banner() {
             <View style={[styles.bullet, page === 2 && styles.activeBullet]}></View>
           </View>
 
-          {/* Segundo carrossel */}
+          {/* Botões de categorias */}
          
-
-          {/* Indicadores de página do segundo carrossel */}
-          <View style={styles.bulletContent}>
-            <View style={[styles.bullet, page2 === 0 && styles.activeBullet]}></View>
-            <View style={[styles.bullet, page2 === 1 && styles.activeBullet]}></View>
-            <View style={[styles.bullet, page2 === 2 && styles.activeBullet]}></View>
-          </View>
+          <FlatList
+            data={categories}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+            columnWrapperStyle={styles.row}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "relative",
     zIndex: 10,
-    padding:10,
+    padding: 10,
   },
   content: {
     width: "100%",
@@ -107,21 +111,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 4,
-    marginBottom: 20, // Espaçamento entre os carrosséis
-  },
-  content2: {
-    width: "90%", // Largura menor para parecer um card
-    height: 300, // Proporção semelhante ao Instagram Stories
-    backgroundColor: "#fff", // Fundo branco
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15, // Sombra mais suave
-    shadowRadius: 6,
-    elevation: 6,
     marginBottom: 20,
-    borderRadius: 20, // Borda arredondada
-    alignSelf: "center", // Centraliza horizontalmente
-    overflow: "hidden", // Garante que o conteúdo respeite as bordas
   },
   page: {
     justifyContent: "center",
@@ -139,16 +129,47 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   bullet: {
-    width: 8, // Pontos menores
+    width: 8,
     height: 8,
-    borderRadius: 4, // Totalmente circular
+    borderRadius: 4,
     backgroundColor: "#c4c4c4",
     marginHorizontal: 4,
     opacity: 0.6,
   },
   activeBullet: {
-    backgroundColor: "#3897f0", // Cor azul similar ao Instagram
+    backgroundColor: "#3897f0",
     opacity: 1,
-    transform: [{ scale: 1.2 }], // Aumenta levemente o ponto ativo
+    transform: [{ scale: 1.2 }],
+  },
+ 
+  row: {
+    justifyContent: "space-between",
+    marginBottom: 16,
+  },
+  button: {
+    flex: 1,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    alignItems: "center",
+    margin: 8,
+    padding: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 3,
+    marginTop: 50,
+    marginBottom: -30,
+  },
+  buttonImage: {
+    width: 160,
+    height: 160,
+    borderRadius: 10,
+  },
+  buttonText: {
+    marginTop: 8,
+    fontSize: 14,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
