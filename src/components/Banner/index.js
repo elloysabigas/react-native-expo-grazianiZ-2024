@@ -1,106 +1,92 @@
 import { useState, useEffect, useRef } from "react";
-import { SafeAreaView, ScrollView, Image, StyleSheet, View, Text, FlatList, TouchableOpacity } from "react-native";
+import { SafeAreaView, Image, StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 import PagerView from "react-native-pager-view";
-import { useRouter } from 'expo-router'; // Para navegação
+import { useRouter } from 'expo-router';
 
 export function Banner() {
   const [page, setPage] = useState(0);
   const pagerRef1 = useRef(null);
-  const router = useRouter(); // Hook de navegação
+  const router = useRouter();
 
+  // Função para selecionar uma nova página
   const onPageSelected1 = (e) => {
-    setPage(e.nativeEvent ? e.nativeEvent.position : e);
+    setPage(e.nativeEvent.position);
   };
 
+  // UseEffect para iniciar a rolagem automática
   useEffect(() => {
     const interval = setInterval(() => {
-      const nextPage = (page + 1) % 3; // Número de páginas do carrossel
-      pagerRef1.current?.setPage(nextPage);
-      setPage(nextPage);
-    }, 3000);
+      const nextPage = (page + 1) % 3; // 3 banners, então o próximo será no índice 0
+      pagerRef1.current?.setPage(nextPage); // Atualiza o PagerView
+    }, 3000); // Intervalo de 3 segundos para rolar para o próximo banner
 
-    return () => clearInterval(interval);
-  }, [page]);
+    return () => clearInterval(interval); // Limpa o intervalo quando o componente for desmontado
+  }, [page]); // Atualiza sempre que 'page' mudar
 
-  // Dados dos botões
   const categories = [
     { id: '1', image: require('../../assets/images/folhas.jpg'), title: 'Folhas', route: '/folha' },
     { id: '2', image: require('../../assets/images/flores.jpg'), title: 'Flores', route: '/flores' },
     { id: '3', image: require('../../assets/images/3.jpg'), title: 'Cactos', route: '/cactos' },
     { id: '4', image: require('../../assets/images/5.jpg'), title: 'Ervas', route: '/ervas' },
-    { id: '5', image: require('../../assets/images/6.jpg'), title: 'frutas', route: '/frutas' },
-    { id: '6', image: require('../../assets/images/7.jpg'), title: 'legumes', route: '/legumes' },
+    { id: '5', image: require('../../assets/images/6.jpg'), title: 'Frutas', route: '/frutas' },
+    { id: '6', image: require('../../assets/images/7.jpg'), title: 'Legumes', route: '/legumes' },
   ];
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.button}
-      onPress={() => router.push(item.route)} // Navega para a rota especificada
+      onPress={() => router.push(item.route)}
     >
       <Image source={item.image} style={styles.buttonImage} />
-      
     </TouchableOpacity>
+  );
+
+  const renderHeader = () => (
+    <View style={styles.bannerContainer}>
+      <PagerView
+        ref={pagerRef1}
+        initialPage={0}
+        style={styles.content}
+        onPageSelected={onPageSelected1}
+      >
+        <View key="1" style={styles.page}>
+          <Image source={require("../../assets/images/banner1.jpg")} style={styles.image} />
+        </View>
+        <View key="2" style={styles.page}>
+          <Image source={require("../../assets/images/banner2.jpg")} style={styles.image} />
+        </View>
+        <View key="3" style={styles.page}>
+          <Image source={require("../../assets/images/banner3.jpg")} style={styles.image} />
+        </View>
+      </PagerView>
+      <View style={styles.bulletContent}>
+        <View style={[styles.bullet, page === 0 && styles.activeBullet]}></View>
+        <View style={[styles.bullet, page === 1 && styles.activeBullet]}></View>
+        <View style={[styles.bullet, page === 2 && styles.activeBullet]}></View>
+      </View>
+    </View>
   );
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-        <View style={styles.container}>
-          {/* Primeiro carrossel */}
-          <PagerView
-            ref={pagerRef1}
-            initialPage={0}
-            style={styles.content}
-            onPageSelected={onPageSelected1}
-          >
-            <View key="1" style={styles.page}>
-              <Image
-                source={require("../../assets/images/banner1.png")}
-                style={styles.image}
-              />
-            </View>
-            <View key="2" style={styles.page}>
-              <Image
-                source={require("../../assets/images/banner2.png")}
-                style={styles.image}
-              />
-            </View>
-            <View key="3" style={styles.page}>
-              <Image
-                source={require("../../assets/images/banner3.png")}
-                style={styles.image}
-              />
-            </View>
-          </PagerView>
-
-          {/* Indicadores de página do primeiro carrossel */}
-          <View style={styles.bulletContent}>
-            <View style={[styles.bullet, page === 0 && styles.activeBullet]}></View>
-            <View style={[styles.bullet, page === 1 && styles.activeBullet]}></View>
-            <View style={[styles.bullet, page === 2 && styles.activeBullet]}></View>
-          </View>
-
-          {/* Botões de categorias */}
-         
-          <FlatList
-            data={categories}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            numColumns={2}
-            columnWrapperStyle={styles.row}
-          />
-        </View>
-      </ScrollView>
+      <FlatList
+        data={categories}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+        columnWrapperStyle={styles.row}
+        ListHeaderComponent={renderHeader}
+        contentContainerStyle={{ paddingBottom: 20 }}
+      />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  bannerContainer: {
     width: "100%",
-    position: "relative",
-    zIndex: 10,
-    padding: 10,
+    paddingTop: 20,
+    marginBottom: 20,
   },
   content: {
     width: "100%",
@@ -111,7 +97,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 4,
-    marginBottom: 20,
   },
   page: {
     justifyContent: "center",
@@ -141,7 +126,6 @@ const styles = StyleSheet.create({
     opacity: 1,
     transform: [{ scale: 1.2 }],
   },
- 
   row: {
     justifyContent: "space-between",
     marginBottom: 16,
@@ -165,11 +149,5 @@ const styles = StyleSheet.create({
     width: 160,
     height: 160,
     borderRadius: 10,
-  },
-  buttonText: {
-    marginTop: 8,
-    fontSize: 14,
-    fontWeight: "bold",
-    textAlign: "center",
   },
 });

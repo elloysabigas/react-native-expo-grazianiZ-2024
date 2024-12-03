@@ -65,7 +65,7 @@ const DrawerLayout = () => {
           <Drawer drawerContent={(props) => <CustomDrawerContent {...props} />}>
                 <Drawer.Screen name="index" options={{drawerLabel: "Principal", headerTitle: "Principal", drawerIcon: ()=> <Ionicons name="home" size={20} color="#006356" /> }} />
                 <Drawer.Screen name="cuidados" options={{drawerLabel: "Pesquise", headerTitle: "Pesquise", drawerIcon: ()=> <Ionicons name="search" size={20} color="#006356"/>}} />
-                <Drawer.Screen name="ideias" options={{drawerLabel: "Inspire-se", headerTitle: "Principal", drawerIcon: ()=> <Ionicons name="star" size={20} color="#006356" /> }} />
+                <Drawer.Screen name="ideias" options={{drawerLabel: "Inspire-se", headerTitle: "Inspire-se", drawerIcon: ()=> <Ionicons name="star" size={20} color="#006356" /> }} />
           
             
             <Drawer.Screen name="list" options={{drawerLabel: "Listagem", headerTitle: "Listagem", drawerIcon: ()=> <Ionicons name="list" size={20} color="#006356"/>}} />
