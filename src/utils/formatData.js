@@ -1,4 +1,4 @@
-export function formatDateToBrazilian(data) {
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    return new Date(data).toLocaleDateString('pt-BR', options);
+export function formatDateToBrazilian(date){
+    const options = {day: '2-digit', month: '2-digit', year: 'numeric'   };
+    return new Date(date).toLocaleDateString('pt-BR', options);
 }

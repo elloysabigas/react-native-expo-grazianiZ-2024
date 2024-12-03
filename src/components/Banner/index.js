@@ -21,7 +21,7 @@ export function Banner() {
     }, 3000); // Intervalo de 3 segundos para rolar para o próximo banner
 
     return () => clearInterval(interval); // Limpa o intervalo quando o componente for desmontado
-  }, [page]); // Atualiza sempre que 'page' mudar
+  }, []); // Agora o intervalo só é configurado uma vez no início, sem depender do 'page'
 
   const categories = [
     { id: '1', image: require('../../assets/images/folhas.jpg'), title: 'Folhas', route: '/folha' },
@@ -48,15 +48,16 @@ export function Banner() {
         initialPage={0}
         style={styles.content}
         onPageSelected={onPageSelected1}
+        scrollEnabled={true}  // Habilita o deslize manual
       >
-        <View key="1" style={styles.page}>
+        <View key="banner1" style={styles.page}>
           <Image source={require("../../assets/images/banner1.jpg")} style={styles.image} />
         </View>
-        <View key="2" style={styles.page}>
+        <View key="banner2" style={styles.page}>
           <Image source={require("../../assets/images/banner2.jpg")} style={styles.image} />
         </View>
-        <View key="3" style={styles.page}>
-          <Image source={require("../../assets/images/banner3.jpg")} style={styles.image} />
+        <View key="banner3" style={styles.page}>
+          <Image source={require("../../assets/images/banners3.jpg")} style={styles.image} />
         </View>
       </PagerView>
       <View style={styles.bulletContent}>
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
   },
   content: {
     width: "100%",
-    height: 220,
+    height: 220, // Altura do banner ajustada
     backgroundColor: "#f5f5f5",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
   page: {
     justifyContent: "center",
     alignItems: "center",
+    width: "100%", // Garante que cada página ocupe toda a largura disponível
   },
   image: {
     width: "100%",
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 8,
     elevation: 3,
-    marginTop: 50,
+    marginTop: 20,
     marginBottom: -30,
   },
   buttonImage: {
