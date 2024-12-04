@@ -9,8 +9,9 @@ const StackLayout = () =>{
     useEffect (() => {
         if(!user?.authenticated){
            router.replace("signin")
+          
         } else {
-           router.replace("(protected)/cuidados");
+           router.replace("(protected)/");
         }
     }, [user]);
 

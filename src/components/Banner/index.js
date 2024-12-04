@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { SafeAreaView, ScrollView, Image, StyleSheet, View, Text, FlatList, TouchableOpacity } from "react-native";
+import { SafeAreaView, Image, StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 import PagerView from "react-native-pager-view";
 import { useRouter } from 'expo-router'; // Hook para navegação
 
@@ -21,7 +21,6 @@ export function Banner() {
     setPage1(e.nativeEvent ? e.nativeEvent.position : e);
   };
 
-  // Função de rotação automática para o primeiro carrossel
   useEffect(() => {
     const interval = setInterval(() => {
       const nextPage = (page1 + 1) % 3; // Número de páginas (3 banners)
@@ -32,7 +31,6 @@ export function Banner() {
     return () => clearInterval(interval);
   }, [page1]);
 
-  // Função de renderização para os itens de categoria
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.button}
@@ -62,55 +60,48 @@ export function Banner() {
       }}
     >
       <Image source={item.image} style={styles.image} />
-     
     </TouchableOpacity>
   );
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-        <View style={styles.container}>
-          {/* Carrossel */}
-          <PagerView
-            ref={pagerRef1}
-            initialPage={0}
-            style={styles.content}
-            onPageSelected={onPageSelected1}
-          >
-            <View key="1" style={styles.page}>
-              <Image source={require("../../assets/images/banner1.jpg")} style={styles.image2} />
-            </View>
-            <View key="2" style={styles.page}>
-              <Image source={require("../../assets/images/banner2.jpg")} style={styles.image2} />
-            </View>
-            <View key="3" style={styles.page}>
-              <Image source={require("../../assets/images/banners3.jpg")} style={styles.image2} />
-            </View>
-          </PagerView>
+      <FlatList
+        data={categories}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+        columnWrapperStyle={styles.row}
+        ListHeaderComponent={
+          <View style={styles.container}>
+            <PagerView
+              ref={pagerRef1}
+              initialPage={0}
+              style={styles.content}
+              onPageSelected={onPageSelected1}
+            >
+              <View key="1" style={styles.page}>
+                <Image source={require("../../assets/images/banner1.jpg")} style={styles.image2} />
+              </View>
+              <View key="2" style={styles.page}>
+                <Image source={require("../../assets/images/banner2.jpg")} style={styles.image2} />
+              </View>
+              <View key="3" style={styles.page}>
+                <Image source={require("../../assets/images/banners3.jpg")} style={styles.image2} />
+              </View>
+            </PagerView>
 
-          {/* Indicadores do carrossel */}
-          <View style={styles.bulletContent}>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <View
-                key={index}
-                style={[styles.bullet, page1 === index && styles.activeBullet]}
-              ></View>
-            ))}
+            <View style={styles.bulletContent}>
+              {Array.from({ length: 3 }).map((_, index) => (
+                <View
+                  key={index}
+                  style={[styles.bullet, page1 === index && styles.activeBullet]}
+                ></View>
+              ))}
+            </View>
           </View>
-        </View>
-
-       
-
-        {/* Lista de categorias */}
-        <FlatList
-          data={categories}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          numColumns={2} // Definindo 2 colunas
-          columnWrapperStyle={styles.row} // Estilo para as colunas
-          contentContainerStyle={styles.flatListContainer} // Garantir que o FlatList tenha espaço suficiente
-        />
-      </ScrollView>
+        }
+        contentContainerStyle={styles.flatListContainer}
+      />
     </SafeAreaView>
   );
 }
@@ -119,11 +110,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-   
   },
   content: {
-    width: "95%", // Ajuste para dar mais destaque ao carrossel
-    height: 200, // Ajuste de altura do carrossel
+    width: "95%",
+    height: 200,
     borderRadius: 15,
     overflow: "hidden",
     marginVertical: 15,
@@ -141,7 +131,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 10,
   },
-
   image: {
     width: 160,
     height: 160,
@@ -166,42 +155,27 @@ const styles = StyleSheet.create({
     margin: 4,
   },
   activeBullet: {
-    backgroundColor: "#778443", // Cor ativa para o item do carrossel
-  },
-  categoryTitle: {
-    fontSize: 24,
-    color: "#005f56",
-    fontFamily: 'sourGummy',
-    textAlign: 'center',
-    marginTop: 30,
-    marginBottom: 15,
+    backgroundColor: "#778443",
   },
   row: {
-    justifyContent: 'space-between', // Ajuste para garantir espaçamento entre as colunas
+    justifyContent: 'space-between',
     marginBottom: 16,
   },
   flatListContainer: {
-    paddingHorizontal: 8, // Adiciona um pouco de padding para garantir o espaçamento correto
+    paddingHorizontal: 8,
   },
- 
-    button: {
-      flex: 1,
-      backgroundColor: '#fff',
-      borderRadius: 20,
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: 8,
-      padding: 16,
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.2,
-      shadowRadius: 8,
-      elevation: 5,
-    },
-  buttonText: {
-    fontSize: 16,
-    color: "#005f56",
-    fontFamily: 'sourGummy',
-    marginTop: 10,
+  button: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 8,
+    padding: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 5,
   },
 });

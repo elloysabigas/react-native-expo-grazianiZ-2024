@@ -18,11 +18,11 @@ export default function Flores() {
     { id: '3', image: require('../../../src/assets/images/leg3.png'), title: 'Repolho' },
     { id: '4', image: require('../../../src/assets/images/leg4.png'), title: 'Agrião' },
     { id: '5', image: require('../../../src/assets/images/leg5.png'), title: 'Salsão' },
-    { id: '6', image: require('../../../src/assets/images/leg6.png'), title: 'Alface' },
-    { id: '7', image: require('../../../src/assets/images/leg7.png'), title: 'Alho' },
-    { id: '8', image: require('../../../src/assets/images/leg8.png'), title: 'Almeirão' },
-    { id: '9', image: require('../../../src/assets/images/leg9.png'), title: 'Berinjela' },
-    { id: '10', image: require('../../../src/assets/images/leg10.png'), title: 'Alcachofra' },
+    { id: '6', image: require('../../../src/assets/images/leg7.png'), title: 'Alface' },
+    { id: '7', image: require('../../../src/assets/images/leg8.png'), title: 'Alho' },
+    { id: '8', image: require('../../../src/assets/images/leg9.png'), title: 'Almeirão' },
+    { id: '9', image: require('../../../src/assets/images/leg10.png'), title: 'Berinjela' },
+    { id: '10', image: require('../../../src/assets/images/leg6.png'), title: 'Alcachofra' },
   ];
   
 
