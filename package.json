@@ -15,7 +15,7 @@
     "@react-navigation/drawer": "^6.7.2",
     "@shopify/flash-list": "1.6.4",
     "@types/react": "~18.2.79",
-    "axios": "^1.7.7",
+    "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "expo": "~51.0.24",
     "expo-calendar": "~13.0.5",
